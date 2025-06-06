@@ -1,8 +1,51 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import emailjs from "@emailjs/browser";
+import type { FormEvent } from "react";
 
 const Contact = () => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    // Add or update hidden input for time
+    let timeInput = form.querySelector(
+      'input[name="time"]'
+    ) as HTMLInputElement | null;
+    if (!timeInput) {
+      timeInput = document.createElement("input");
+      timeInput.type = "hidden";
+      timeInput.name = "time";
+      form.appendChild(timeInput);
+    }
+    timeInput.value = new Date().toLocaleString();
+
+    const formData = new FormData(e.currentTarget);
+    for (const [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log("Email sent:", result.text);
+          form.reset();
+          alert("Message sent!");
+        },
+        (error) => {
+          console.error("Email error:", error.text);
+          alert("Something went wrong. Please try again.");
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
@@ -25,7 +68,7 @@ const Contact = () => {
             <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <MapPin className="h-6 w-6" />
+                  <span className="text-2xl">📍</span>
                   <span>Visit Our Studio</span>
                 </CardTitle>
               </CardHeader>
@@ -45,7 +88,7 @@ const Contact = () => {
             <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <Phone className="h-6 w-6" />
+                  <span className="text-2xl">📞</span>
                   <span>Call Us</span>
                 </CardTitle>
               </CardHeader>
@@ -61,7 +104,7 @@ const Contact = () => {
             <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <Mail className="h-6 w-6" />
+                  <span className="text-2xl">✉️</span>
                   <span>Email Us</span>
                 </CardTitle>
               </CardHeader>
@@ -77,7 +120,7 @@ const Contact = () => {
             <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <Clock className="h-6 w-6" />
+                  <span className="text-2xl">⏰</span>
                   <span>Studio Hours</span>
                 </CardTitle>
               </CardHeader>
@@ -106,7 +149,7 @@ const Contact = () => {
               Send Us a Message 🍁
             </h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={sendEmail}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -114,8 +157,10 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                     placeholder="Your first name"
+                    required
                   />
                 </div>
 
@@ -125,8 +170,10 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                     placeholder="Your last name"
+                    required
                   />
                 </div>
               </div>
@@ -137,8 +184,10 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   placeholder="your.email@example.com"
+                  required
                 />
               </div>
 
@@ -148,6 +197,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   placeholder="(416) 555-0123"
                 />
@@ -157,7 +207,11 @@ const Contact = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   What instrument are you interested in?
                 </label>
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors">
+                <select
+                  name="instrument"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  required
+                >
                   <option value="">Select an instrument</option>
                   <option value="piano">Piano</option>
                   <option value="guitar">Guitar</option>
@@ -172,15 +226,17 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   placeholder="Tell us about your musical goals or any questions you have..."
+                  required
                 ></textarea>
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-red-600 hover:bg-red-700 text-black py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Send Message 🍁
               </Button>
