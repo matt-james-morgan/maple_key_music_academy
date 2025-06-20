@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import JamesKilbyHeadShot from "../assets/jamesKilbyHeadshot.jpg";
-// import JohnKervinHeadShot from "../assets/johnKervinHeadshot.jpg";
+import JohnKervinHeadShot from "../assets/johnKervinHeadshot.jpg";
 import BeverleyRockwellHeadshot from "../assets/beverleyRockwellHeadshot.jpg";
 import AndrewMcCarthyHeadshot from "../assets/andrewMcCarthyHeadshot.jpg";
 import { useState } from "react";
@@ -23,14 +23,15 @@ const Instructors = () => {
       description:
         "Beverley has been a performer from a very young age, that all started when she crashed her mother’s voice studio recitals singing The Little Mermaid at 3 years old. After 10 years of piano lessons culminating into her Grade 9 RCM in piano,12+ years of dance classes, choir, and voice lessons, they pursued a Bachelor of Fine Arts in Acting from the University of Alberta and graduated with distinction. Throughout her life, Beverley has had the opportunity to teach students in musical theatre, dance, acting, voice, piano, guitar, and ukulele, both in a group setting, and in private one on one sessions. They also are an avid songwriter, and are currently teaching themselves how to play the accordion!",
     },
-    // {
-    //   name: "John Kervin",
-    //   specialty: "Piano, Banjo, Guitar, Ukulele",
-    //   experience: "10 years",
-    //   image: JohnKervinHeadShot,
-    //   description:
-    //     "John Kervin is a versatile musician based in Toronto, known for his skill on both piano and banjo. He is a member of the country and bluegrass band Duke Street Turnaround, where he contributes his talents on the banjo.",
-    // },
+    {
+      name: "John Kervin",
+      specialty: "Piano, Banjo, Guitar, Ukulele",
+      experience: "10 years",
+      image: JohnKervinHeadShot,
+      description: `John Kervin is a talented multi-instrumentalist based in Toronto, widely recognized for his vital role in the country and bluegrass scene as a member of Duke Street Turnaround. As the band’s banjo player, John brings authentic, vibrant energy to their traditional and contemporary roots sound. Duke Street Turnaround has built a strong reputation in the Toronto music community and beyond, known for their heartfelt storytelling and masterful musicianship. Kervin’s banjo playing adds depth and texture to the group’s performances, helping to shape their distinct and compelling sound that resonates deeply with fans of country and bluegrass music.
+
+Previously, John was the keyboard player for the Southern soul and roots rock band Bywater Call, which toured internationally and garnered multiple blues music award nominations. His ability to move seamlessly between genres speaks to his versatility and dedication as a musician. John Kervin’s broad musical experience and passion for both traditional and modern sounds make him a respected figure in Toronto’s vibrant music scene.`,
+    },
     {
       name: "Andrew McCarthy",
       specialty: "Drums",
@@ -59,8 +60,7 @@ Now active in the vibrant and dynamic music scene of Toronto, Andrew runs
 his own projects, teaches drum students and finds plenty of opportunity as a side
 musician in many different musical worlds. Regardless of style or venue, Andrew
 plays with a deep reverence for the music at hand and brings an honest joy to
-every performance.
-1`,
+every performance.`,
     },
   ];
 
