@@ -58,13 +58,7 @@ const Header = () => {
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100"
-          >
-            {/* {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )} */}
-          </button>
+          ></button>
         </div>
 
         {/* Mobile Navigation */}

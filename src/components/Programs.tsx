@@ -35,10 +35,10 @@ const Programs = () => {
     },
     {
       icon: Music4,
-      title: "Music Theory",
+      title: "Drum Lessons",
       description:
-        "Understanding the language of music to enhance your playing and composition skills.",
-      ages: "All Ages",
+        "Master rhythm and coordination with dynamic drum lessons tailored for beginners to advanced players.",
+      ages: "Ages 5+",
       color: "bg-orange-50 border-orange-200",
     },
   ];

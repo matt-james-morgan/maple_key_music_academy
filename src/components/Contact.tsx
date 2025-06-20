@@ -68,77 +68,14 @@ const Contact = () => {
             <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <span className="text-2xl">📍</span>
-                  <span>Visit Our Studio</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed">
-                  123 Maple Street
-                  <br />
-                  Music District
-                  <br />
-                  Toronto, ON M5V 3A8
-                  <br />
-                  Canada 🍁
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <span className="text-2xl">📞</span>
-                  <span>Call Us</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700">
-                  <strong>Main:</strong> (416) 555-MUSIC
-                  <br />
-                  <strong>Text:</strong> (416) 555-0123
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3 text-red-600">
                   <span className="text-2xl">✉️</span>
                   <span>Email Us</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700">
-                  <strong>General:</strong> info@maplekeymusic.ca
-                  <br />
-                  <strong>Lessons:</strong> lessons@maplekeymusic.ca
+                  <strong>General:</strong> maplekeymusic.academy@gmail.com
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/80 backdrop-blur-sm border-2 border-red-100">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3 text-red-600">
-                  <span className="text-2xl">⏰</span>
-                  <span>Studio Hours</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-gray-700 space-y-1">
-                  <p>
-                    <strong>Monday - Friday:</strong> 3:00 PM - 9:00 PM
-                  </p>
-                  <p>
-                    <strong>Saturday:</strong> 9:00 AM - 6:00 PM
-                  </p>
-                  <p>
-                    <strong>Sunday:</strong> 12:00 PM - 5:00 PM
-                  </p>
-                  <p className="text-red-600 font-medium mt-2">
-                    🍁 Closed on Canadian holidays
-                  </p>
-                </div>
               </CardContent>
             </Card>
           </div>

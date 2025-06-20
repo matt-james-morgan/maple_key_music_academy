@@ -1,3 +1,5 @@
+import { Music, MapPin, Star } from "lucide-react";
+
 const Hero = () => {
   return (
     <section
@@ -28,56 +30,51 @@ const Hero = () => {
             welcoming community nurtures musicians of all ages and skill levels.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            {/* <Button
-              size="lg"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Start Your Musical Journey
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-red-600 text-red-600 hover:bg-red-50 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Schedule a Tour
-            </Button> */}
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12"></div>
 
           {/* Stats */}
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
               <div className="flex items-center justify-center mb-4">
                 <div className="bg-red-100 p-3 rounded-full">
-                  {/* <Music className="h-8 w-8 text-red-600" /> */}
+                  <MapPin className="h-8 w-8 text-red-600" />
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                15+ Years
+                100% Canadian
               </h3>
               <p className="text-gray-600">
-                of musical excellence in our community
+                We believe in supporting Canada and Canadian Music.
               </p>
             </div>
 
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
               <div className="flex items-center justify-center mb-4">
                 <div className="bg-red-100 p-3 rounded-full">
-                  {/* <Users className="h-8 w-8 text-red-600" /> */}
+                  <Star className="h-5 w-5 text-red-600 fill-red-600" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">500+</h3>
-              <p className="text-gray-600">happy students and counting</p>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                Top Instructors
+              </h3>
+              <p className="text-gray-600">
+                Our instructors have real world experience to get you
+                performance ready.
+              </p>
             </div>
 
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
               <div className="flex items-center justify-center mb-4">
                 <div className="bg-red-100 p-3 rounded-full">
-                  {/* <Award className="h-8 w-8 text-red-600" /> */}
+                  <Music className="h-4 w-4 text-red-600" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">Award</h3>
-              <p className="text-gray-600">winning instructors and programs</p>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                In Home Lessons
+              </h3>
+              <p className="text-gray-600">
+                Take lessons from the convenience of your own home
+              </p>
             </div>
           </div>
         </div>

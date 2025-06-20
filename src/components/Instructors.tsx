@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import JamesKilbyHeadShot from "../assets/jamesKilbyHeadshot.jpg";
-import JohnKervinHeadShot from "../assets/johnKervinHeadshot.jpg";
+// import JohnKervinHeadShot from "../assets/johnKervinHeadshot.jpg";
 import BeverleyRockwellHeadshot from "../assets/beverleyRockwellHeadshot.jpg";
 import AndrewMcCarthyHeadshot from "../assets/andrewMcCarthyHeadshot.jpg";
 import { useState } from "react";
@@ -21,23 +21,46 @@ const Instructors = () => {
       experience: "10 years",
       image: BeverleyRockwellHeadshot,
       description:
-        "BBeverley has been a performer from a very young age, that all started when she crashed her mother’s voice studio recitals singing The Little Mermaid at 3 years old. After 10 years of piano lessons culminating into her Grade 9 RCM in piano,12+ years of dance classes, choir, and voice lessons, they pursued a Bachelor of Fine Arts in Acting from the University of Alberta and graduated with distinction. Throughout her life, Beverley has had the opportunity to teach students in musical theatre, dance, acting, voice, piano, guitar, and ukulele, both in a group setting, and in private one on one sessions. They also are an avid songwriter, and are currently teaching themselves how to play the accordion!",
+        "Beverley has been a performer from a very young age, that all started when she crashed her mother’s voice studio recitals singing The Little Mermaid at 3 years old. After 10 years of piano lessons culminating into her Grade 9 RCM in piano,12+ years of dance classes, choir, and voice lessons, they pursued a Bachelor of Fine Arts in Acting from the University of Alberta and graduated with distinction. Throughout her life, Beverley has had the opportunity to teach students in musical theatre, dance, acting, voice, piano, guitar, and ukulele, both in a group setting, and in private one on one sessions. They also are an avid songwriter, and are currently teaching themselves how to play the accordion!",
     },
-    {
-      name: "John Kervin",
-      specialty: "Piano, Banjo, Guitar, Ukulele",
-      experience: "10 years",
-      image: JohnKervinHeadShot,
-      description:
-        "John Kervin is a versatile musician based in Toronto, known for his skill on both piano and banjo. He is a member of the country and bluegrass band Duke Street Turnaround, where he contributes his talents on the banjo.",
-    },
+    // {
+    //   name: "John Kervin",
+    //   specialty: "Piano, Banjo, Guitar, Ukulele",
+    //   experience: "10 years",
+    //   image: JohnKervinHeadShot,
+    //   description:
+    //     "John Kervin is a versatile musician based in Toronto, known for his skill on both piano and banjo. He is a member of the country and bluegrass band Duke Street Turnaround, where he contributes his talents on the banjo.",
+    // },
     {
       name: "Andrew McCarthy",
       specialty: "Drums",
       experience: "10 years",
       image: AndrewMcCarthyHeadshot,
-      description:
-        "Andrew McCarthy is a dynamic drummer, composer, and educator based in Toronto, originally hailing from St. John's, Newfoundland. With a background that blends formal training and global musical influences, Andrew has carved out a unique space in Canada's music scene. He studied percussion performance at Memorial University and later expanded his rhythmic vocabulary through immersive study in Ghana’s Volta region, focusing on traditional Ewe music. After relocating to Toronto, he honed his jazz chops at Humber College, becoming a versatile player across jazz, folk, and world music styles. Andrew performs regularly at the Cameron House, a legendary venue in Toronto known for showcasing top-tier local talent. He's played with a variety of bands and artists across the country and has received several accolades, including a MusicNL award for Side Musician of the Year and an ECMA for Jazz Recording of the Year with the ensemble Ouroboros. His debut EP, Day Late, Dollar Short, released in 2020, highlights his ability as both a drummer and a composer. Whether leading a jazz combo or supporting a folk singer-songwriter, Andrew brings authenticity, precision, and creativity to every performance.",
+      description: `Andrew McCarthy (B.Mus) is a native of St. John’s, Newfoundland
+and continues to be an active member of the diverse music scene of
+his hometown. After completing a Bachelor of Music at Memorial
+University in 2016, Andrew made two separate trips to the Volta Region of
+Ghana, West Africa to study traditional Ewe music, primarily the drumming
+traditions.
+However in 2019 he decided it was time for a change and moved to
+Toronto. There he studied Jazz at Humber College with top
+level international artists and a fantastic faculty who are all
+revered in their respective fields. Notable experiences at Humber
+were working with 2018 Artist in Residence Pat Metheny, and
+playing for Terri-lynn Carrington alongside Lisa Martinelli's Jazz
+Vocal ensemble.
+In, 2024, Andrew joined with Saskatoon based Ellen
+Froese’s band for a stint of shows opening for The Sheepdogs on
+their Backyard Boogie Tour. In March of 2025, he did a run of the musical
+“Million Dollar Quartet” at the historic Gayety Theatre in Collingwood, Ontario.
+In April of the same year, Andrew also completed a run of “Jesus Christ
+Superstar,” at the Majestic Theatre in St. Johns, Newfoundland.
+Now active in the vibrant and dynamic music scene of Toronto, Andrew runs
+his own projects, teaches drum students and finds plenty of opportunity as a side
+musician in many different musical worlds. Regardless of style or venue, Andrew
+plays with a deep reverence for the music at hand and brings an honest joy to
+every performance.
+1`,
     },
   ];
 
@@ -84,9 +107,6 @@ const Instructors = () => {
                       alt={instructor.name}
                       className="w-32 h-32 rounded-full mx-auto object-cover shadow-lg border-4 border-white"
                     />
-                    <div className="absolute -bottom-2 -right-2 bg-red-600 text-white p-2 rounded-full">
-                      🍁
-                    </div>
                   </div>
 
                   <h3 className="text-xl font-bold text-gray-800 mb-2">

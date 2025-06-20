@@ -15,23 +15,17 @@ const About = () => {
 
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Founded in the heart of Canada, Maple Key Music has been
-                nurturing musical talent for over 15 years. Our cozy studio
-                feels like a home away from home, where students of all ages
-                come together to explore the wonderful world of music.
+                Founded in Toronto, Maple Key Music Academy provides quality in
+                home lessons for all ages and skill levels. We have high
+                standards for our teachers, and those in our network are
+                educated, working professionals who have dedicated their lives
+                to their passion for music.
               </p>
-
               <p>
-                We believe that music is a universal language that brings people
-                together. Our warm, welcoming environment encourages creativity,
-                builds confidence, and creates lasting friendships within our
-                musical community.
-              </p>
-
-              <p>
-                From your first lesson to your first performance, we're here to
-                support your musical journey every step of the way. Come
-                experience the magic of music with us!
+                Our goal is to nurture that same passion in our students. We
+                strive to make the journey of learning fun and engaging for all.
+                Let us help you find the right teacher for your learning goals
+                today!
               </p>
             </div>
 
@@ -90,22 +84,7 @@ const About = () => {
                     All Skill Levels Welcome
                   </span>
                 </div>
-
-                <div className="flex items-center space-x-3">
-                  <span className="text-2xl">☕</span>
-                  <span className="text-gray-700 font-medium">
-                    Cozy Waiting Area
-                  </span>
-                </div>
               </div>
-            </div>
-
-            {/* Decorative maple leaves */}
-            <div className="absolute -top-4 -right-4 text-red-600 text-4xl opacity-20">
-              🍁
-            </div>
-            <div className="absolute -bottom-6 -left-6 text-red-600 text-5xl opacity-20">
-              🍁
             </div>
           </div>
         </div>
