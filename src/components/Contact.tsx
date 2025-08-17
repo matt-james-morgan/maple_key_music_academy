@@ -175,7 +175,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full bg-red-600 hover:bg-red-700 text-black py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                Send Message 🍁
+                <p className="text-white">Send Message 🍁</p>
               </Button>
             </form>
           </div>
