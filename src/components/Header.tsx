@@ -7,7 +7,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md top-0 z-50">
       <div className="mx-auto px-4 sm:px-6">
         <div className="flex justify-around items-center py-4 w-full">
           {/* Logo */}
@@ -60,7 +60,7 @@ const Header = () => {
             className="md:hidden p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100"
           >
             {" "}
-            <HamburgerIcon className="h-8 w-8 text-[#415d35]" />
+            <HamburgerIcon className="h-8 w-8 text-white" />
           </button>
         </div>
 
