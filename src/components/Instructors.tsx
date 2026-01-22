@@ -3,6 +3,7 @@ import JamesKilbyHeadShot from "../assets/jamesKilbyHeadshot.jpg";
 import JohnKervinHeadShot from "../assets/johnKervinHeadshot.jpg";
 import BeverleyRockwellHeadshot from "../assets/beverleyRockwellHeadshot.jpg";
 import AndrewMcCarthyHeadshot from "../assets/andrewMcCarthyHeadshot.jpg";
+import SamHarrisonHeadshot from "../assets/samHarrisonHeadshot.jpeg";
 import { useState } from "react";
 
 const Instructors = () => {
@@ -31,6 +32,24 @@ const Instructors = () => {
       description: `John Kervin is a talented multi-instrumentalist based in Toronto, widely recognized for his vital role in the country and bluegrass scene as a member of Duke Street Turnaround. As the band’s banjo player, John brings authentic, vibrant energy to their traditional and contemporary roots sound. Duke Street Turnaround has built a strong reputation in the Toronto music community and beyond, known for their heartfelt storytelling and masterful musicianship. Kervin’s banjo playing adds depth and texture to the group’s performances, helping to shape their distinct and compelling sound that resonates deeply with fans of country and bluegrass music.
 
 Previously, John was the keyboard player for the Southern soul and roots rock band Bywater Call, which toured internationally and garnered multiple blues music award nominations. His ability to move seamlessly between genres speaks to his versatility and dedication as a musician. John Kervin’s broad musical experience and passion for both traditional and modern sounds make him a respected figure in Toronto’s vibrant music scene.`,
+    },
+    {
+      name: "Sam Harrison",
+      specialty: "Cello, Piano",
+      experience: "10 years",
+      image: SamHarrisonHeadshot,
+      description: `Sam Harrison has been teaching cello to students of all ages and levels for the past 10 years. She
+holds a Master of Music from the University of Ottawa, where she studied with cellist Paul Marleyn.
+Sam has performed in the sections of the Ottawa and Kingston symphonies, and has had the
+opportunity to share the stage with members of the Penderecki String Quartet while completing her
+Diploma in Chamber Music at Wilfred Laurier University.
+Sam gained further training through festivals such as the Vancouver Symphony Summer Institute in
+Whistler, Orford Summer Music and QuartetFest, and performed in masterclasses with artists
+such as Colin Carr, Matt Haimovitz and Brian Manker.
+Sam is a firm believer that everyone should have access to music education and has taught with
+organizations such as OrKidstra in Ottawa and Dixon Hall in Toronto. Using a combination of
+Suzuki, Piatti and RCM cello methods, Sam encourages students to express themselves by building
+a strong technical foundation that enables them to play with ease and enjoyment.`,
     },
     {
       name: "Andrew McCarthy",
