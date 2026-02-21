@@ -5,6 +5,7 @@ import theme from "./theme";
 import "./App.css";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import Teachers from "./pages/Teachers";
 import TeacherBio from "./pages/TeacherBio";
 
 function ScrollToTop() {
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/teachers" element={<Teachers />} />
             <Route path="/teacher-bio/:slug" element={<TeacherBio />} />
           </Route>
         </Routes>

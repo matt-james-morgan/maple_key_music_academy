@@ -9,7 +9,7 @@ const Quote = () => {
           sx={{
             color: "#FFFBEF",
             fontSize: { xs: "1.125rem", md: "1.25rem", lg: "1.5rem" },
-            fontFamily: '"Calder", Georgia, serif',
+            fontFamily: '"Cormorant Garamond", Georgia, serif',
             fontStyle: "italic",
             lineHeight: 1.8,
           }}

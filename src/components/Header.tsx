@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -46,7 +46,7 @@ const Header = () => {
               <Box component="a" href={navLink("#programs")} sx={navSx}>
                 Programs
               </Box>
-              <Box component="a" href={navLink("#instructors")} sx={navSx}>
+              <Box component={Link} to="/teachers" sx={navSx}>
                 Teachers
               </Box>
               <Box component="a" href={navLink("#contact")} sx={navSx}>
@@ -126,14 +126,14 @@ const Header = () => {
 
         <Box component="nav" sx={{ px: 3, pt: 4, display: "flex", flexDirection: "column", gap: 3 }}>
           {[
-            { label: "Programs", hash: "#programs" },
-            { label: "Teachers", hash: "#instructors" },
-            { label: "Contact", hash: "#contact" },
+            { label: "Programs", href: navLink("#programs") },
+            { label: "Teachers", href: "/teachers", isRoute: true },
+            { label: "Contact", href: navLink("#contact") },
           ].map((item) => (
             <Box
-              key={item.hash}
-              component="a"
-              href={navLink(item.hash)}
+              key={item.label}
+              component={item.isRoute ? Link : "a"}
+              {...(item.isRoute ? { to: item.href } : { href: item.href })}
               onClick={toggleMenu}
               sx={{
                 color: "#FFFBEF",

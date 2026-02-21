@@ -1,71 +1,133 @@
-import { Box, Container, Typography, Card, CardMedia, CardContent, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import PianoIcon from "@mui/icons-material/Piano";
+import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import AudiotrackIcon from "@mui/icons-material/Audiotrack";
+import MicExternalOnIcon from "@mui/icons-material/MicExternalOn";
+import QueueMusicIcon from "@mui/icons-material/QueueMusic";
 
 const programs = [
   {
-    image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=300&h=300&fit=crop",
     title: "Piano",
-    description: "From classical to contemporary, discover the beauty of piano with our certified instructors.",
+    icon: <PianoIcon sx={{ fontSize: 64 }} />,
+    bg: "#FFFBEF",
+    color: "#26394F",
+    border: "3px solid #26394F",
   },
   {
-    image: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=300&h=300&fit=crop",
+    title: "Musical Theatre",
+    icon: <TheaterComedyIcon sx={{ fontSize: 64 }} />,
+    bg: "#26394F",
+    color: "#FFFBEF",
+    border: "3px solid #26394F",
+  },
+  {
     title: "Guitar",
-    description: "Acoustic or electric, learn to strum your way to musical freedom with personalized instruction.",
+    icon: <AudiotrackIcon sx={{ fontSize: 64 }} />,
+    bg: "#FFFBEF",
+    color: "#AC3F30",
+    border: "3px solid #AC3F30",
   },
   {
-    image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=300&h=300&fit=crop",
+    title: "Banjo",
+    icon: <MusicNoteIcon sx={{ fontSize: 64 }} />,
+    bg: "#AC3F30",
+    color: "#FFFBEF",
+    border: "3px solid #AC3F30",
+  },
+  {
     title: "Voice",
-    description: "Develop your unique voice with techniques that build confidence and vocal strength.",
+    icon: <MicExternalOnIcon sx={{ fontSize: 64 }} />,
+    bg: "#26394F",
+    color: "#FFFBEF",
+    border: "3px solid #26394F",
   },
   {
-    image: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=300&h=300&fit=crop",
     title: "Drums",
-    description: "Master rhythm and coordination with dynamic drum lessons for all skill levels.",
+    icon: <QueueMusicIcon sx={{ fontSize: 64 }} />,
+    bg: "#FFFBEF",
+    color: "#26394F",
+    border: "3px solid #AC3F30",
   },
 ];
 
 const Programs = () => {
-  return (
-    <Box component="section" id="programs" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#FFFBEF" }}>
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mb: 6 }}>
-          <Typography variant="h4" sx={{ fontFamily: '"Calder", Georgia, serif', fontStyle: "italic", color: "#26394F", mb: 1 }}>
-            Our Programs
-          </Typography>
-          <Box sx={{ width: 96, height: 2, bgcolor: "#AC3F30", mx: "auto" }} />
-        </Box>
+  const items = [...programs, ...programs];
 
-        <Grid container spacing={3}>
-          {programs.map((program, index) => (
-            <Grid key={index} size={{ xs: 12, sm: 6, lg: 3 }}>
-              <Card
-                sx={{
-                  borderRadius: 4,
-                  overflow: "hidden",
-                  boxShadow: 3,
-                  transition: "box-shadow 0.3s",
-                  "&:hover": { boxShadow: 8 },
-                  height: "100%",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  image={program.image}
-                  alt={program.title}
-                  sx={{ aspectRatio: "1/1", objectFit: "cover", transition: "transform 0.3s", "&:hover": { transform: "scale(1.05)" } }}
-                />
-                <CardContent sx={{ p: 2.5 }}>
-                  <Typography variant="h6" sx={{ fontWeight: 700, color: "#26394F", mb: 1 }}>
-                    {program.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "rgba(38,57,79,0.7)", lineHeight: 1.7 }}>
-                    {program.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+  return (
+    <Box
+      component="section"
+      id="programs"
+      sx={{ py: { xs: 6, md: 10 }, bgcolor: "#96B3AD", overflow: "hidden" }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          fontFamily: '"Cormorant Garamond", Georgia, serif',
+          fontStyle: "italic",
+          color: "#26394F",
+          textAlign: "center",
+          mb: { xs: 4, md: 6 },
+        }}
+      >
+        Our Programs
+      </Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          width: "fit-content",
+          animation: "marquee 25s linear infinite",
+          "@keyframes marquee": {
+            "0%": { transform: "translateX(0)" },
+            "100%": { transform: `translateX(-50%)` },
+          },
+        }}
+      >
+        {items.map((program, i) => (
+          <Box
+            key={i}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              mx: { xs: 3, md: 5 },
+              flexShrink: 0,
+            }}
+          >
+            <Box
+              sx={{
+                width: { xs: 120, md: 160 },
+                height: { xs: 120, md: 160 },
+                borderRadius: "50%",
+                bgcolor: program.bg,
+                border: program.border,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: program.color,
+                mb: 1.5,
+                transition: "transform 0.3s",
+                "&:hover": { transform: "scale(1.08)" },
+              }}
+            >
+              {program.icon}
+            </Box>
+            <Typography
+              sx={{
+                color: "#26394F",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                fontSize: { xs: "0.7rem", md: "0.8rem" },
+                fontWeight: 600,
+                textAlign: "center",
+              }}
+            >
+              {program.title}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };

@@ -79,7 +79,7 @@ const Testimonials = () => {
                     <Box>
                       <Typography
                         sx={{
-                          fontFamily: '"Calder", Georgia, serif',
+                          fontFamily: '"Cormorant Garamond", Georgia, serif',
                           fontStyle: "italic",
                           color: "#AC3F30",
                           fontSize: "0.875rem",

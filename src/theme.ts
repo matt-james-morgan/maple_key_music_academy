@@ -29,27 +29,27 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+    fontFamily: '"Cormorant Garamond", Georgia, "Times New Roman", serif',
     h1: {
-      fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
       fontStyle: "italic",
     },
     h2: {
-      fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
       fontStyle: "italic",
     },
     h3: {
-      fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
       fontStyle: "italic",
     },
     h4: {
-      fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
     },
     h5: {
-      fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
     },
     h6: {
-      fontFamily: '"Calder", Georgia, "Times New Roman", serif',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
     },
   },
   components: {

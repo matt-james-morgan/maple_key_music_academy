@@ -45,7 +45,9 @@ const TeacherBio = () => {
     e.preventDefault();
     const form = e.currentTarget;
 
-    let timeInput = form.querySelector('input[name="time"]') as HTMLInputElement | null;
+    let timeInput = form.querySelector(
+      'input[name="time"]',
+    ) as HTMLInputElement | null;
     if (!timeInput) {
       timeInput = document.createElement("input");
       timeInput.type = "hidden";
@@ -110,14 +112,20 @@ const TeacherBio = () => {
   return (
     <>
       {/* Bio Section */}
-      <Box component="section" sx={{ bgcolor: "#96B3AD", pt: { xs: 16, md: 20 }, pb: { xs: 8, md: 12 } }}>
+      <Box
+        component="section"
+        sx={{
+          bgcolor: "#96B3AD",
+          pt: { xs: 16, md: 20 },
+          pb: { xs: 8, md: 12 },
+        }}
+      >
         <Container maxWidth="lg">
           <Typography variant="h3" sx={{ color: "#26394F", mb: 5 }}>
             {teacher.name}
           </Typography>
 
           <Grid container spacing={{ xs: 5, lg: 8 }}>
-            {/* Left — Photo with Quote overlay */}
             <Grid size={{ xs: 12, lg: 6 }}>
               <Box sx={{ position: "relative", maxWidth: 400 }}>
                 <Box sx={{ borderRadius: 2, overflow: "hidden" }}>
@@ -125,7 +133,12 @@ const TeacherBio = () => {
                     component="img"
                     src={teacher.image}
                     alt={teacher.name}
-                    sx={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", display: "block" }}
+                    sx={{
+                      width: "100%",
+                      aspectRatio: "3/4",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
                   />
                 </Box>
 
@@ -148,7 +161,7 @@ const TeacherBio = () => {
                     sx={{
                       color: "#AC3F30",
                       fontSize: "4.5rem",
-                      fontFamily: '"Calder", Georgia, serif',
+                      fontFamily: '"Cormorant Garamond", Georgia, serif',
                       lineHeight: 0,
                       position: "absolute",
                       top: 8,
@@ -176,7 +189,7 @@ const TeacherBio = () => {
                     sx={{
                       color: "#AC3F30",
                       fontSize: "4.5rem",
-                      fontFamily: '"Calder", Georgia, serif',
+                      fontFamily: '"Cormorant Garamond", Georgia, serif',
                       lineHeight: 0,
                       display: "block",
                       textAlign: "right",
@@ -227,7 +240,9 @@ const TeacherBio = () => {
                   mb: 4,
                 }}
               >
-                <Box component="span" sx={{ fontWeight: 600 }}>Teaching Days:</Box>{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Teaching Days:
+                </Box>{" "}
                 {teacher.teachingDays}
               </Typography>
 
@@ -248,27 +263,71 @@ const TeacherBio = () => {
       </Box>
 
       {/* Book a Trial Lesson Form */}
-      <Box component="section" sx={{ bgcolor: "#96B3AD", pb: { xs: 8, md: 12 } }}>
+      <Box
+        component="section"
+        sx={{ bgcolor: "#96B3AD", pb: { xs: 8, md: 12 } }}
+      >
         <Container maxWidth="sm">
-          <Card sx={{ bgcolor: "#FFFBEF", borderRadius: 3, pt: 5, pb: 5, px: { xs: 3, md: 5 }, boxShadow: 3 }}>
-            <Typography variant="h5" sx={{ color: "#26394F", textAlign: "center", mb: 4 }}>
+          <Card
+            sx={{
+              bgcolor: "#FFFBEF",
+              borderRadius: 3,
+              pt: 5,
+              pb: 5,
+              px: { xs: 3, md: 5 },
+              boxShadow: 3,
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{ color: "#26394F", textAlign: "center", mb: 4 }}
+            >
               Book a Trial Lesson with {teacher.firstName}:
             </Typography>
 
-            <Box component="form" onSubmit={sendEmail} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box
+              component="form"
+              onSubmit={sendEmail}
+              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            >
               <input type="hidden" name="teacher" value={teacher.name} />
 
               <Grid container spacing={2}>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField fullWidth name="firstName" placeholder="First Name" required sx={inputSx("#AC3F30")} />
+                  <TextField
+                    fullWidth
+                    name="firstName"
+                    placeholder="First Name"
+                    required
+                    sx={inputSx("#AC3F30")}
+                  />
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField fullWidth name="lastName" placeholder="Last Name" required sx={inputSx("#AC3F30")} />
+                  <TextField
+                    fullWidth
+                    name="lastName"
+                    placeholder="Last Name"
+                    required
+                    sx={inputSx("#AC3F30")}
+                  />
                 </Grid>
               </Grid>
 
-              <TextField fullWidth name="email" type="email" placeholder="Email Address" required sx={inputSx("#AC3F30")} />
-              <TextField fullWidth name="subject" placeholder="Subject Line" required sx={inputSx("#AC3F30")} />
+              <TextField
+                fullWidth
+                name="email"
+                type="email"
+                placeholder="Email Address"
+                required
+                sx={inputSx("#AC3F30")}
+              />
+              <TextField
+                fullWidth
+                name="subject"
+                placeholder="Subject Line"
+                required
+                sx={inputSx("#AC3F30")}
+              />
               <TextField
                 fullWidth
                 name="message"
@@ -283,15 +342,30 @@ const TeacherBio = () => {
                   <Checkbox
                     name="terms"
                     required
-                    sx={{ color: "#AC3F30", "&.Mui-checked": { color: "#AC3F30" } }}
+                    sx={{
+                      color: "#AC3F30",
+                      "&.Mui-checked": { color: "#AC3F30" },
+                    }}
                   />
                 }
                 label={
-                  <Typography sx={{ fontSize: "0.75rem", color: "#26394F", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem",
+                      color: "#26394F",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
                     I've read and agree with{" "}
-                    <Link href="#" sx={{ fontWeight: 600, color: "#26394F" }}>Terms</Link>
+                    <Link href="#" sx={{ fontWeight: 600, color: "#26394F" }}>
+                      Terms
+                    </Link>
                     {" & "}
-                    <Link href="#" sx={{ fontWeight: 600, color: "#26394F" }}>Privacy Policy</Link>.
+                    <Link href="#" sx={{ fontWeight: 600, color: "#26394F" }}>
+                      Privacy Policy
+                    </Link>
+                    .
                   </Typography>
                 }
               />
