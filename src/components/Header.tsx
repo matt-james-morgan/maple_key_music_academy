@@ -1,126 +1,159 @@
 import { useState } from "react";
-import logo from "../assets/logo.png";
+import { useLocation } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  Container,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const navLink = (hash: string) => (isHome ? hash : `/${hash}`);
+
+  const navSx = {
+    color: "#26394F",
+    fontWeight: 500,
+    textTransform: "uppercase" as const,
+    letterSpacing: "0.1em",
+    fontSize: "0.875rem",
+    textDecoration: "none",
+    "&:hover": { color: "#AC3F30" },
+    transition: "color 0.2s",
+  };
 
   return (
-    <header className="bg-white shadow-md top-0 z-50">
-      <div className="mx-auto px-4 sm:px-6">
-        <div className="flex justify-around items-center py-4 w-full">
-          {/* Logo */}
-          <div className="flex items-center space-x-4">
-            <img src={logo} style={{ maxHeight: "100px" }} />
-            <div>
-              <h1 className="text-xl font-bold text-gray-800">
-                Maple Key Music Academy
-              </h1>
-            </div>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <a
-              href="#home"
-              className="text-gray-700 hover:text-red-600 transition-colors font-medium"
+    <>
+      <AppBar
+        position="absolute"
+        elevation={0}
+        sx={{ bgcolor: "transparent", py: 2 }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+            <Box
+              sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 5 }}
             >
-              Home
-            </a>
-            <a
-              href="#programs"
-              className="text-gray-700 hover:text-red-600 transition-colors font-medium"
-            >
-              Programs
-            </a>
-            <a
-              href="#about"
-              className="text-gray-700 hover:text-red-600 transition-colors font-medium"
-            >
-              About
-            </a>
-            <a
-              href="#instructors"
-              className="text-gray-700 hover:text-red-600 transition-colors font-medium"
-            >
-              Instructors
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-red-600 transition-colors font-medium"
-            >
-              Contact
-            </a>
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100"
-          >
-            {" "}
-            <HamburgerIcon className="h-8 w-8 text-white" />
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200">
-            <nav className="py-4 space-y-2">
-              <a
-                href="#home"
-                className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#programs"
-                className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md transition-colors"
-              >
+              <Box component="a" href={navLink("#programs")} sx={navSx}>
                 Programs
-              </a>
-              <a
-                href="#about"
-                className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#instructors"
-                className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md transition-colors"
-              >
-                Instructors
-              </a>
-              <a
-                href="#contact"
-                className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md transition-colors"
-              >
+              </Box>
+              <Box component="a" href={navLink("#instructors")} sx={navSx}>
+                Teachers
+              </Box>
+              <Box component="a" href={navLink("#contact")} sx={navSx}>
                 Contact
-              </a>
-            </nav>
-          </div>
-        )}
-      </div>
-    </header>
+              </Box>
+            </Box>
+
+            <IconButton
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+              sx={{ display: { xs: "flex", md: "none" }, color: "#26394F" }}
+            >
+              <MenuIcon sx={{ fontSize: 32 }} />
+            </IconButton>
+
+            <Button
+              component="a"
+              href={navLink("#contact")}
+              sx={{
+                border: "2px solid #AC3F30",
+                color: "#AC3F30",
+                bgcolor: "#FFFBEF",
+                px: 3,
+                py: 1,
+                borderRadius: "9999px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                fontSize: "0.875rem",
+                whiteSpace: "nowrap",
+                "&:hover": { bgcolor: "#AC3F30", color: "#FFFBEF" },
+                transition: "all 0.2s",
+              }}
+            >
+              Register Now
+            </Button>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      <Drawer
+        anchor="top"
+        open={isMenuOpen}
+        onClose={toggleMenu}
+        PaperProps={{
+          sx: {
+            bgcolor: "#26394F",
+            height: "100vh",
+          },
+        }}
+        sx={{ display: { md: "none" } }}
+      >
+        <Box sx={{ px: 2, py: 1.5, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <IconButton onClick={toggleMenu} sx={{ color: "#FFFBEF" }} aria-label="Close menu">
+            <CloseIcon sx={{ fontSize: 32 }} />
+          </IconButton>
+          <Button
+            component="a"
+            href={navLink("#contact")}
+            onClick={toggleMenu}
+            sx={{
+              border: "1px solid #FFFBEF",
+              color: "#FFFBEF",
+              px: 2.5,
+              py: 1,
+              borderRadius: 1,
+              fontWeight: 500,
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              fontSize: "0.875rem",
+              "&:hover": { bgcolor: "#FFFBEF", color: "#26394F" },
+            }}
+          >
+            Register Now
+          </Button>
+        </Box>
+
+        <Box component="nav" sx={{ px: 3, pt: 4, display: "flex", flexDirection: "column", gap: 3 }}>
+          {[
+            { label: "Programs", hash: "#programs" },
+            { label: "Teachers", hash: "#instructors" },
+            { label: "Contact", hash: "#contact" },
+          ].map((item) => (
+            <Box
+              key={item.hash}
+              component="a"
+              href={navLink(item.hash)}
+              onClick={toggleMenu}
+              sx={{
+                color: "#FFFBEF",
+                fontWeight: 700,
+                fontSize: "1.5rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                display: "block",
+                "&:hover": { color: "#96B3AD" },
+                transition: "color 0.2s",
+              }}
+            >
+              {item.label}
+            </Box>
+          ))}
+        </Box>
+      </Drawer>
+    </>
   );
 };
 
 export default Header;
-
-const HamburgerIcon = ({ className }: { className?: string }) => (
-  <svg
-    className={className}
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-  >
-    <line x1="3" y1="6" x2="21" y2="6" />
-    <line x1="3" y1="12" x2="21" y2="12" />
-    <line x1="3" y1="18" x2="21" y2="18" />
-  </svg>
-);

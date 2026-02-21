@@ -1,21 +1,34 @@
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "./theme";
 import "./App.css";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Programs from "./components/Programs";
-import About from "./components/About";
-import Instructors from "./components/Instructors";
-import Contact from "./components/Contact";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import TeacherBio from "./pages/TeacherBio";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   return (
-    <div style={{ width: "100%" }}>
-      <Header />
-      <Hero />
-      <Programs />
-      <About />
-      <Instructors />
-      <Contact />
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/teacher-bio/:slug" element={<TeacherBio />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

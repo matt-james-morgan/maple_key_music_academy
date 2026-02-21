@@ -1,101 +1,72 @@
-import { Piano, Guitar, Mic, Music4 } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Box, Container, Typography, Card, CardMedia, CardContent, Grid } from "@mui/material";
+
+const programs = [
+  {
+    image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=300&h=300&fit=crop",
+    title: "Piano",
+    description: "From classical to contemporary, discover the beauty of piano with our certified instructors.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=300&h=300&fit=crop",
+    title: "Guitar",
+    description: "Acoustic or electric, learn to strum your way to musical freedom with personalized instruction.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=300&h=300&fit=crop",
+    title: "Voice",
+    description: "Develop your unique voice with techniques that build confidence and vocal strength.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=300&h=300&fit=crop",
+    title: "Drums",
+    description: "Master rhythm and coordination with dynamic drum lessons for all skill levels.",
+  },
+];
 
 const Programs = () => {
-  const programs = [
-    {
-      icon: Piano,
-      title: "Piano Lessons",
-      description:
-        "From classical to contemporary, discover the beauty of piano with our certified instructors.",
-      ages: "Ages 4+",
-      color: "bg-blue-50 border-blue-200",
-    },
-    {
-      icon: Guitar,
-      title: "Guitar Lessons",
-      description:
-        "Acoustic or electric, learn to strum your way to musical freedom with personalized instruction.",
-      ages: "Ages 6+",
-      color: "bg-green-50 border-green-200",
-    },
-    {
-      icon: Mic,
-      title: "Voice Training",
-      description:
-        "Develop your unique voice with techniques that build confidence and vocal strength.",
-      ages: "Ages 8+",
-      color: "bg-purple-50 border-purple-200",
-    },
-    {
-      icon: Music4,
-      title: "Drum Lessons",
-      description:
-        "Master rhythm and coordination with dynamic drum lessons tailored for beginners to advanced players.",
-      ages: "Ages 5+",
-      color: "bg-orange-50 border-orange-200",
-    },
-  ];
-
   return (
-    <section id="programs" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Our <span className="text-red-600">Programs</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our comprehensive music programs designed to nurture
-            creativity, build confidence, and foster a lifelong love of music.
-          </p>
-        </div>
+    <Box component="section" id="programs" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#FFFBEF" }}>
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: "center", mb: 6 }}>
+          <Typography variant="h4" sx={{ fontFamily: '"Calder", Georgia, serif', fontStyle: "italic", color: "#26394F", mb: 1 }}>
+            Our Programs
+          </Typography>
+          <Box sx={{ width: 96, height: 2, bgcolor: "#AC3F30", mx: "auto" }} />
+        </Box>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <Grid container spacing={3}>
           {programs.map((program, index) => (
-            <Card
-              key={index}
-              className={`${program.color} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-2`}
-            >
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="bg-white p-4 rounded-full shadow-md">
-                    <program.icon className="h-8 w-8 text-red-600" />
-                  </div>
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-800">
-                  {program.title}
-                </CardTitle>
-                <CardDescription className="text-gray-600 font-medium">
-                  {program.ages}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-center leading-relaxed">
-                  {program.description}
-                </p>
-              </CardContent>
-            </Card>
+            <Grid key={index} size={{ xs: 12, sm: 6, lg: 3 }}>
+              <Card
+                sx={{
+                  borderRadius: 4,
+                  overflow: "hidden",
+                  boxShadow: 3,
+                  transition: "box-shadow 0.3s",
+                  "&:hover": { boxShadow: 8 },
+                  height: "100%",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={program.image}
+                  alt={program.title}
+                  sx={{ aspectRatio: "1/1", objectFit: "cover", transition: "transform 0.3s", "&:hover": { transform: "scale(1.05)" } }}
+                />
+                <CardContent sx={{ p: 2.5 }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, color: "#26394F", mb: 1 }}>
+                    {program.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "rgba(38,57,79,0.7)", lineHeight: 1.7 }}>
+                    {program.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-lg text-gray-600 mb-6">
-            Can't find what you're looking for? We offer custom programs too!
-          </p>
-          <div className="inline-flex items-center space-x-2 text-red-600 font-semibold text-lg">
-            <span>🍁</span>
-            <span>Individual & Group Lessons Available</span>
-            <span>🍁</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
