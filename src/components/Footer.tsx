@@ -1,17 +1,50 @@
-import { Box, Container, Typography, Grid, IconButton } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  IconButton,
+  useTheme,
+} from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import logo from "../assets/logo.png";
 
 const Footer = () => {
+  const theme = useTheme();
   return (
     <Box component="footer" sx={{ bgcolor: "#26394F", py: 6 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="flex-start">
           <Grid size={{ xs: 12, md: 4 }}>
-            <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" } }}>
-              <Box component="img" src={logo} alt="Maple Key Music Academy" sx={{ height: 96, width: "auto" }} />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundColor: theme.palette.cream.main,
+                  borderRadius: "100%",
+                  width: 96,
+                  height: 96,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Box
+                  component="img"
+                  src={logo}
+                  alt="Maple Key Music Academy"
+                  sx={{
+                    height: 96,
+                    borderRadius: "100%",
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
 
@@ -50,14 +83,32 @@ const Footer = () => {
               >
                 Follow Us
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-end" }, gap: 1 }}>
-                <IconButton href="#" aria-label="Facebook" sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "flex-end" },
+                  gap: 1,
+                }}
+              >
+                <IconButton
+                  href="#"
+                  aria-label="Facebook"
+                  sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}
+                >
                   <FacebookIcon />
                 </IconButton>
-                <IconButton href="#" aria-label="Instagram" sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}>
+                <IconButton
+                  href="#"
+                  aria-label="Instagram"
+                  sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}
+                >
                   <InstagramIcon />
                 </IconButton>
-                <IconButton href="#" aria-label="YouTube" sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}>
+                <IconButton
+                  href="#"
+                  aria-label="YouTube"
+                  sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}
+                >
                   <YouTubeIcon />
                 </IconButton>
               </Box>
@@ -65,9 +116,19 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Box sx={{ mt: 5, pt: 4, borderTop: "1px solid rgba(255,251,239,0.2)", textAlign: "center" }}>
-          <Typography sx={{ color: "rgba(255,251,239,0.6)", fontSize: "0.875rem" }}>
-            &copy; {new Date().getFullYear()} Maple Key Music Academy. All rights reserved.
+        <Box
+          sx={{
+            mt: 5,
+            pt: 4,
+            borderTop: "1px solid rgba(255,251,239,0.2)",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            sx={{ color: "rgba(255,251,239,0.6)", fontSize: "0.875rem" }}
+          >
+            &copy; {new Date().getFullYear()} Maple Key Music Academy. All
+            rights reserved.
           </Typography>
         </Box>
       </Container>

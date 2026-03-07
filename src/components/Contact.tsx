@@ -1,6 +1,8 @@
 import emailjs from "@emailjs/browser";
-import type { FormEvent } from "react";
+import { type FormEvent, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
+  Autocomplete,
   Box,
   Container,
   Typography,
@@ -10,6 +12,8 @@ import {
   Card,
   CardContent,
   IconButton,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -29,7 +33,6 @@ const inputSx = {
   },
   "& .MuiInputBase-input": {
     fontSize: "0.75rem",
-    textTransform: "uppercase",
     letterSpacing: "0.1em",
     color: "#26394F",
     py: 1.5,
@@ -41,11 +44,38 @@ const inputSx = {
 };
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const refId = searchParams.get("refId");
+  const [toast, setToast] = useState<{
+    open: boolean;
+    severity: "success" | "error";
+    message: string;
+  }>({ open: false, severity: "success", message: "" });
+
+  useEffect(() => {
+    if (refId) {
+      const onReady = () => {
+        document
+          .getElementById("contact")
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      };
+
+      if (document.readyState === "complete") {
+        onReady();
+      } else {
+        window.addEventListener("load", onReady);
+        return () => window.removeEventListener("load", onReady);
+      }
+    }
+  }, [refId]);
+
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
 
-    let timeInput = form.querySelector('input[name="time"]') as HTMLInputElement | null;
+    let timeInput = form.querySelector(
+      'input[name="time"]',
+    ) as HTMLInputElement | null;
     if (!timeInput) {
       timeInput = document.createElement("input");
       timeInput.type = "hidden";
@@ -65,17 +95,21 @@ const Contact = () => {
         (result) => {
           console.log("Email sent:", result.text);
           form.reset();
-          alert("Message sent!");
+          setToast({ open: true, severity: "success", message: "Message sent successfully!" });
         },
         (error) => {
           console.error("Email error:", error.text);
-          alert("Something went wrong. Please try again.");
+          setToast({ open: true, severity: "error", message: "Something went wrong. Please try again." });
         },
       );
   };
 
   return (
-    <Box component="section" id="contact" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#96B3AD" }}>
+    <Box
+      component="section"
+      id="contact"
+      sx={{ py: { xs: 8, md: 12 }, bgcolor: "#96B3AD" }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 5, lg: 8 }} alignItems="flex-start">
           {/* Left — Registration Form */}
@@ -84,18 +118,47 @@ const Contact = () => {
               Register
             </Typography>
 
-            <Box component="form" onSubmit={sendEmail} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box
+              component="form"
+              onSubmit={sendEmail}
+              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            >
               <Grid container spacing={2}>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField fullWidth name="firstName" placeholder="First Name" required sx={inputSx} />
+                  <TextField
+                    fullWidth
+                    name="firstName"
+                    placeholder="First Name"
+                    required
+                    sx={inputSx}
+                  />
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField fullWidth name="lastName" placeholder="Last Name" required sx={inputSx} />
+                  <TextField
+                    fullWidth
+                    name="lastName"
+                    placeholder="Last Name"
+                    required
+                    sx={inputSx}
+                  />
                 </Grid>
               </Grid>
 
-              <TextField fullWidth name="email" type="email" placeholder="Email Address" required sx={inputSx} />
-              <TextField fullWidth name="subject" placeholder="Subject Line" required sx={inputSx} />
+              <TextField
+                fullWidth
+                name="email"
+                type="email"
+                placeholder="Email Address"
+                required
+                sx={inputSx}
+              />
+              <TextField
+                fullWidth
+                name="subject"
+                placeholder="Subject Line"
+                required
+                sx={inputSx}
+              />
               <TextField
                 fullWidth
                 name="message"
@@ -103,6 +166,37 @@ const Contact = () => {
                 rows={5}
                 placeholder="Insert your message. Please make sure to include the instrument or teacher you are interested in!"
                 sx={inputSx}
+              />
+
+              <Autocomplete
+                freeSolo
+                disabled={!!refId}
+                value={refId ? `Referred by ${refId}` : undefined}
+                options={[
+                  "Facebook",
+                  "Instagram",
+                  "YouTube",
+                  "Google Search",
+                  "Word of Mouth",
+                  "Flyer / Poster",
+                ]}
+                sx={{
+                  "&.Mui-disabled .MuiOutlinedInput-root": {
+                    bgcolor: "#FFFBEF",
+                  },
+                  "&.Mui-disabled .MuiInputBase-input.Mui-disabled": {
+                    WebkitTextFillColor: "#26394F",
+                    color: "#26394F",
+                  },
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="referral"
+                    placeholder="How Did You Hear About Us?"
+                    sx={inputSx}
+                  />
+                )}
               />
 
               <Box sx={{ pt: 1 }}>
@@ -135,7 +229,6 @@ const Contact = () => {
               sx={{
                 bgcolor: "#AC3F30",
                 borderRadius: 2,
-                border: "4px solid #5FB8C8",
                 boxShadow: 6,
               }}
             >
@@ -144,7 +237,9 @@ const Contact = () => {
                   Contact Us Directly:
                 </Typography>
 
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
+                <Box
+                  sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}
+                >
                   {[
                     { icon: <PhoneIcon />, text: "(705) 978-2131" },
                     {
@@ -154,7 +249,10 @@ const Contact = () => {
                     },
                     { icon: <LocationOnIcon />, text: "Toronto, ON" },
                   ].map((item, i) => (
-                    <Box key={i} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <Box
+                      key={i}
+                      sx={{ display: "flex", alignItems: "center", gap: 2 }}
+                    >
                       <Box
                         sx={{
                           bgcolor: "#26394F",
@@ -214,13 +312,34 @@ const Contact = () => {
                     Follow Us
                   </Typography>
                   <Box sx={{ display: "flex", gap: 1 }}>
-                    <IconButton href="#" aria-label="Facebook" sx={{ color: "#FFFBEF", "&:hover": { color: "rgba(255,251,239,0.7)" } }}>
+                    <IconButton
+                      href="#"
+                      aria-label="Facebook"
+                      sx={{
+                        color: "#FFFBEF",
+                        "&:hover": { color: "rgba(255,251,239,0.7)" },
+                      }}
+                    >
                       <FacebookIcon sx={{ fontSize: 28 }} />
                     </IconButton>
-                    <IconButton href="#" aria-label="Instagram" sx={{ color: "#FFFBEF", "&:hover": { color: "rgba(255,251,239,0.7)" } }}>
+                    <IconButton
+                      href="#"
+                      aria-label="Instagram"
+                      sx={{
+                        color: "#FFFBEF",
+                        "&:hover": { color: "rgba(255,251,239,0.7)" },
+                      }}
+                    >
                       <InstagramIcon sx={{ fontSize: 28 }} />
                     </IconButton>
-                    <IconButton href="#" aria-label="YouTube" sx={{ color: "#FFFBEF", "&:hover": { color: "rgba(255,251,239,0.7)" } }}>
+                    <IconButton
+                      href="#"
+                      aria-label="YouTube"
+                      sx={{
+                        color: "#FFFBEF",
+                        "&:hover": { color: "rgba(255,251,239,0.7)" },
+                      }}
+                    >
                       <YouTubeIcon sx={{ fontSize: 28 }} />
                     </IconButton>
                   </Box>
@@ -230,6 +349,22 @@ const Contact = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <Snackbar
+        open={toast.open}
+        autoHideDuration={5000}
+        onClose={() => setToast((prev) => ({ ...prev, open: false }))}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setToast((prev) => ({ ...prev, open: false }))}
+          severity={toast.severity}
+          variant="filled"
+          sx={{ width: "100%", fontSize: "0.9rem" }}
+        >
+          {toast.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

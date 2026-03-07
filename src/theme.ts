@@ -22,25 +22,22 @@ const theme = createTheme({
     teal: { main: "#96B3AD", contrastText: "#26394F" },
     cream: { main: "#FFFBEF", contrastText: "#26394F" },
     background: {
-      default: "#FFFBEF",
+      default: "#96B3AD",
     },
     text: {
       primary: "#26394F",
     },
   },
   typography: {
-    fontFamily: '"Cormorant Garamond", Georgia, "Times New Roman", serif',
+    fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
     h1: {
       fontFamily: '"Cormorant Garamond", Georgia, serif',
-      fontStyle: "italic",
     },
     h2: {
       fontFamily: '"Cormorant Garamond", Georgia, serif',
-      fontStyle: "italic",
     },
     h3: {
       fontFamily: '"Cormorant Garamond", Georgia, serif',
-      fontStyle: "italic",
     },
     h4: {
       fontFamily: '"Cormorant Garamond", Georgia, serif',
@@ -51,6 +48,15 @@ const theme = createTheme({
     h6: {
       fontFamily: '"Cormorant Garamond", Georgia, serif',
     },
+    body1: {
+      fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+    },
+    body2: {
+      fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+    },
+    button: {
+      fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+    },
   },
   components: {
     MuiCssBaseline: {
@@ -60,7 +66,7 @@ const theme = createTheme({
         },
         body: {
           color: "#26394F",
-          backgroundColor: "#FFFBEF",
+          backgroundColor: "#96B3AD",
           WebkitFontSmoothing: "antialiased",
           MozOsxFontSmoothing: "grayscale",
         },

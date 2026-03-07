@@ -8,13 +8,15 @@ import {
   IconButton,
   Drawer,
   Container,
+  useTheme,
 } from "@mui/material";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const theme = useTheme();
   const isHome = location.pathname === "/";
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -22,10 +24,10 @@ const Header = () => {
 
   const navSx = {
     color: "#26394F",
-    fontWeight: 500,
+    fontWeight: 700,
     textTransform: "uppercase" as const,
-    letterSpacing: "0.1em",
-    fontSize: "0.875rem",
+    letterSpacing: "0.15em",
+    fontSize: "1rem",
     textDecoration: "none",
     "&:hover": { color: "#AC3F30" },
     transition: "color 0.2s",
@@ -36,14 +38,21 @@ const Header = () => {
       <AppBar
         position="absolute"
         elevation={0}
-        sx={{ bgcolor: "transparent", py: 2 }}
+        sx={{ bgcolor: "transparent", py: 1.5 }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
             <Box
-              sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 5 }}
+              sx={{
+                display: { xs: "none", md: "flex" },
+                alignItems: "center",
+                gap: 5,
+              }}
             >
-              <Box component="a" href={navLink("#programs")} sx={navSx}>
+              <Box component={Link} to="/" sx={navSx}>
+                Home
+              </Box>
+              <Box component={Link} to="/programs" sx={navSx}>
                 Programs
               </Box>
               <Box component={Link} to="/teachers" sx={navSx}>
@@ -62,27 +71,52 @@ const Header = () => {
               <MenuIcon sx={{ fontSize: 32 }} />
             </IconButton>
 
-            <Button
-              component="a"
-              href={navLink("#contact")}
-              sx={{
-                border: "2px solid #AC3F30",
-                color: "#AC3F30",
-                bgcolor: "#FFFBEF",
-                px: 3,
-                py: 1,
-                borderRadius: "9999px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                fontSize: "0.875rem",
-                whiteSpace: "nowrap",
-                "&:hover": { bgcolor: "#AC3F30", color: "#FFFBEF" },
-                transition: "all 0.2s",
-              }}
-            >
-              Register Now
-            </Button>
+            <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
+              <Button
+                component={Link}
+                to="/refer"
+                sx={{
+                  display: { xs: "none", md: "inline-flex" },
+                  border: "2px solid #FFFBEF",
+                  color: "#FFFBEF",
+                  bgcolor: "transparent",
+                  px: 3,
+                  py: 1,
+                  borderRadius: "10px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  fontSize: "1rem",
+                  whiteSpace: "nowrap",
+                  boxShadow: "none",
+                  "&:hover": { bgcolor: "#FFFBEF", color: theme.palette.red.main },
+                  transition: "all 0.2s",
+                }}
+              >
+                Refer a Friend
+              </Button>
+              <Button
+                component="a"
+                href={navLink("#contact")}
+                sx={{
+                  bgcolor: "#FFFBEF",
+                  color: theme.palette.red.main,
+                  px: 3,
+                  py: 1,
+                  borderRadius: "10px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  fontSize: "1rem",
+                  whiteSpace: "nowrap",
+                  boxShadow: "none",
+                  "&:hover": { bgcolor: "#f5f0e0" },
+                  transition: "all 0.2s",
+                }}
+              >
+                Register Now
+              </Button>
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>
@@ -99,34 +133,77 @@ const Header = () => {
         }}
         sx={{ display: { md: "none" } }}
       >
-        <Box sx={{ px: 2, py: 1.5, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <IconButton onClick={toggleMenu} sx={{ color: "#FFFBEF" }} aria-label="Close menu">
+        <Box
+          sx={{
+            px: 2,
+            py: 1.5,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <IconButton
+            onClick={toggleMenu}
+            sx={{ color: "#FFFBEF" }}
+            aria-label="Close menu"
+          >
             <CloseIcon sx={{ fontSize: 32 }} />
           </IconButton>
-          <Button
-            component="a"
-            href={navLink("#contact")}
-            onClick={toggleMenu}
-            sx={{
-              border: "1px solid #FFFBEF",
-              color: "#FFFBEF",
-              px: 2.5,
-              py: 1,
-              borderRadius: 1,
-              fontWeight: 500,
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-              fontSize: "0.875rem",
-              "&:hover": { bgcolor: "#FFFBEF", color: "#26394F" },
-            }}
-          >
-            Register Now
-          </Button>
+          <Box sx={{ display: "flex", gap: 1 }}>
+            <Button
+              component={Link}
+              to="/refer"
+              onClick={toggleMenu}
+              sx={{
+                border: "1px solid #FFFBEF",
+                color: "#FFFBEF",
+                px: 2.5,
+                py: 1,
+                borderRadius: 1,
+                fontWeight: 500,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                fontSize: "0.875rem",
+                "&:hover": { bgcolor: "#FFFBEF", color: "#26394F" },
+              }}
+            >
+              Refer
+            </Button>
+            <Button
+              component="a"
+              href={navLink("#contact")}
+              onClick={toggleMenu}
+              sx={{
+                border: "1px solid #FFFBEF",
+                color: "#FFFBEF",
+                px: 2.5,
+                py: 1,
+                borderRadius: 1,
+                fontWeight: 500,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                fontSize: "0.875rem",
+                "&:hover": { bgcolor: "#FFFBEF", color: "#26394F" },
+              }}
+            >
+              Register Now
+            </Button>
+          </Box>
         </Box>
 
-        <Box component="nav" sx={{ px: 3, pt: 4, display: "flex", flexDirection: "column", gap: 3 }}>
+        <Box
+          component="nav"
+          sx={{
+            px: 3,
+            pt: 4,
+            display: "flex",
+            flexDirection: "column",
+            gap: 3,
+          }}
+        >
           {[
-            { label: "Programs", href: navLink("#programs") },
+            { label: "Home", href: "/", isRoute: true },
+            { label: "Programs", href: "/programs", isRoute: true },
             { label: "Teachers", href: "/teachers", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
           ].map((item) => (

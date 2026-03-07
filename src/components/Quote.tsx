@@ -1,30 +1,47 @@
-import { Box, Container, Typography, Avatar } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
+import logo from "../assets/logo.png";
 
 const Quote = () => {
+  const theme = useTheme();
   return (
-    <Box component="section" sx={{ py: { xs: 6, md: 8 }, bgcolor: "#AC3F30" }}>
-      <Container maxWidth="md" sx={{ textAlign: "center" }}>
+    <Box component="section" sx={{ py: { xs: 6, md: 8 } }}>
+      <Container sx={{ textAlign: "center" }}>
         <Typography
-          component="blockquote"
+          component="h2"
           sx={{
-            color: "#FFFBEF",
-            fontSize: { xs: "1.125rem", md: "1.25rem", lg: "1.5rem" },
-            fontFamily: '"Cormorant Garamond", Georgia, serif',
+            color: theme.palette.red.main,
+            fontSize: "2.4rem",
+            fontFamily: '"Bebas Neue", sans-serif',
             fontStyle: "italic",
             lineHeight: 1.8,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            mb: { xs: 4, md: 4 },
           }}
         >
           "I was, nearly beside myself for the support and attention to detail.
           What would it look like if the Earth was your canvas? I just have
           lessons at Maple Key Music Academy."
         </Typography>
-        <Box sx={{ mt: 3, display: "flex", alignItems: "center", justifyContent: "center", gap: 1.5 }}>
-          <Avatar
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
-            alt="Sarah Thompson"
-            sx={{ width: 48, height: 48 }}
+        <Box
+          sx={{
+            mt: 3,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1.5,
+          }}
+        >
+          <Box
+            component="img"
+            src={logo}
+            alt="Maple Key Music Academy"
+            sx={{
+              height: 96,
+              borderRadius: "100%",
+            }}
           />
-          <Typography sx={{ color: "#FFFBEF", fontWeight: 500 }}>
+          <Typography sx={{ color: theme.palette.red.main, fontWeight: 500 }}>
             Sarah Thompson
           </Typography>
         </Box>
