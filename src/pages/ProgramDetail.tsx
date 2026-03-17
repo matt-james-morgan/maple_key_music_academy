@@ -63,7 +63,7 @@ const ProgramDetail = () => {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={{ xs: 5, lg: 8 }} alignItems="center">
+          <Grid container spacing={{ xs: 2, lg: 8 }} alignItems="center">
             <Grid size={{ xs: 12, lg: 5 }}>
               <Box
                 sx={{
@@ -95,8 +95,10 @@ const ProgramDetail = () => {
               <Typography
                 sx={{
                   color: "#26394F",
-                  fontSize: "1.05rem",
+                  fontSize: { xs: "0.78rem", md: "1.05rem" },
                   lineHeight: 1.8,
+                  textTransform: { xs: "uppercase", md: "none" },
+                  letterSpacing: { xs: "0.06em", md: 0 },
                   mb: 4,
                 }}
               >
@@ -110,7 +112,7 @@ const ProgramDetail = () => {
                     <Typography
                       sx={{
                         color: "#26394F",
-                        fontSize: "0.95rem",
+                        fontSize: { xs: "0.75rem", md: "0.95rem" },
                         fontWeight: 500,
                       }}
                     >

@@ -125,9 +125,9 @@ const TeacherBio = () => {
             {teacher.name}
           </Typography>
 
-          <Grid container spacing={{ xs: 5, lg: 8 }}>
+          <Grid container spacing={{ xs: 2, lg: 8 }}>
             <Grid size={{ xs: 12, lg: 6 }}>
-              <Box sx={{ position: "relative", maxWidth: 400 }}>
+              <Box sx={{ position: "relative", maxWidth: { xs: "100%", lg: 400 }, mb: { xs: "100px", lg: 0 } }}>
                 <Box sx={{ borderRadius: 2, overflow: "hidden" }}>
                   <Box
                     component="img"
@@ -161,7 +161,7 @@ const TeacherBio = () => {
                     sx={{
                       color: "#AC3F30",
                       fontSize: "4.5rem",
-                      fontFamily: '"Cormorant Garamond", Georgia, serif',
+                      fontFamily: 'chippewa-falls, sans-serif',
                       lineHeight: 0,
                       position: "absolute",
                       top: 8,
@@ -173,10 +173,9 @@ const TeacherBio = () => {
                   <Typography
                     sx={{
                       color: "#26394F",
-                      fontSize: "0.875rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                      lineHeight: 1.8,
+                      fontSize: "0.95rem",
+                      fontFamily: "chippewa-falls, sans-serif",
+                      lineHeight: 1.6,
                       fontStyle: "italic",
                       px: 2.5,
                       pt: 2,
@@ -189,7 +188,7 @@ const TeacherBio = () => {
                     sx={{
                       color: "#AC3F30",
                       fontSize: "4.5rem",
-                      fontFamily: '"Cormorant Garamond", Georgia, serif',
+                      fontFamily: 'chippewa-falls, sans-serif',
                       lineHeight: 0,
                       display: "block",
                       textAlign: "right",

@@ -23,8 +23,11 @@ const Programs = () => {
           sx={{
             color: "#26394F",
             textAlign: "center",
-            mb: 6,
-            fontSize: "1.1rem",
+            mb: { xs: 4, md: 6 },
+            fontSize: { xs: "0.75rem", md: "1rem" },
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+            lineHeight: 1.8,
             maxWidth: 600,
             mx: "auto",
           }}
@@ -44,15 +47,8 @@ const Programs = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   textDecoration: "none",
-                  bgcolor: "#FFFBEF",
-                  borderRadius: 2,
-                  p: { xs: 2.5, md: 3.5 },
-                  boxShadow: 3,
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                  "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: 6,
-                  },
+                  transition: "transform 0.2s",
+                  "&:hover": { transform: "translateY(-4px)" },
                 }}
               >
                 <Box
@@ -60,8 +56,8 @@ const Programs = () => {
                   src={program.image}
                   alt={program.title}
                   sx={{
-                    width: { xs: 100, md: 130 },
-                    height: { xs: 100, md: 130 },
+                    width: { xs: 120, md: 160 },
+                    height: { xs: 120, md: 160 },
                     objectFit: "contain",
                     mb: 2,
                   }}

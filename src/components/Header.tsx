@@ -61,6 +61,12 @@ const Header = () => {
               <Box component="a" href={navLink("#contact")} sx={navSx}>
                 Contact
               </Box>
+              {/* <Box component={Link} to="/resources" sx={navSx}>
+                Resources
+              </Box> */}
+              <Box component={Link} to="/pre-register" sx={navSx}>
+                Pre-Register
+              </Box>
             </Box>
 
             <IconButton
@@ -96,25 +102,26 @@ const Header = () => {
                 Refer a Friend
               </Button>
               <Button
-                component="a"
-                href={navLink("#contact")}
+                component={Link}
+                to="/register"
                 sx={{
                   bgcolor: "#FFFBEF",
                   color: theme.palette.red.main,
-                  px: 3,
+                  px: { xs: 2, md: 3 },
                   py: 1,
                   borderRadius: "10px",
                   fontWeight: 700,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
-                  fontSize: "1rem",
+                  fontSize: { xs: "0.75rem", md: "1rem" },
                   whiteSpace: "nowrap",
                   boxShadow: "none",
                   "&:hover": { bgcolor: "#f5f0e0" },
                   transition: "all 0.2s",
                 }}
               >
-                Register Now
+                <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>Register Now</Box>
+                <Box component="span" sx={{ display: { xs: "inline", sm: "none" } }}>Register</Box>
               </Button>
             </Box>
           </Toolbar>
@@ -170,8 +177,8 @@ const Header = () => {
               Refer
             </Button>
             <Button
-              component="a"
-              href={navLink("#contact")}
+              component={Link}
+              to="/register"
               onClick={toggleMenu}
               sx={{
                 border: "1px solid #FFFBEF",
@@ -206,6 +213,8 @@ const Header = () => {
             { label: "Programs", href: "/programs", isRoute: true },
             { label: "Teachers", href: "/teachers", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
+            // { label: "Resources", href: "/resources", isRoute: true },
+            { label: "Pre-Register", href: "/pre-register", isRoute: true },
           ].map((item) => (
             <Box
               key={item.label}

@@ -69,7 +69,10 @@ const Refer = () => {
               color: "#26394F",
               textAlign: "center",
               mb: 4,
-              fontSize: "1.1rem",
+              fontSize: { xs: "0.78rem", md: "1rem" },
+              textTransform: "uppercase",
+              letterSpacing: "0.06em",
+              lineHeight: 1.8,
             }}
           >
             Enter your name below to generate a personal referral link. Share it

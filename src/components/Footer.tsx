@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <Box component="footer" sx={{ bgcolor: "#26394F", py: 6 }}>
       <Container maxWidth="lg">
-        <Grid container spacing={4} alignItems="flex-start">
+        <Grid container spacing={{ xs: 2, md: 4 }} alignItems="flex-start">
           <Grid size={{ xs: 12, md: 4 }}>
             <Box
               sx={{

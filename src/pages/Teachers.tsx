@@ -51,8 +51,6 @@ const Teachers = () => {
           sx={{
             color: "#26394F",
             mb: 3,
-            fontVariant: "small-caps",
-            fontStyle: "normal",
           }}
         >
           Meet Our Teachers
@@ -74,7 +72,7 @@ const Teachers = () => {
           ages. Find your new mentor, cheerleader, and friend below!
         </Typography>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 2, md: 4 }}>
           {/* Filter Sidebar */}
           <Grid size={{ xs: 12, md: 3 }}>
             <Box

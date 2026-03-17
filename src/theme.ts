@@ -29,33 +29,33 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+    fontFamily: 'calder-dark, sans-serif',
     h1: {
-      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      fontFamily: 'chippewa-falls, sans-serif',
     },
     h2: {
-      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      fontFamily: 'chippewa-falls, sans-serif',
     },
     h3: {
-      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      fontFamily: 'chippewa-falls, sans-serif',
     },
     h4: {
-      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      fontFamily: 'calder-dark, sans-serif',
     },
     h5: {
-      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      fontFamily: 'calder-dark, sans-serif',
     },
     h6: {
-      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      fontFamily: 'calder-dark, sans-serif',
     },
     body1: {
-      fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+      fontFamily: 'calder-dark, sans-serif',
     },
     body2: {
-      fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+      fontFamily: 'calder-dark, sans-serif',
     },
     button: {
-      fontFamily: '"Nunito", "Helvetica Neue", Arial, sans-serif',
+      fontFamily: 'calder-dark, sans-serif',
     },
   },
   components: {
@@ -63,12 +63,14 @@ const theme = createTheme({
       styleOverrides: {
         html: {
           scrollBehavior: "smooth",
+          overflowX: "hidden",
         },
         body: {
           color: "#26394F",
           backgroundColor: "#96B3AD",
           WebkitFontSmoothing: "antialiased",
           MozOsxFontSmoothing: "grayscale",
+          overflowX: "hidden",
         },
       },
     },

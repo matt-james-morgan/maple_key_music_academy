@@ -17,15 +17,13 @@ const Programs = () => {
       }}
     >
       <Typography
-        variant="h4"
+        variant="h2"
         sx={{
-          fontFamily: '"Bebas Neue", sans-serif',
           fontStyle: "italic",
           color: "#26394F",
           textAlign: "center",
-          fontWeight: 700,
-          textTransform: "uppercase",
-          fontSize: "2.4rem",
+          fontWeight: 400,
+          fontSize: { xs: "2rem", md: "2.4rem" },
           mb: { xs: 4, md: 4 },
         }}
       >

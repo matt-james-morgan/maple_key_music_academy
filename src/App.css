@@ -1,3 +1,12 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -11,4 +20,5 @@
 
 .page-transition {
   animation: fadeIn 0.35s ease-out both;
+  overflow-x: hidden;
 }

@@ -10,12 +10,11 @@ const Quote = () => {
           component="h2"
           sx={{
             color: theme.palette.red.main,
-            fontSize: "2.4rem",
-            fontFamily: '"Bebas Neue", sans-serif',
+            fontSize: { xs: "1.3rem", md: "2.4rem" },
+            fontFamily: 'chippewa-falls, sans-serif',
             fontStyle: "italic",
-            lineHeight: 1.8,
-            fontWeight: 700,
-            textTransform: "uppercase",
+            lineHeight: 1.6,
+            fontWeight: 400,
             mb: { xs: 4, md: 4 },
           }}
         >
@@ -37,7 +36,7 @@ const Quote = () => {
             src={logo}
             alt="Maple Key Music Academy"
             sx={{
-              height: 96,
+              height: { xs: 56, md: 96 },
               borderRadius: "100%",
             }}
           />

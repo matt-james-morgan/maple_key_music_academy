@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   Autocomplete,
@@ -43,7 +43,7 @@ const inputSx = {
   },
 };
 
-const Contact = () => {
+const Register = () => {
   const [searchParams] = useSearchParams();
   const refId = searchParams.get("refId");
   const [toast, setToast] = useState<{
@@ -52,30 +52,11 @@ const Contact = () => {
     message: string;
   }>({ open: false, severity: "success", message: "" });
 
-  useEffect(() => {
-    if (refId) {
-      const onReady = () => {
-        document
-          .getElementById("contact")
-          ?.scrollIntoView({ behavior: "smooth", block: "center" });
-      };
-
-      if (document.readyState === "complete") {
-        onReady();
-      } else {
-        window.addEventListener("load", onReady);
-        return () => window.removeEventListener("load", onReady);
-      }
-    }
-  }, [refId]);
-
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
 
-    let timeInput = form.querySelector(
-      'input[name="time"]',
-    ) as HTMLInputElement | null;
+    let timeInput = form.querySelector('input[name="time"]') as HTMLInputElement | null;
     if (!timeInput) {
       timeInput = document.createElement("input");
       timeInput.type = "hidden";
@@ -92,31 +73,38 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(
-        (result) => {
-          console.log("Email sent:", result.text);
+        () => {
           form.reset();
           setToast({ open: true, severity: "success", message: "Message sent successfully!" });
         },
-        (error) => {
-          console.error("Email error:", error.text);
+        () => {
           setToast({ open: true, severity: "error", message: "Something went wrong. Please try again." });
         },
       );
   };
 
   return (
-    <Box
-      component="section"
-      id="contact"
-      sx={{ py: { xs: 8, md: 12 }, bgcolor: "#96B3AD" }}
-    >
+    <Box sx={{ bgcolor: "#96B3AD", minHeight: "100vh", pt: { xs: 14, md: 18 }, pb: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" sx={{ color: "#26394F", mb: 4 }}>
+        <Typography variant="h2" sx={{ color: "#26394F", mb: 1, fontStyle: "italic" }}>
           Register
+        </Typography>
+        <Typography
+          sx={{
+            color: "#26394F",
+            fontSize: "0.75rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            mb: 4,
+            lineHeight: 1.8,
+          }}
+        >
+          Fill out the form below and we'll be in touch to get you started.
         </Typography>
 
         <Grid container spacing={{ xs: 2, lg: 8 }} alignItems="flex-start">
-          {/* Left — Registration Form */}
+
+          {/* Left — Form */}
           <Grid size={{ xs: 12, lg: 6 }}>
             <Box
               component="form"
@@ -125,46 +113,21 @@ const Contact = () => {
             >
               <Grid container spacing={2}>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField
-                    fullWidth
-                    name="firstName"
-                    placeholder="First Name"
-                    required
-                    sx={inputSx}
-                  />
+                  <TextField fullWidth name="firstName" placeholder="First Name" required sx={inputSx} />
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <TextField
-                    fullWidth
-                    name="lastName"
-                    placeholder="Last Name"
-                    required
-                    sx={inputSx}
-                  />
+                  <TextField fullWidth name="lastName" placeholder="Last Name" required sx={inputSx} />
                 </Grid>
               </Grid>
 
-              <TextField
-                fullWidth
-                name="email"
-                type="email"
-                placeholder="Email Address"
-                required
-                sx={inputSx}
-              />
-              <TextField
-                fullWidth
-                name="subject"
-                placeholder="Subject Line"
-                required
-                sx={inputSx}
-              />
+              <TextField fullWidth name="email" type="email" placeholder="Email Address" required sx={inputSx} />
+              <TextField fullWidth name="subject" placeholder="Subject Line" required sx={inputSx} />
               <TextField
                 fullWidth
                 name="message"
                 multiline
                 rows={5}
-                placeholder="Insert your message. Please make sure to include the instrument or teacher you are interested in!"
+                placeholder="Tell us about yourself! Please include the instrument or teacher you're interested in."
                 sx={inputSx}
               />
 
@@ -181,21 +144,14 @@ const Contact = () => {
                   "Flyer / Poster",
                 ]}
                 sx={{
-                  "&.Mui-disabled .MuiOutlinedInput-root": {
-                    bgcolor: "#FFFBEF",
-                  },
+                  "&.Mui-disabled .MuiOutlinedInput-root": { bgcolor: "#FFFBEF" },
                   "&.Mui-disabled .MuiInputBase-input.Mui-disabled": {
                     WebkitTextFillColor: "#26394F",
                     color: "#26394F",
                   },
                 }}
                 renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    name="referral"
-                    placeholder="How Did You Hear About Us?"
-                    sx={inputSx}
-                  />
+                  <TextField {...params} name="referral" placeholder="How Did You Hear About Us?" sx={inputSx} />
                 )}
               />
 
@@ -223,23 +179,15 @@ const Contact = () => {
             </Box>
           </Grid>
 
-          {/* Right — Contact Info Card */}
+          {/* Right — Contact Info */}
           <Grid size={{ xs: 12, lg: 6 }}>
-            <Card
-              sx={{
-                bgcolor: "#AC3F30",
-                borderRadius: 2,
-                boxShadow: 6,
-              }}
-            >
+            <Card sx={{ bgcolor: "#AC3F30", borderRadius: 2, boxShadow: 6 }}>
               <CardContent sx={{ p: { xs: 4, md: 5 } }}>
-                <Typography variant="h4" sx={{ color: "#FFFBEF", mb: 4 }}>
+                <Typography variant="h4" sx={{ color: "#FFFBEF", mb: 4, fontStyle: "italic" }}>
                   Contact Us Directly:
                 </Typography>
 
-                <Box
-                  sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}
-                >
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
                   {[
                     { icon: <PhoneIcon />, text: "(705) 978-2131" },
                     {
@@ -249,10 +197,7 @@ const Contact = () => {
                     },
                     { icon: <LocationOnIcon />, text: "Toronto, ON" },
                   ].map((item, i) => (
-                    <Box
-                      key={i}
-                      sx={{ display: "flex", alignItems: "center", gap: 2 }}
-                    >
+                    <Box key={i} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                       <Box
                         sx={{
                           bgcolor: "#26394F",
@@ -313,36 +258,20 @@ const Contact = () => {
                     Follow Us
                   </Typography>
                   <Box sx={{ display: "flex", gap: 1 }}>
-                    <IconButton
-                      href="#"
-                      aria-label="Facebook"
-                      sx={{
-                        color: "#FFFBEF",
-                        "&:hover": { color: "rgba(255,251,239,0.7)" },
-                      }}
-                    >
-                      <FacebookIcon sx={{ fontSize: 28 }} />
-                    </IconButton>
-                    <IconButton
-                      href="#"
-                      aria-label="Instagram"
-                      sx={{
-                        color: "#FFFBEF",
-                        "&:hover": { color: "rgba(255,251,239,0.7)" },
-                      }}
-                    >
-                      <InstagramIcon sx={{ fontSize: 28 }} />
-                    </IconButton>
-                    <IconButton
-                      href="#"
-                      aria-label="YouTube"
-                      sx={{
-                        color: "#FFFBEF",
-                        "&:hover": { color: "rgba(255,251,239,0.7)" },
-                      }}
-                    >
-                      <YouTubeIcon sx={{ fontSize: 28 }} />
-                    </IconButton>
+                    {[
+                      { icon: <FacebookIcon sx={{ fontSize: 28 }} />, label: "Facebook" },
+                      { icon: <InstagramIcon sx={{ fontSize: 28 }} />, label: "Instagram" },
+                      { icon: <YouTubeIcon sx={{ fontSize: 28 }} />, label: "YouTube" },
+                    ].map((s) => (
+                      <IconButton
+                        key={s.label}
+                        href="#"
+                        aria-label={s.label}
+                        sx={{ color: "#FFFBEF", "&:hover": { color: "rgba(255,251,239,0.7)" } }}
+                      >
+                        {s.icon}
+                      </IconButton>
+                    ))}
                   </Box>
                 </Box>
               </CardContent>
@@ -370,4 +299,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Register;

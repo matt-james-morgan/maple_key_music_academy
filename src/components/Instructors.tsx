@@ -28,7 +28,7 @@ export const TeacherCard = ({ instructor }: { instructor: Teacher }) => (
         sx={{ aspectRatio: "1/1", objectFit: "cover", transition: "transform 0.3s" }}
       />
     </Box>
-    <CardContent sx={{ bgcolor: "#FFFBEF", px: 2.5, pt: 2, pb: 2.5, flexGrow: 1 }}>
+    <CardContent sx={{ bgcolor: "#FFFBEF", px: 2.5, pt: 2, pb: 2.5, flexGrow: 1, display: "flex", flexDirection: "column" }}>
       <Typography
         variant="h6"
         sx={{ color: "#26394F", fontVariant: "small-caps", fontStyle: "normal", mb: 0.5 }}
@@ -43,6 +43,7 @@ export const TeacherCard = ({ instructor }: { instructor: Teacher }) => (
           fontSize: "0.75rem",
           fontWeight: 600,
           mb: 2,
+          flexGrow: 1,
         }}
       >
         {instructor.specialty}
@@ -79,8 +80,6 @@ const Instructors = () => {
             sx={{
               color: "#26394F",
               mb: 3,
-              fontVariant: "small-caps",
-              fontStyle: "normal",
             }}
           >
             Meet Our Teachers
@@ -104,7 +103,7 @@ const Instructors = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={{ xs: 5, sm: 3 }}>
+        <Grid container spacing={{ xs: 2, sm: 3 }}>
           {featured.map((instructor) => (
             <Grid key={instructor.slug} size={{ xs: 12, sm: 6, lg: 4 }}>
               <TeacherCard instructor={instructor} />
