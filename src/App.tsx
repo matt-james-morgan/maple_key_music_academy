@@ -10,7 +10,7 @@ import TeacherBio from "./pages/TeacherBio";
 import NotFound from "./pages/NotFound";
 import Refer from "./pages/Refer";
 import PreRegister from "./pages/PreRegister";
-import Resources from "./pages/Resources";
+// import Resources from "./pages/Resources";
 import Register from "./pages/Register";
 import ProgramsPage from "./pages/Programs";
 import ProgramDetail from "./pages/ProgramDetail";
