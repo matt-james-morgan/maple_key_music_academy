@@ -96,11 +96,19 @@ const Contact = () => {
         (result) => {
           console.log("Email sent:", result.text);
           form.reset();
-          setToast({ open: true, severity: "success", message: "Message sent successfully!" });
+          setToast({
+            open: true,
+            severity: "success",
+            message: "Message sent successfully!",
+          });
         },
         (error) => {
           console.error("Email error:", error.text);
-          setToast({ open: true, severity: "error", message: "Something went wrong. Please try again." });
+          setToast({
+            open: true,
+            severity: "error",
+            message: "Something went wrong. Please try again.",
+          });
         },
       );
   };
@@ -182,7 +190,7 @@ const Contact = () => {
                 name="message"
                 multiline
                 rows={5}
-                placeholder="Insert your message. Please make sure to include the instrument or teacher you are interested in!"
+                placeholder="Insert your message!"
                 sx={inputSx}
               />
 
