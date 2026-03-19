@@ -179,13 +179,6 @@ const Contact = () => {
               />
               <TextField
                 fullWidth
-                name="subject"
-                placeholder="Subject Line"
-                required
-                sx={inputSx}
-              />
-              <TextField
-                fullWidth
                 name="message"
                 multiline
                 rows={5}
