@@ -61,8 +61,19 @@ const Footer = () => {
               >
                 Contact Us Directly
               </Typography>
-              <Typography sx={{ color: "rgba(255,251,239,0.8)", mb: 1 }}>
-                maplekeymusic.academy@gmail.com
+              <Typography
+                component="a"
+                href="mailto:maplekeymusic.academy@gmail.com"
+                sx={{
+                  color: "rgba(255,251,239,0.8)",
+                  mb: 1,
+                  display: "block",
+                  textDecoration: "none",
+                  overflowWrap: "anywhere",
+                  "&:hover": { textDecoration: "underline" },
+                }}
+              >
+                maplekeymusic.academy@<wbr />gmail.com
               </Typography>
               <Typography sx={{ color: "rgba(255,251,239,0.8)" }}>
                 Toronto, Ontario, Canada

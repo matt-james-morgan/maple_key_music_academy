@@ -22,6 +22,7 @@ import SendIcon from "@mui/icons-material/Send";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { INSTRUMENT_SUGGESTIONS } from "../data/instrumentOptions";
 
 const inputSx = {
   "& .MuiOutlinedInput-root": {
@@ -154,6 +155,30 @@ const Contact = () => {
               />
               <TextField
                 fullWidth
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="Phone Number"
+                required
+                sx={inputSx}
+              />
+              <Autocomplete
+                freeSolo
+                options={[...INSTRUMENT_SUGGESTIONS]}
+                sx={inputSx}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="instrument"
+                    placeholder="Instrument (or type your own)"
+                    required
+                    sx={inputSx}
+                  />
+                )}
+              />
+              <TextField
+                fullWidth
                 name="subject"
                 placeholder="Subject Line"
                 required
@@ -251,7 +276,12 @@ const Contact = () => {
                   ].map((item, i) => (
                     <Box
                       key={i}
-                      sx={{ display: "flex", alignItems: "center", gap: 2 }}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                        minWidth: 0,
+                      }}
                     >
                       <Box
                         sx={{
@@ -276,7 +306,9 @@ const Contact = () => {
                             fontSize: { xs: "0.7rem", md: "0.875rem" },
                             fontWeight: 500,
                             textDecoration: "none",
-                            wordBreak: "break-all",
+                            minWidth: 0,
+                            overflowWrap: "break-word",
+                            wordBreak: "break-word",
                             "&:hover": { textDecoration: "underline" },
                           }}
                         >

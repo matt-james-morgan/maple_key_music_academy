@@ -2,6 +2,7 @@ import { useParams, Link as RouterLink } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import type { FormEvent } from "react";
 import {
+  Autocomplete,
   Box,
   Container,
   Typography,
@@ -15,6 +16,7 @@ import {
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import teachers from "../data/teachers";
+import { INSTRUMENT_SUGGESTIONS } from "../data/instrumentOptions";
 
 const inputSx = (borderColor: string) => ({
   "& .MuiOutlinedInput-root": {
@@ -117,7 +119,7 @@ const TeacherBio = () => {
         sx={{
           bgcolor: "#96B3AD",
           pt: { xs: 16, md: 20 },
-          pb: { xs: 8, md: 12 },
+          pb: { xs: 8, md: 16 },
         }}
       >
         <Container maxWidth="lg">
@@ -127,7 +129,13 @@ const TeacherBio = () => {
 
           <Grid container spacing={{ xs: 2, lg: 8 }}>
             <Grid size={{ xs: 12, lg: 6 }}>
-              <Box sx={{ position: "relative", maxWidth: { xs: "100%", lg: 400 }, mb: { xs: "100px", lg: 0 } }}>
+              <Box
+                sx={{
+                  position: "relative",
+                  maxWidth: { xs: "100%", lg: 400 },
+                  mb: { xs: "100px", lg: 4 },
+                }}
+              >
                 <Box sx={{ borderRadius: 2, overflow: "hidden" }}>
                   <Box
                     component="img"
@@ -146,26 +154,33 @@ const TeacherBio = () => {
                   sx={{
                     position: "absolute",
                     bottom: 0,
-                    left: 16,
-                    right: 16,
-                    transform: "translateY(25%)",
+                    left: "50%",
+                    transform: "translate(-50%, 42%)",
+                    width: "calc(100% - 24px)",
+                    maxWidth: { xs: 320, md: 360 },
                     bgcolor: "#FFFBEF",
                     borderRadius: 2,
-                    px: 3,
-                    py: 2.5,
+                    border: "2px solid #AC3F30",
+                    px: { xs: 2, md: 3 },
+                    py: { xs: 2, md: 2.5 },
+                    pl: { xs: 3, md: 4 },
+                    pr: { xs: 3, md: 4 },
                     boxShadow: 3,
+                    textAlign: "center",
+                    overflow: "visible",
                   }}
                 >
                   <Typography
                     component="span"
                     sx={{
                       color: "#AC3F30",
-                      fontSize: "4.5rem",
-                      fontFamily: 'chippewa-falls, sans-serif',
+                      fontSize: { xs: "4.5rem", sm: "6rem", md: "10rem" },
+                      fontFamily: 'Georgia, "Times New Roman", serif',
+                      fontWeight: 700,
                       lineHeight: 0,
                       position: "absolute",
-                      top: 8,
-                      left: 12,
+                      left: { xs: "-2px", md: "-4px" },
+                      top: { xs: "15%", md: "20%" },
                     }}
                   >
                     &ldquo;
@@ -173,12 +188,13 @@ const TeacherBio = () => {
                   <Typography
                     sx={{
                       color: "#26394F",
-                      fontSize: "0.95rem",
+                      fontSize: { xs: "0.875rem", md: "1rem" },
                       fontFamily: "chippewa-falls, sans-serif",
                       lineHeight: 1.6,
                       fontStyle: "italic",
-                      px: 2.5,
-                      pt: 2,
+                      px: { xs: "1.25rem", sm: "1.75rem", md: "2.25rem" },
+                      pt: { xs: "1.5rem", md: "2rem" },
+                      pb: { xs: "1.25rem", md: "1.5rem" },
                     }}
                   >
                     {teacher.quote}
@@ -187,13 +203,13 @@ const TeacherBio = () => {
                     component="span"
                     sx={{
                       color: "#AC3F30",
-                      fontSize: "4.5rem",
-                      fontFamily: 'chippewa-falls, sans-serif',
+                      fontSize: { xs: "4.5rem", sm: "6rem", md: "10rem" },
+                      fontFamily: 'Georgia, "Times New Roman", serif',
+                      fontWeight: 700,
                       lineHeight: 0,
-                      display: "block",
-                      textAlign: "right",
-                      mt: -2,
-                      mr: 1,
+                      position: "absolute",
+                      right: { xs: "-2px", md: "-4px" },
+                      bottom: { xs: "-10%", md: "-18%" },
                     }}
                   >
                     &rdquo;
@@ -319,6 +335,30 @@ const TeacherBio = () => {
                 placeholder="Email Address"
                 required
                 sx={inputSx("#AC3F30")}
+              />
+              <TextField
+                fullWidth
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="Phone Number"
+                required
+                sx={inputSx("#AC3F30")}
+              />
+              <Autocomplete
+                freeSolo
+                options={[...INSTRUMENT_SUGGESTIONS]}
+                sx={inputSx("#AC3F30")}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="instrument"
+                    placeholder="Instrument (or type your own)"
+                    required
+                    sx={inputSx("#AC3F30")}
+                  />
+                )}
               />
               <TextField
                 fullWidth

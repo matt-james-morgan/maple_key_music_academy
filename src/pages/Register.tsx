@@ -22,6 +22,7 @@ import SendIcon from "@mui/icons-material/Send";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { INSTRUMENT_SUGGESTIONS } from "../data/instrumentOptions";
 
 const inputSx = {
   "& .MuiOutlinedInput-root": {
@@ -95,11 +96,31 @@ const Register = () => {
             fontSize: "0.75rem",
             textTransform: "uppercase",
             letterSpacing: "0.1em",
-            mb: 4,
+            mb: 1,
             lineHeight: 1.8,
           }}
         >
           Fill out the form below and we'll be in touch to get you started.
+        </Typography>
+        <Typography
+          sx={{
+            color: "#26394F",
+            fontSize: "0.7rem",
+            letterSpacing: "0.06em",
+            opacity: 0.85,
+            mb: 4,
+            lineHeight: 1.6,
+            textTransform: "none",
+          }}
+        >
+          <Box component="span" sx={{ fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            Required:
+          </Box>{" "}
+          name, email, and subject line.{" "}
+          <Box component="span" sx={{ fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            Optional:
+          </Box>{" "}
+          phone and instrument — adding them helps us respond faster.
         </Typography>
 
         <Grid container spacing={{ xs: 2, lg: 8 }} alignItems="flex-start">
@@ -121,6 +142,28 @@ const Register = () => {
               </Grid>
 
               <TextField fullWidth name="email" type="email" placeholder="Email Address" required sx={inputSx} />
+              <TextField
+                fullWidth
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="Phone Number (optional)"
+                sx={inputSx}
+              />
+              <Autocomplete
+                freeSolo
+                options={[...INSTRUMENT_SUGGESTIONS]}
+                sx={inputSx}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="instrument"
+                    placeholder="Instrument (optional)"
+                    sx={inputSx}
+                  />
+                )}
+              />
               <TextField fullWidth name="subject" placeholder="Subject Line" required sx={inputSx} />
               <TextField
                 fullWidth

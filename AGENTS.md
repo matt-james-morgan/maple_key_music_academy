@@ -49,6 +49,13 @@ pnpm lint      # Run ESLint
 pnpm preview   # Preview production build
 ```
 
+### EmailJS (local)
+
+Copy `.env.example` → `.env.local` and set all `VITE_EMAILJS_*` values. **Restart the dev server** after editing env.
+
+- **Pre-registration** uses `VITE_EMAILJS_PREREG_TEMPLATE_ID`. If it’s missing locally, the app falls back to `VITE_EMAILJS_TEMPLATE_ID` (email content may not match pre-reg fields).
+- If sends fail from **localhost**, open [EmailJS](https://www.emailjs.com/) → **Account** → **Security** → **Allowed list** / domain restrictions and allow `http://localhost:5173` (or your Vite port).
+
 ## Conventions
 
 - Use MUI components for all UI — avoid raw HTML elements where MUI equivalents exist.

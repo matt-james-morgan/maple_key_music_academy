@@ -2,19 +2,19 @@ import { Box, Container, Typography, Grid, Card, CardContent } from "@mui/materi
 
 const testimonials = [
   {
-    quote: "In the garden of life, some things are just very sweet. This is one of them.",
-    name: "Bill Kervin",
+    quote: "I started as a complete beginner and within a year I was playing songs I never thought I'd learn. The atmosphere here is so encouraging.",
+    name: "Marcus",
     role: "Guitar Student",
   },
   {
-    quote: "Your expectations will fly sky high. I felt like I was soaring.",
-    name: "Deborah Hyde",
-    role: "Vocal Student",
+    quote: "My daughter went from nervous to confident. The teachers here really know how to bring out the best in kids.",
+    name: "Jennifer",
+    role: "Parent",
   },
   {
-    quote: "Using this felt like it transformed me completely.",
-    name: "Virginia Woof",
-    role: "Squeak Student",
+    quote: "I've taken voice lessons elsewhere and this is the first place that made me feel like I could actually sing. Grateful to have found them.",
+    name: "David",
+    role: "Vocal Student",
   },
 ];
 

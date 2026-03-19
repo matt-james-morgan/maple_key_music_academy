@@ -77,6 +77,36 @@ const PreRegister = () => {
     e.preventDefault();
     const form = e.currentTarget;
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
+    const preregTemplate =
+      import.meta.env.VITE_EMAILJS_PREREG_TEMPLATE_ID?.trim() ||
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
+
+    if (!serviceId || !publicKey || !preregTemplate) {
+      console.error("[PreRegister] Missing EmailJS env:", {
+        VITE_EMAILJS_SERVICE_ID: Boolean(serviceId),
+        VITE_EMAILJS_PUBLIC_KEY: Boolean(publicKey),
+        VITE_EMAILJS_PREREG_TEMPLATE_ID: Boolean(import.meta.env.VITE_EMAILJS_PREREG_TEMPLATE_ID?.trim()),
+        VITE_EMAILJS_TEMPLATE_ID: Boolean(import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim()),
+      });
+      setToast({
+        open: true,
+        severity: "error",
+        message:
+          import.meta.env.DEV
+            ? "Email not configured locally. Set VITE_EMAILJS_* in .env.local and restart pnpm dev."
+            : "Something went wrong. Please try again or call us.",
+      });
+      return;
+    }
+
+    if (import.meta.env.DEV && !import.meta.env.VITE_EMAILJS_PREREG_TEMPLATE_ID?.trim()) {
+      console.warn(
+        "[PreRegister] VITE_EMAILJS_PREREG_TEMPLATE_ID is unset — using VITE_EMAILJS_TEMPLATE_ID. Create a pre-reg template in EmailJS and add the ID to .env.local.",
+      );
+    }
+
     // Inject hidden fields for days/times/preference
     const inject = (name: string, value: string) => {
       let el = form.querySelector(`input[name="${name}"]`) as HTMLInputElement | null;
@@ -89,18 +119,18 @@ const PreRegister = () => {
       el.value = value;
     };
 
+    const fd = new FormData(form);
+    const studentFirst = String(fd.get("student_first_name") ?? "").trim();
+    const studentLast = String(fd.get("student_last_name") ?? "").trim();
+    inject("subject", `Pre-registration: ${studentFirst} ${studentLast}`.trim());
+
     inject("schedule_preference", schedulePreference === "same" ? "Keep same time" : "Request new time");
     inject("preferred_days", selectedDays.length ? selectedDays.join(", ") : "N/A");
     inject("preferred_times", selectedTimes.length ? selectedTimes.join(", ") : "N/A");
     inject("time", new Date().toLocaleString());
 
     emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_PREREG_TEMPLATE_ID,
-        form,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
+      .sendForm(serviceId, preregTemplate, form, publicKey)
       .then(
         () => {
           form.reset();
@@ -109,8 +139,22 @@ const PreRegister = () => {
           setSelectedTimes([]);
           setToast({ open: true, severity: "success", message: "Pre-registration submitted! We'll be in touch soon." });
         },
-        () => {
-          setToast({ open: true, severity: "error", message: "Something went wrong. Please try again." });
+        (err: { status?: number; text?: string }) => {
+          console.error("[PreRegister] EmailJS error:", err?.status, err?.text ?? err);
+          const hint =
+            import.meta.env.DEV && err?.text
+              ? ` ${err.text}`
+              : import.meta.env.DEV && err?.status === 403
+                ? " Allow localhost: EmailJS → Account → Security → Allowed domains → add http://localhost:5173"
+                : "";
+          setToast({
+            open: true,
+            severity: "error",
+            message:
+              import.meta.env.DEV && (err?.text || err?.status === 403)
+                ? `Email failed.${hint}`
+                : "Something went wrong. Please try again.",
+          });
         },
       );
   };

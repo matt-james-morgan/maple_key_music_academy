@@ -16,10 +16,17 @@ import ProgramsPage from "./pages/Programs";
 import ProgramDetail from "./pages/ProgramDetail";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (pathname === "/" && hash === "#contact") {
+      // After Home mounts and paints, scroll to contact section
+      const raf = requestAnimationFrame(() => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return () => cancelAnimationFrame(raf);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 

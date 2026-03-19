@@ -18,9 +18,9 @@ const Quote = () => {
             mb: { xs: 4, md: 4 },
           }}
         >
-          "I was, nearly beside myself for the support and attention to detail.
-          What would it look like if the Earth was your canvas? I just have
-          lessons at Maple Key Music Academy."
+          "The teachers here really see each student. My kids have grown so much
+          — not just in skill, but in confidence. We're so glad we found
+          Maple Key Music Academy."
         </Typography>
         <Box
           sx={{
@@ -41,7 +41,7 @@ const Quote = () => {
             }}
           />
           <Typography sx={{ color: theme.palette.red.main, fontWeight: 500 }}>
-            Sarah Thompson
+            Sarah
           </Typography>
         </Box>
       </Container>
