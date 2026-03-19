@@ -11,6 +11,12 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import logo from "../assets/logo.png";
 
+const SOCIAL_LINKS = {
+  facebook: "https://www.facebook.com/61580407531156/",
+  instagram: "https://www.instagram.com/maple.key.music.academy/",
+  youtube: "https://www.youtube.com/channel/UCMqsn3yRl_gJJCjLrltpIWA",
+};
+
 const Footer = () => {
   const theme = useTheme();
   return (
@@ -102,21 +108,27 @@ const Footer = () => {
                 }}
               >
                 <IconButton
-                  href="#"
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                   sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}
                 >
                   <FacebookIcon />
                 </IconButton>
                 <IconButton
-                  href="#"
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}
                 >
                   <InstagramIcon />
                 </IconButton>
                 <IconButton
-                  href="#"
+                  href={SOCIAL_LINKS.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="YouTube"
                   sx={{ color: "#FFFBEF", "&:hover": { color: "#96B3AD" } }}
                 >
