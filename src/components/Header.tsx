@@ -8,16 +8,25 @@ import {
   IconButton,
   Drawer,
   Container,
+  Menu,
+  MenuItem,
   useTheme,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [moreAnchor, setMoreAnchor] = useState<null | HTMLElement>(null);
   const location = useLocation();
   const theme = useTheme();
   const isHome = location.pathname === "/";
+
+  const handleMoreOpen = (e: React.MouseEvent<HTMLElement>) =>
+    setMoreAnchor(e.currentTarget);
+  const handleMoreClose = () => setMoreAnchor(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const navLink = (hash: string) => (isHome ? hash : `/${hash}`);
@@ -61,12 +70,95 @@ const Header = () => {
               <Box component="a" href={navLink("#contact")} sx={navSx}>
                 Contact
               </Box>
-              <Box component={Link} to="/resources" sx={navSx}>
-                Resources
+
+              {/* More dropdown */}
+              <Box
+                onClick={handleMoreOpen}
+                sx={{
+                  ...navSx,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.25,
+                  cursor: "pointer",
+                  userSelect: "none",
+                }}
+              >
+                More
+                <KeyboardArrowDownIcon
+                  sx={{
+                    fontSize: "1.1rem",
+                    transition: "transform 0.2s",
+                    transform: moreAnchor ? "rotate(180deg)" : "rotate(0deg)",
+                  }}
+                />
               </Box>
-              <Box component={Link} to="/pre-register" sx={navSx}>
-                Pre-Register
-              </Box>
+              <Menu
+                anchorEl={moreAnchor}
+                open={Boolean(moreAnchor)}
+                onClose={handleMoreClose}
+                disableScrollLock
+                PaperProps={{
+                  elevation: 3,
+                  sx: {
+                    mt: 1,
+                    borderRadius: "10px",
+                    bgcolor: "#FFFBEF",
+                    minWidth: 180,
+                    border: "1px solid #e8e0cc",
+                  },
+                }}
+                transformOrigin={{ horizontal: "left", vertical: "top" }}
+                anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
+              >
+                <MenuItem
+                  component={Link}
+                  to="/pre-register"
+                  onClick={handleMoreClose}
+                  sx={{
+                    color: "#26394F",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    fontSize: "0.875rem",
+                    py: 1.5,
+                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                  }}
+                >
+                  Pre-Register
+                </MenuItem>
+                <MenuItem
+                  component={Link}
+                  to="/resources"
+                  onClick={handleMoreClose}
+                  sx={{
+                    color: "#26394F",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    fontSize: "0.875rem",
+                    py: 1.5,
+                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                  }}
+                >
+                  Resources
+                </MenuItem>
+                <MenuItem
+                  component={Link}
+                  to="/articles"
+                  onClick={handleMoreClose}
+                  sx={{
+                    color: "#26394F",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    fontSize: "0.875rem",
+                    py: 1.5,
+                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                  }}
+                >
+                  Articles
+                </MenuItem>
+              </Menu>
             </Box>
 
             <IconButton
@@ -214,6 +306,7 @@ const Header = () => {
             { label: "Teachers", href: "/teachers", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
             { label: "Resources", href: "/resources", isRoute: true },
+            { label: "Articles", href: "/articles", isRoute: true },
             { label: "Pre-Register", href: "/pre-register", isRoute: true },
           ].map((item) => (
             <Box

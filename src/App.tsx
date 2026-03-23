@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Refer from "./pages/Refer";
 import PreRegister from "./pages/PreRegister";
 import Resources from "./pages/Resources";
+import Articles from "./pages/Articles";
 import Register from "./pages/Register";
 import ProgramsPage from "./pages/Programs";
 import ProgramDetail from "./pages/ProgramDetail";
@@ -46,6 +47,7 @@ function App() {
             <Route path="/refer" element={<Refer />} />
             <Route path="/pre-register" element={<PreRegister />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Route>
