@@ -61,9 +61,9 @@ const Header = () => {
               <Box component="a" href={navLink("#contact")} sx={navSx}>
                 Contact
               </Box>
-              {/* <Box component={Link} to="/resources" sx={navSx}>
+              <Box component={Link} to="/resources" sx={navSx}>
                 Resources
-              </Box> */}
+              </Box>
               <Box component={Link} to="/pre-register" sx={navSx}>
                 Pre-Register
               </Box>
@@ -213,7 +213,7 @@ const Header = () => {
             { label: "Programs", href: "/programs", isRoute: true },
             { label: "Teachers", href: "/teachers", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
-            // { label: "Resources", href: "/resources", isRoute: true },
+            { label: "Resources", href: "/resources", isRoute: true },
             { label: "Pre-Register", href: "/pre-register", isRoute: true },
           ].map((item) => (
             <Box

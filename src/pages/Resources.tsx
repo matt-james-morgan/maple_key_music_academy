@@ -16,9 +16,10 @@ import resources, { categories } from "../data/resources";
 const Resources = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
+  const linked = resources.filter((r) => r.amazonUrl !== "REPLACE_WITH_AFFILIATE_LINK");
   const filtered = activeCategory
-    ? resources.filter((r) => r.category === activeCategory)
-    : resources;
+    ? linked.filter((r) => r.category === activeCategory)
+    : linked;
 
   return (
     <Box sx={{ bgcolor: "#96B3AD", minHeight: "100vh", pt: { xs: 14, md: 18 }, pb: { xs: 8, md: 12 } }}>
@@ -92,7 +93,22 @@ const Resources = () => {
                   border: "1px solid rgba(38,57,79,0.08)",
                 }}
               >
-                <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                {resource.image && (
+                  <Box
+                    component="img"
+                    src={resource.image}
+                    alt={resource.title}
+                    sx={{
+                      width: "100%",
+                      height: 180,
+                      objectFit: "contain",
+                      bgcolor: "#f5f0e0",
+                      p: 2,
+                      borderRadius: "8px 8px 0 0",
+                    }}
+                  />
+                )}
+              <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
                   <Typography
                     sx={{
                       color: "#AC3F30",
