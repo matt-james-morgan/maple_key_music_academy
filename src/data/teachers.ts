@@ -22,7 +22,7 @@ const teachers: Teacher[] = [
     slug: "beverley-rockwell",
     name: "Beverley Rockwell",
     firstName: "Beverley",
-    specialty: "Voice, Piano, Musical Theatre, Ukulele",
+    specialty: "Voice, Piano, Musical Theatre, Acting, Ukulele",
     image: BeverleyRockwellHeadshot,
     education: "BFA, University of Alberta",
     teachingDays: "Tuesday, Friday, Sunday",

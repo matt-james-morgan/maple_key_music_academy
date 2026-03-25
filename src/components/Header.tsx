@@ -158,6 +158,22 @@ const Header = () => {
                 >
                   Articles
                 </MenuItem>
+                <MenuItem
+                  component={Link}
+                  to="/testimonials"
+                  onClick={handleMoreClose}
+                  sx={{
+                    color: "#26394F",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    fontSize: "0.875rem",
+                    py: 1.5,
+                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                  }}
+                >
+                  Testimonials
+                </MenuItem>
               </Menu>
             </Box>
 
@@ -308,6 +324,7 @@ const Header = () => {
             { label: "Resources", href: "/resources", isRoute: true },
             { label: "Articles", href: "/articles", isRoute: true },
             { label: "Pre-Register", href: "/pre-register", isRoute: true },
+            { label: "Testimonials", href: "/testimonials", isRoute: true },
           ].map((item) => (
             <Box
               key={item.label}

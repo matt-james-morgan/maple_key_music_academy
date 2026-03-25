@@ -15,6 +15,7 @@ import Articles from "./pages/Articles";
 import Register from "./pages/Register";
 import ProgramsPage from "./pages/Programs";
 import ProgramDetail from "./pages/ProgramDetail";
+import Testimonials from "./pages/Testimonials";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -49,6 +50,7 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
