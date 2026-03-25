@@ -9,7 +9,6 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
   Snackbar,
   Alert,
 } from "@mui/material";
@@ -30,10 +29,22 @@ const inputSx = {
     color: "#26394F",
     py: 1.5,
   },
+  "& .MuiInputBase-inputMultiline": {
+    py: 0,
+  },
   "& .MuiInputBase-input::placeholder": {
     color: "rgba(38,57,79,0.5)",
     opacity: 1,
   },
+};
+
+const labelSx = {
+  color: "#26394F",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.1em",
+  fontSize: "0.75rem",
+  fontWeight: 700,
+  mb: 1,
 };
 
 const Testimonials = () => {
@@ -106,43 +117,31 @@ const Testimonials = () => {
           {/* Hidden field so EmailJS receives the teacher value */}
           <input type="hidden" name="teacher" value={teacher} />
 
-          <FormControl fullWidth required>
-            <InputLabel
-              sx={{
-                color: "rgba(38,57,79,0.5)",
-                fontSize: "0.75rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                "&.Mui-focused": { color: "#26394F" },
-              }}
-            >
-              Select a Teacher
-            </InputLabel>
+          <FormControl fullWidth>
+            <Typography sx={labelSx}>Select a Teacher</Typography>
             <Select
+              fullWidth
+              required
+              displayEmpty
               value={teacher}
-              label="Select a Teacher"
               onChange={(e) => setTeacher(e.target.value)}
               sx={{
                 bgcolor: "#FFFBEF",
                 borderRadius: 1,
                 fontSize: "0.75rem",
                 letterSpacing: "0.1em",
-                color: "#26394F",
+                color: teacher ? "#26394F" : "rgba(38,57,79,0.5)",
                 "& .MuiOutlinedInput-notchedOutline": { borderColor: "#26394F" },
                 "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "#26394F" },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "#26394F" },
+                "& .MuiSelect-select": { py: 1.5 },
               }}
             >
+              <MenuItem value="" disabled sx={{ fontSize: "0.75rem", letterSpacing: "0.1em", color: "rgba(38,57,79,0.5)" }}>
+                Choose a teacher...
+              </MenuItem>
               {teachers.map((t) => (
-                <MenuItem
-                  key={t.slug}
-                  value={t.name}
-                  sx={{
-                    fontSize: "0.8rem",
-                    letterSpacing: "0.08em",
-                    color: "#26394F",
-                  }}
-                >
+                <MenuItem key={t.slug} value={t.name} sx={{ fontSize: "0.8rem", letterSpacing: "0.08em", color: "#26394F" }}>
                   {t.name}
                 </MenuItem>
               ))}
