@@ -140,7 +140,7 @@ const Header = () => {
                     "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
                   }}
                 >
-                  Resources
+                  Purchase
                 </MenuItem>
                 <MenuItem
                   component={Link}
@@ -337,7 +337,7 @@ const Header = () => {
             { label: "Programs", href: "/programs", isRoute: true },
             { label: "Teachers", href: "/teachers", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
-            { label: "Resources", href: "/resources", isRoute: true },
+            { label: "Purchase", href: "/resources", isRoute: true },
             { label: "Articles", href: "/articles", isRoute: true },
             { label: "Pre-Register", href: "/pre-register", isRoute: true },
             { label: "Testimonials", href: "/testimonials", isRoute: true },

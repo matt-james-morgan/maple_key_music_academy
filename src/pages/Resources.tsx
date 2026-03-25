@@ -27,7 +27,7 @@ const Resources = () => {
 
         {/* Header */}
         <Typography variant="h2" sx={{ color: "#26394F", mb: 1, fontStyle: "italic" }}>
-          Recommended Resources
+          Purchase
         </Typography>
         <Typography
           sx={{
