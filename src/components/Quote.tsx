@@ -18,9 +18,8 @@ const Quote = () => {
             mb: { xs: 4, md: 4 },
           }}
         >
-          "The teachers here really see each student. My kids have grown so much
-          — not just in skill, but in confidence. We're so glad we found
-          Maple Key Music Academy."
+          "She truly is a ray of sunshine. We feel so lucky to have found
+          Maple Key Music Academy. Highly, highly recommend."
         </Typography>
         <Box
           sx={{
@@ -41,7 +40,7 @@ const Quote = () => {
             }}
           />
           <Typography sx={{ color: theme.palette.red.main, fontWeight: 500 }}>
-            Sarah
+            Lauren
           </Typography>
         </Box>
       </Container>
