@@ -80,8 +80,8 @@ const teachers: Teacher[] = [
     teachingDays: "Tuesday, Thursday, Saturday",
     bio: "James is an accomplished guitarist with expertise spanning classical, jazz, and contemporary styles. A graduate of York University's music program, James has been teaching guitar for over a decade. He is known for his ability to connect with students of all ages and skill levels, creating a supportive and inspiring learning environment. James is also an active performer and session musician in the Toronto music scene.",
     quote:
-      "I've tried a few teachers over the years. James is the one who finally got me playing songs I love instead of just exercises. Best decision I made.",
-    quoteAuthor: "Adult student",
+      "[Our teacher] has been nothing short of incredible. In just one year, he's taken Gemma from beginner to confidently playing both acoustic and electric guitar. He meets her where she's at, keeping lessons engaging with music she actually loves, while still pushing her to improve. We feel so lucky to have found him. Highly, highly recommend.",
+    quoteAuthor: "Lauren, parent of student",
   },
 ];
 
