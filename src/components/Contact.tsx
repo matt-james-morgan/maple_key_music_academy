@@ -360,7 +360,9 @@ const Contact = () => {
                       <FacebookIcon sx={{ fontSize: 28 }} />
                     </IconButton>
                     <IconButton
-                      href="#"
+                      href="https://www.instagram.com/maple.key.music.academy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Instagram"
                       sx={{
                         color: "#FFFBEF",

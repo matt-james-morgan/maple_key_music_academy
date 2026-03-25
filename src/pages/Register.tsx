@@ -304,13 +304,15 @@ const Register = () => {
                   </Typography>
                   <Box sx={{ display: "flex", gap: 1 }}>
                     {[
-                      { icon: <FacebookIcon sx={{ fontSize: 28 }} />, label: "Facebook" },
-                      { icon: <InstagramIcon sx={{ fontSize: 28 }} />, label: "Instagram" },
-                      { icon: <YouTubeIcon sx={{ fontSize: 28 }} />, label: "YouTube" },
+                      { icon: <FacebookIcon sx={{ fontSize: 28 }} />, label: "Facebook", href: "https://www.facebook.com/61580407531156/" },
+                      { icon: <InstagramIcon sx={{ fontSize: 28 }} />, label: "Instagram", href: "https://www.instagram.com/maple.key.music.academy/" },
+                      { icon: <YouTubeIcon sx={{ fontSize: 28 }} />, label: "YouTube", href: "https://www.youtube.com/channel/UCMqsn3yRl_gJJCjLrltpIWA" },
                     ].map((s) => (
                       <IconButton
                         key={s.label}
-                        href="#"
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label={s.label}
                         sx={{ color: "#FFFBEF", "&:hover": { color: "rgba(255,251,239,0.7)" } }}
                       >
