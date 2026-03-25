@@ -18,8 +18,7 @@ const Quote = () => {
             mb: { xs: 4, md: 4 },
           }}
         >
-          "She truly is a ray of sunshine. We feel so lucky to have found
-          Maple Key Music Academy. Highly, highly recommend."
+          "[Our teacher] is fun, encouraging, and has a natural ability to keep kids engaged—even when multiple siblings or friends join in. They handle it all with ease and keep the experience joyful and productive."
         </Typography>
         <Box
           sx={{
