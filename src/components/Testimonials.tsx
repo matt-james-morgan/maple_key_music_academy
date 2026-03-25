@@ -41,7 +41,7 @@ const Testimonials = () => {
 
         <Grid container spacing={3}>
           {testimonials.map((t, i) => (
-            <Grid key={i} size={{ xs: 12, md: 4 }}>
+            <Grid key={i} size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
               <Card
                 sx={{
                   bgcolor: "#FFFBEF",
@@ -50,7 +50,7 @@ const Testimonials = () => {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  aspectRatio: "1/1",
+                  width: "100%",
                   border: 2,
                   borderColor: i % 2 === 0 ? "#AC3F30" : "#26394F",
                   boxShadow: 1,
