@@ -116,7 +116,7 @@ const Register = () => {
           <Box component="span" sx={{ fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
             Required:
           </Box>{" "}
-          name, email, and subject line.{" "}
+          name and email.{" "}
           <Box component="span" sx={{ fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
             Optional:
           </Box>{" "}
@@ -164,7 +164,6 @@ const Register = () => {
                   />
                 )}
               />
-              <TextField fullWidth name="subject" placeholder="Subject Line" required sx={inputSx} />
               <TextField
                 fullWidth
                 name="message"
