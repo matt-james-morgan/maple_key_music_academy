@@ -1,6 +1,6 @@
 import { useParams, Link as RouterLink } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import type { FormEvent } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import {
   Autocomplete,
   Box,
@@ -42,6 +42,19 @@ const inputSx = (borderColor: string) => ({
 const TeacherBio = () => {
   const { slug } = useParams<{ slug: string }>();
   const teacher = teachers.find((t) => t.slug === slug);
+
+  const allImages = teacher
+    ? [teacher.image, ...(teacher.extraImages ?? [])]
+    : [];
+  const [imgIndex, setImgIndex] = useState(0);
+
+  useEffect(() => {
+    if (allImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setImgIndex((i) => (i + 1) % allImages.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [allImages.length]);
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -136,18 +149,25 @@ const TeacherBio = () => {
                   mb: { xs: "100px", lg: 4 },
                 }}
               >
-                <Box sx={{ borderRadius: 2, overflow: "hidden" }}>
-                  <Box
-                    component="img"
-                    src={teacher.image}
-                    alt={teacher.name}
-                    sx={{
-                      width: "100%",
-                      aspectRatio: "3/4",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                  />
+                <Box sx={{ borderRadius: 2, overflow: "hidden", position: "relative", width: "100%", aspectRatio: "3/4" }}>
+                  {allImages.map((src, i) => (
+                    <Box
+                      key={src}
+                      component="img"
+                      src={src}
+                      alt={teacher.name}
+                      sx={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                        opacity: i === imgIndex ? 1 : 0,
+                        transition: "opacity 1s ease-in-out",
+                      }}
+                    />
+                  ))}
                 </Box>
 
                 <Box
