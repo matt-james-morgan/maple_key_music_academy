@@ -350,7 +350,9 @@ const Contact = () => {
                   </Typography>
                   <Box sx={{ display: "flex", gap: 1 }}>
                     <IconButton
-                      href="#"
+                      href="https://www.facebook.com/61580407531156/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Facebook"
                       sx={{
                         color: "#FFFBEF",
@@ -372,7 +374,9 @@ const Contact = () => {
                       <InstagramIcon sx={{ fontSize: 28 }} />
                     </IconButton>
                     <IconButton
-                      href="#"
+                      href="https://www.youtube.com/channel/UCMqsn3yRl_gJJCjLrltpIWA"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="YouTube"
                       sx={{
                         color: "#FFFBEF",
