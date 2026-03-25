@@ -2,9 +2,9 @@ import { Box, Container, Typography, Grid, Card, CardContent } from "@mui/materi
 
 const testimonials = [
   {
-    quote: "I started as a complete beginner and within a year I was playing songs I never thought I'd learn. The atmosphere here is so encouraging.",
-    name: "Marcus",
-    role: "Guitar Student",
+    quote: "In just one year, our daughter went from a complete beginner to confidently playing both acoustic and electric guitar. The teaching style builds confidence and keeps lessons fun — she genuinely looks forward to every session. Highly, highly recommend.",
+    name: "Lauren",
+    role: "Parent of Guitar Student",
   },
   {
     quote: "My daughter went from nervous to confident. The teachers here really know how to bring out the best in kids.",
