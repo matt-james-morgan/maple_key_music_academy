@@ -3,6 +3,7 @@ import JohnKervinHeadshot from "../assets/johnKervinHeadshot.jpg";
 import BeverleyRockwellHeadshot from "../assets/beverleyRockwellHeadshot.jpg";
 import AndrewMcCarthyHeadshot from "../assets/andrewMcCarthyHeadshot.jpg";
 import SamHarrisonHeadshot from "../assets/samHarrisonHeadshot.jpeg";
+import JakobDurstHeadshot from "../assets/jakobDurstHeadshot.jpeg";
 
 export interface Teacher {
   slug: string;
@@ -69,6 +70,19 @@ const teachers: Teacher[] = [
     quote:
       "Andrew makes drumming so much fun! He's patient, encouraging, and always pushes me to be better. I actually look forward to practising now.",
     quoteAuthor: "Student",
+  },
+  {
+    slug: "jakob-durst",
+    name: "Jakob Durst",
+    firstName: "Jakob",
+    specialty: "Piano, Saxophone",
+    image: JakobDurstHeadshot,
+    education: "HBSc Human Biology, University of Toronto",
+    teachingDays: "Monday, Wednesday, Friday",
+    bio: "Jakob believes that music is a wonderful source of fun, community, and self-improvement. He brings a comfortable and engaging presence to his lessons that make for an enjoyable experience across all ages and musical disciplines. As a freelance musician in Toronto, Jakob regularly leads his own bands at venues across the city and throughout Ontario. He has held multiple residencies at The Rex Jazz and Blues Bar (Toronto), The Jazz Bistro (Toronto), Manhattans Music Club (Guelph), and The Jazz Room (Waterloo). Festival appearances and sideman work around town also frequent Jakob's musical calendar, and he has performed with many of the finest Jazz musicians that Canada has to offer, including Terry Clarke, Neil Swainson, Reg Schwager, and many others. Jakob is also a recent graduate of the University of Toronto's Human Biology undergraduate program, bringing an analytical curiosity and love of learning to everything he does.",
+    quote:
+      "Jakob has such a natural ability to connect with students. His calm, encouraging style makes every lesson feel fun and productive — my son genuinely looks forward to it every week.",
+    quoteAuthor: "Parent of student",
   },
   {
     slug: "james-kilby",
