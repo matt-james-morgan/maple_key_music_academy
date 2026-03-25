@@ -28,8 +28,8 @@ const teachers: Teacher[] = [
     teachingDays: "Tuesday, Friday, Sunday",
     bio: "Beverley has been a performer from a very young age. It all started when she crashed her mother's voice studio recital singing The Little Mermaid at 3 years old. After 10 years of piano lessons culminating into her Grade 9 RCM in piano, 12+ years of dance classes, choir, and voice lessons, they pursued a Bachelor of Fine Arts in Acting from the University of Alberta, and graduated with distinction. Throughout her life, Beverley has had the opportunity to teach students in musical theatre, dance, acting, voice, piano, guitar, and ukulele, in both group and one-on-one sessions. They also are an avid songwriter, and are currently teaching themselves how to play the accordion.",
     quote:
-      "Beverley made my daughter come out of her shell. She went from being too shy to sing in front of us to belting out songs from the kitchen. We're so grateful we found her.",
-    quoteAuthor: "Parent of student",
+      "Bev is an absolutely incredible singing teacher. She helped my daughter get into a very challenging and competitive theatre group. She truly is a ray of sunshine, and we feel so lucky to have her!",
+    quoteAuthor: "Lauren, parent of student",
   },
   {
     slug: "john-kervin",
