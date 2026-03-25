@@ -10,9 +10,6 @@ import {
   TextField,
   Button,
   Card,
-  Checkbox,
-  FormControlLabel,
-  Link,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import teachers from "../data/teachers";
@@ -396,38 +393,6 @@ const TeacherBio = () => {
                 sx={inputSx("#AC3F30")}
               />
 
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="terms"
-                    required
-                    sx={{
-                      color: "#AC3F30",
-                      "&.Mui-checked": { color: "#AC3F30" },
-                    }}
-                  />
-                }
-                label={
-                  <Typography
-                    sx={{
-                      fontSize: "0.75rem",
-                      color: "#26394F",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    I've read and agree with{" "}
-                    <Link href="#" sx={{ fontWeight: 600, color: "#26394F" }}>
-                      Terms
-                    </Link>
-                    {" & "}
-                    <Link href="#" sx={{ fontWeight: 600, color: "#26394F" }}>
-                      Privacy Policy
-                    </Link>
-                    .
-                  </Typography>
-                }
-              />
 
               <Box sx={{ pt: 1 }}>
                 <Button
