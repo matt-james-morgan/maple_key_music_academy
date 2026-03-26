@@ -49,6 +49,18 @@ export const TeacherCard = ({ instructor }: { instructor: Teacher }) => (
         {instructor.specialty}
       </Typography>
       <Typography
+        sx={{
+          color: "#26394F",
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+          fontSize: "0.7rem",
+          mb: 1.5,
+          opacity: 0.7,
+        }}
+      >
+        {instructor.location}
+      </Typography>
+      <Typography
         className="learn-more"
         sx={{
           color: "#26394F",

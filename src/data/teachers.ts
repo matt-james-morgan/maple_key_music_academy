@@ -5,6 +5,12 @@ import AndrewMcCarthyHeadshot from "../assets/andrewMcCarthyHeadshot.jpg";
 import SamHarrisonHeadshot from "../assets/samHarrisonHeadshot.jpeg";
 import JakobDurstHeadshot from "../assets/jakobDurstHeadshot.jpeg";
 import JakobDurstPerformance from "../assets/jakobDurstPerformance.jpeg";
+import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
+
+export interface Project {
+  name: string;
+  url?: string;
+}
 
 export interface Teacher {
   slug: string;
@@ -14,10 +20,12 @@ export interface Teacher {
   image: string;
   extraImages?: string[];
   education: string;
+  location: string;
   teachingDays: string;
   bio: string;
   quote: string;
   quoteAuthor: string;
+  projects?: Project[];
 }
 
 const teachers: Teacher[] = [
@@ -28,6 +36,7 @@ const teachers: Teacher[] = [
     specialty: "Voice, Piano, Musical Theatre, Acting, Ukulele",
     image: BeverleyRockwellHeadshot,
     education: "BFA, University of Alberta",
+    location: "Toronto",
     teachingDays: "Tuesday, Friday, Sunday",
     bio: "Beverley has been a performer from a very young age. It all started when she crashed her mother's voice studio recital singing The Little Mermaid at 3 years old. After 10 years of piano lessons culminating into her Grade 9 RCM in piano, 12+ years of dance classes, choir, and voice lessons, they pursued a Bachelor of Fine Arts in Acting from the University of Alberta, and graduated with distinction. Throughout her life, Beverley has had the opportunity to teach students in musical theatre, dance, acting, voice, piano, guitar, and ukulele, in both group and one-on-one sessions. They also are an avid songwriter, and are currently teaching themselves how to play the accordion.",
     quote:
@@ -41,11 +50,16 @@ const teachers: Teacher[] = [
     specialty: "Piano, Banjo",
     image: JohnKervinHeadshot,
     education: "BMus, University of Toronto",
+    location: "Toronto",
     teachingDays: "Monday, Wednesday, Saturday",
     bio: "John is a versatile musician with a deep passion for both classical and folk traditions. With over 15 years of teaching experience, he brings warmth and patience to every lesson. John holds a Bachelor of Music from the University of Toronto and has performed extensively across Ontario. He believes in building a strong foundation while keeping lessons fun and engaging for students of all ages.",
     quote:
       "John has been an incredible teacher for my son. His patience and the way he makes even scales feel like a game — we couldn't ask for more.",
     quoteAuthor: "Parent of student",
+    projects: [
+      { name: "Duke Street Turnaround", url: "https://dukestreetturnaround.ca/" },
+      { name: "Duke Street Turnaround on Spotify", url: "https://open.spotify.com/artist/3jspX5rU9NSctWPEphgDBN" },
+    ],
   },
   {
     slug: "sam-harrison",
@@ -54,6 +68,7 @@ const teachers: Teacher[] = [
     specialty: "Cello, Piano",
     image: SamHarrisonHeadshot,
     education: "MMus, Royal Conservatory of Music",
+    location: "Toronto",
     teachingDays: "Monday, Thursday, Saturday",
     bio: "Sam is a classically trained cellist and pianist with a Master of Music from the Royal Conservatory. With a deep love for chamber music and orchestral performance, Sam brings a wealth of experience to every lesson. They have performed with several orchestras across Canada and are dedicated to helping students discover the beauty of string instruments. Sam's teaching style emphasizes musicality, technique, and the joy of making music.",
     quote:
@@ -67,6 +82,7 @@ const teachers: Teacher[] = [
     specialty: "Drums",
     image: AndrewMcCarthyHeadshot,
     education: "Humber College Music Program",
+    location: "Toronto",
     teachingDays: "Wednesday, Friday, Sunday",
     bio: "Andrew is a dynamic drummer and percussionist who has been playing since the age of 8. A graduate of Humber College's renowned music program, Andrew has toured across Canada and the United States with various bands spanning rock, jazz, and funk genres. His teaching approach focuses on groove, timing, and musicality, helping students develop their own unique style while building solid technical foundations.",
     quote:
@@ -81,6 +97,7 @@ const teachers: Teacher[] = [
     image: JakobDurstHeadshot,
     extraImages: [JakobDurstPerformance],
     education: "HBSc Human Biology, University of Toronto",
+    location: "Toronto",
     teachingDays: "Monday, Wednesday, Friday",
     bio: "Jakob believes that music is a wonderful source of fun, community, and self-improvement. He brings a comfortable and engaging presence to his lessons that make for an enjoyable experience across all ages and musical disciplines. As a freelance musician in Toronto, Jakob regularly leads his own bands at venues across the city and throughout Ontario. He has held multiple residencies at The Rex Jazz and Blues Bar (Toronto), The Jazz Bistro (Toronto), Manhattans Music Club (Guelph), and The Jazz Room (Waterloo). Festival appearances and sideman work around town also frequent Jakob's musical calendar, and he has performed with many of the finest Jazz musicians that Canada has to offer, including Terry Clarke, Neil Swainson, Reg Schwager, and many others. Jakob is also a recent graduate of the University of Toronto's Human Biology undergraduate program, bringing an analytical curiosity and love of learning to everything he does.",
     quote:
@@ -94,11 +111,31 @@ const teachers: Teacher[] = [
     specialty: "Guitar",
     image: JamesKilbyHeadshot,
     education: "BMus, York University",
+    location: "Toronto",
     teachingDays: "Tuesday, Thursday, Saturday",
     bio: "James is an accomplished guitarist with expertise spanning classical, jazz, and contemporary styles. A graduate of York University's music program, James has been teaching guitar for over a decade. He is known for his ability to connect with students of all ages and skill levels, creating a supportive and inspiring learning environment. James is also an active performer and session musician in the Toronto music scene.",
     quote:
       "[Our teacher] has been nothing short of incredible. In just one year, he's taken Gemma from beginner to confidently playing both acoustic and electric guitar. He meets her where she's at, keeping lessons engaging with music she actually loves, while still pushing her to improve. We feel so lucky to have found him. Highly, highly recommend.",
     quoteAuthor: "Lauren, parent of student",
+    projects: [
+      { name: "YouTube", url: "https://www.youtube.com/@JamesKilbyGuitar1" },
+    ],
+  },
+  {
+    slug: "simon-pequegnat",
+    name: "Simon Pequegnat",
+    firstName: "Simon",
+    specialty: "Music, Composition",
+    image: SimonPequegnatHeadshot,
+    education: "BSc Physics & Music, University of Guelph",
+    location: "Guelph",
+    teachingDays: "TBD",
+    bio: "Simon maintains an active performance career, recently playing at Guelph's Hillside Festival among other local shows. He's also been a musician in numerous RCMPI musicals, most recently Legally Blonde and School of Rock. Combining his formal music training at the University of Guelph, ongoing teaching experience in music, math and physics, and his stage and composition experience, Simon approaches teaching with a practical, performer-centred mindset.",
+    quote: "Simon's performer-centred approach makes every lesson feel real and relevant.",
+    quoteAuthor: "Student",
+    projects: [
+      { name: "Excuse Me", url: "https://open.spotify.com/artist/4dM5ORquq4Wp41hQaqZLy5" },
+    ],
   },
 ];
 

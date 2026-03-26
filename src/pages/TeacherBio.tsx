@@ -270,6 +270,21 @@ const TeacherBio = () => {
                   fontSize: "0.75rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
+                  mb: 0.5,
+                }}
+              >
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Location:
+                </Box>{" "}
+                {teacher.location}
+              </Typography>
+
+              <Typography
+                sx={{
+                  color: "#26394F",
+                  fontSize: "0.75rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
                   mb: 4,
                 }}
               >
@@ -290,6 +305,47 @@ const TeacherBio = () => {
               >
                 {teacher.bio}
               </Typography>
+
+              {teacher.projects && teacher.projects.length > 0 && (
+                <Box sx={{ mt: 3 }}>
+                  <Typography
+                    sx={{
+                      color: "#26394F",
+                      fontSize: "0.75rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      fontWeight: 600,
+                      mb: 1,
+                    }}
+                  >
+                    Projects:
+                  </Typography>
+                  {teacher.projects.map((project) => (
+                    <Typography
+                      key={project.name}
+                      sx={{
+                        color: "#26394F",
+                        fontSize: "0.75rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {project.url ? (
+                        <Link
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{ color: "#AC3F30" }}
+                        >
+                          {project.name}
+                        </Link>
+                      ) : (
+                        project.name
+                      )}
+                    </Typography>
+                  ))}
+                </Box>
+              )}
             </Grid>
           </Grid>
         </Container>
