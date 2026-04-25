@@ -17,6 +17,7 @@ const allPrograms = [
   "Cello",
   "Drums",
   "Guitar",
+  "Music Production",
   "Musical Theatre",
   "Piano",
   "Ukulele",

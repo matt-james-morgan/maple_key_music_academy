@@ -1,4 +1,3 @@
-import JamesKilbyHeadshot from "../assets/jamesKilbyHeadshot.jpg";
 import JohnKervinHeadshot from "../assets/johnKervinHeadshot.jpg";
 import BeverleyRockwellHeadshot from "../assets/beverleyRockwellHeadshot.jpg";
 import AndrewMcCarthyHeadshot from "../assets/andrewMcCarthyHeadshot.jpg";
@@ -6,6 +5,8 @@ import SamHarrisonHeadshot from "../assets/samHarrisonHeadshot.jpeg";
 import JakobDurstHeadshot from "../assets/jakobDurstHeadshot.jpeg";
 import JakobDurstPerformance from "../assets/jakobDurstPerformance.jpeg";
 import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
+import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
+import DannyWebsterHeadshot from "../assets/dannyWebsterHeadshot.jpeg";
 
 export interface Project {
   name: string;
@@ -105,23 +106,6 @@ const teachers: Teacher[] = [
     quoteAuthor: "Parent of student",
   },
   {
-    slug: "james-kilby",
-    name: "James Kilby",
-    firstName: "James",
-    specialty: "Guitar",
-    image: JamesKilbyHeadshot,
-    education: "BMus, York University",
-    location: "Toronto",
-    teachingDays: "Tuesday, Thursday, Saturday",
-    bio: "James is an accomplished guitarist with expertise spanning classical, jazz, and contemporary styles. A graduate of York University's music program, James has been teaching guitar for over a decade. He is known for his ability to connect with students of all ages and skill levels, creating a supportive and inspiring learning environment. James is also an active performer and session musician in the Toronto music scene.",
-    quote:
-      "[Our teacher] has been nothing short of incredible. In just one year, he's taken Gemma from beginner to confidently playing both acoustic and electric guitar. He meets her where she's at, keeping lessons engaging with music she actually loves, while still pushing her to improve. We feel so lucky to have found him. Highly, highly recommend.",
-    quoteAuthor: "Lauren, parent of student",
-    projects: [
-      { name: "YouTube", url: "https://www.youtube.com/@JamesKilbyGuitar1" },
-    ],
-  },
-  {
     slug: "simon-pequegnat",
     name: "Simon Pequegnat",
     firstName: "Simon",
@@ -135,6 +119,39 @@ const teachers: Teacher[] = [
     quoteAuthor: "Student",
     projects: [
       { name: "Excuse Me", url: "https://open.spotify.com/artist/4dM5ORquq4Wp41hQaqZLy5" },
+    ],
+  },
+  {
+    slug: "danny-webster",
+    name: "Danny Webster",
+    firstName: "Danny",
+    specialty: "Guitar, Bass, Piano, Songwriting, Theory, Music Production",
+    image: DannyWebsterHeadshot,
+    education: "Humber College Jazz Program",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Danny Webster is a Toronto based guitarist, bassist, piano player, songwriter and producer. He has released several albums and singles as an artist, and frequently performs across Toronto. He has been playing music since he was a kid, and studied in Humber College's jazz program. He excels in theory, songwriting/composition and producing as a multi-instrumentalist.",
+    quote: "Danny's breadth as a multi-instrumentalist and his real-world experience as a producer make his lessons incredibly valuable.",
+    quoteAuthor: "Student",
+    projects: [
+      { name: "Danny Webster on Spotify", url: "https://open.spotify.com/artist/2kdLbcTDC7Jlq0OBhnIPpX" },
+    ],
+  },
+  {
+    slug: "lila-wright",
+    name: "Lila Wright",
+    firstName: "Lila",
+    specialty: "Voice, Guitar, Ukulele, Piano, Theory",
+    image: LilaWrightHeadshot,
+    education: "Degree in Early Childhood Education",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Lila Wright is a musician and passionate music instructor based in Toronto. She is the lead singer of indie-pop band Meteor Heist, and holds a degree in Early Childhood Education. Lila specializes in vocal technique and vocal health and loves to share her passion with students of all ages. She teaches Voice, Guitar, Ukulele, Piano, and Theory.",
+    quote: "Lila's passion for music and deep knowledge of vocal health make her lessons both inspiring and transformative.",
+    quoteAuthor: "Student",
+    projects: [
+      { name: "Meteor Heist", url: "https://meteorheist.bandzoogle.com/" },
+      { name: "Meteor Heist on Spotify", url: "https://open.spotify.com/artist/4zbFY2OtTRQAMrwXyKA0Xx" },
     ],
   },
 ];

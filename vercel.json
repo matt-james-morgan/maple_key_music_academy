@@ -1,3 +1,18 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "maple-key-music-academy.vercel.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "maple-key-music-academy.vercel.app" }],
+      "destination": "https://maplekeymusic.ca/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
