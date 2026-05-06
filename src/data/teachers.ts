@@ -7,6 +7,7 @@ import JakobDurstPerformance from "../assets/jakobDurstPerformance.jpeg";
 import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
 import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
 import DannyWebsterHeadshot from "../assets/dannyWebsterHeadshot.jpeg";
+import MikeFreemanHeadshot from "../assets/freeman-headshot.png";
 
 export interface Project {
   name: string;
@@ -152,6 +153,25 @@ const teachers: Teacher[] = [
     projects: [
       { name: "Meteor Heist", url: "https://meteorheist.bandzoogle.com/" },
       { name: "Meteor Heist on Spotify", url: "https://open.spotify.com/artist/4zbFY2OtTRQAMrwXyKA0Xx" },
+    ],
+  },
+  {
+    slug: "mike-freeman",
+    name: "Mike Freeman",
+    firstName: "Mike",
+    specialty: "Guitar, Voice",
+    image: MikeFreemanHeadshot,
+    education: "Former Data Science Professor",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Mike Freeman is a Toronto-based guitarist, vocalist, and music educator. As a former Professor of Data Science, Mike is passionate about developing learning resources that guide people of any ability through complex and exciting topics. An enthusiastic performer and instructor, Mike loves sharing the fun and joy of music. He is the lead vocalist and guitar player for the progressive bluegrass band Maywater. While bluegrass is his personal passion, he has a background in folk, rock, finger-picking, and other styles. He is also a parent of two, so he brings first-hand experience to helping young people find the fun amidst the challenges of learning music.",
+    quote: "Mike's enthusiasm is contagious — he makes learning guitar feel like an adventure, not a chore.",
+    quoteAuthor: "Student",
+    projects: [
+      { name: "Mike Freeman Music", url: "https://mikefreemanmusic.ca/" },
+      { name: "Maywater", url: "https://maywater.ca/" },
+      { name: "Maywater on YouTube", url: "https://www.youtube.com/playlist?list=PLU9m8NOKsTnHstdlJp5k-ayzSl2sOsbZk" },
+      { name: "Jam Cards", url: "https://jamcards.ca/" },
     ],
   },
 ];

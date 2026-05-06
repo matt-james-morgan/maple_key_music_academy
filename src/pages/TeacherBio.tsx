@@ -139,15 +139,16 @@ const TeacherBio = () => {
           </Typography>
 
           <Grid container spacing={{ xs: 2, lg: 8 }}>
-            <Grid size={{ xs: 12, lg: 6 }}>
+            {/* Image */}
+            <Grid size={{ xs: 5, sm: 4, lg: 6 }}>
               <Box
                 sx={{
                   position: "relative",
                   maxWidth: { xs: "100%", lg: 400 },
-                  mb: { xs: "100px", lg: 4 },
+                  mb: { xs: 0, lg: "100px" },
                 }}
               >
-                <Box sx={{ borderRadius: 2, overflow: "hidden", position: "relative", width: "100%", aspectRatio: "3/4" }}>
+                <Box sx={{ borderRadius: 2, overflow: "hidden", position: "relative", width: "100%", aspectRatio: { xs: "4/5", lg: "3/4" } }}>
                   {allImages.map((src, i) => (
                     <Box
                       key={src}
@@ -160,6 +161,7 @@ const TeacherBio = () => {
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
+                        objectPosition: "center top",
                         display: "block",
                         opacity: i === imgIndex ? 1 : 0,
                         transition: "opacity 1s ease-in-out",
@@ -168,22 +170,21 @@ const TeacherBio = () => {
                   ))}
                 </Box>
 
+                {/* Quote card — desktop only, overlapping image */}
                 <Box
                   sx={{
+                    display: { xs: "none", lg: "block" },
                     position: "absolute",
                     bottom: 0,
                     left: "50%",
                     transform: "translate(-50%, 42%)",
                     width: "calc(100% - 24px)",
-                    maxWidth: { xs: 320, md: 360 },
+                    maxWidth: 360,
                     bgcolor: "#FFFBEF",
                     borderRadius: 2,
                     border: "2px solid #AC3F30",
-                    px: { xs: 2, md: 3 },
-                    py: { xs: 2, md: 2.5 },
-                    pl: { xs: 3, md: 4 },
-                    pr: { xs: 3, md: 4 },
-                    boxShadow: 3,
+                    px: 4,
+                    py: 2.5,
                     textAlign: "center",
                     overflow: "visible",
                   }}
@@ -192,13 +193,13 @@ const TeacherBio = () => {
                     component="span"
                     sx={{
                       color: "#AC3F30",
-                      fontSize: { xs: "4.5rem", sm: "6rem", md: "10rem" },
+                      fontSize: "10rem",
                       fontFamily: 'Georgia, "Times New Roman", serif',
                       fontWeight: 700,
                       lineHeight: 0,
                       position: "absolute",
-                      left: { xs: "-2px", md: "-4px" },
-                      top: { xs: "15%", md: "20%" },
+                      left: "-4px",
+                      top: "20%",
                     }}
                   >
                     &ldquo;
@@ -206,13 +207,13 @@ const TeacherBio = () => {
                   <Typography
                     sx={{
                       color: "#26394F",
-                      fontSize: { xs: "0.875rem", md: "1rem" },
+                      fontSize: "1rem",
                       fontFamily: "chippewa-falls, sans-serif",
                       lineHeight: 1.6,
                       fontStyle: "italic",
-                      px: { xs: "1.25rem", sm: "1.75rem", md: "2.25rem" },
-                      pt: { xs: "1.5rem", md: "2rem" },
-                      pb: { xs: "1.25rem", md: "1.5rem" },
+                      px: "2.25rem",
+                      pt: "2rem",
+                      pb: "1.5rem",
                     }}
                   >
                     {teacher.quote}
@@ -221,13 +222,13 @@ const TeacherBio = () => {
                     component="span"
                     sx={{
                       color: "#AC3F30",
-                      fontSize: { xs: "4.5rem", sm: "6rem", md: "10rem" },
+                      fontSize: "10rem",
                       fontFamily: 'Georgia, "Times New Roman", serif',
                       fontWeight: 700,
                       lineHeight: 0,
                       position: "absolute",
-                      right: { xs: "-2px", md: "-4px" },
-                      bottom: { xs: "-10%", md: "-18%" },
+                      right: "-4px",
+                      bottom: "-18%",
                     }}
                   >
                     &rdquo;
@@ -236,16 +237,17 @@ const TeacherBio = () => {
               </Box>
             </Grid>
 
-            {/* Right — Details + Bio */}
-            <Grid size={{ xs: 12, lg: 6 }}>
+            {/* Details — beside image on mobile, right column on desktop */}
+            <Grid size={{ xs: 7, sm: 8, lg: 6 }}>
               <Typography
                 variant="h5"
                 sx={{
                   color: "#AC3F30",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
-                  mb: 2,
+                  mb: { xs: 1, lg: 2 },
                   fontStyle: "normal",
+                  fontSize: { xs: "0.7rem", sm: "0.875rem", lg: "1.25rem" },
                 }}
               >
                 {teacher.specialty}
@@ -285,7 +287,7 @@ const TeacherBio = () => {
                   fontSize: "0.75rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
-                  mb: 4,
+                  mb: { xs: 0, lg: 4 },
                 }}
               >
                 <Box component="span" sx={{ fontWeight: 600 }}>
@@ -294,6 +296,126 @@ const TeacherBio = () => {
                 {teacher.teachingDays}
               </Typography>
 
+              {/* Bio + Projects — desktop only in this column */}
+              <Box sx={{ display: { xs: "none", lg: "block" }, mt: 4 }}>
+                <Typography
+                  sx={{
+                    color: "#26394F",
+                    fontSize: "0.75rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {teacher.bio}
+                </Typography>
+
+                {teacher.projects && teacher.projects.length > 0 && (
+                  <Box sx={{ mt: 3 }}>
+                    <Typography
+                      sx={{
+                        color: "#26394F",
+                        fontSize: "0.75rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        fontWeight: 600,
+                        mb: 1,
+                      }}
+                    >
+                      Projects:
+                    </Typography>
+                    {teacher.projects.map((project) => (
+                      <Typography
+                        key={project.name}
+                        sx={{
+                          color: "#26394F",
+                          fontSize: "0.75rem",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.1em",
+                        }}
+                      >
+                        {project.url ? (
+                          <Link
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: "#AC3F30" }}
+                          >
+                            {project.name}
+                          </Link>
+                        ) : (
+                          project.name
+                        )}
+                      </Typography>
+                    ))}
+                  </Box>
+                )}
+              </Box>
+            </Grid>
+
+            {/* Quote card — mobile only, full width below image+details */}
+            <Grid size={12} sx={{ display: { lg: "none" } }}>
+              <Box
+                sx={{
+                  bgcolor: "#FFFBEF",
+                  borderRadius: 2,
+                  border: "2px solid #AC3F30",
+                  px: { xs: 2, sm: 3 },
+                  py: { xs: 2, sm: 2.5 },
+                  textAlign: "center",
+                  position: "relative",
+                  overflow: "visible",
+                }}
+              >
+                <Typography
+                  component="span"
+                  sx={{
+                    color: "#AC3F30",
+                    fontSize: { xs: "4.5rem", sm: "6rem" },
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    fontWeight: 700,
+                    lineHeight: 0,
+                    position: "absolute",
+                    left: "-2px",
+                    top: "15%",
+                  }}
+                >
+                  &ldquo;
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#26394F",
+                    fontSize: { xs: "0.875rem", sm: "1rem" },
+                    fontFamily: "chippewa-falls, sans-serif",
+                    lineHeight: 1.6,
+                    fontStyle: "italic",
+                    px: { xs: "1.25rem", sm: "1.75rem" },
+                    pt: { xs: "1.5rem", sm: "2rem" },
+                    pb: { xs: "1.25rem", sm: "1.5rem" },
+                  }}
+                >
+                  {teacher.quote}
+                </Typography>
+                <Typography
+                  component="span"
+                  sx={{
+                    color: "#AC3F30",
+                    fontSize: { xs: "4.5rem", sm: "6rem" },
+                    fontFamily: 'Georgia, "Times New Roman", serif',
+                    fontWeight: 700,
+                    lineHeight: 0,
+                    position: "absolute",
+                    right: "-2px",
+                    bottom: "-10%",
+                  }}
+                >
+                  &rdquo;
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* Bio + Projects — mobile only, full width */}
+            <Grid size={12} sx={{ display: { lg: "none" }, mt: 1 }}>
               <Typography
                 sx={{
                   color: "#26394F",
@@ -364,7 +486,6 @@ const TeacherBio = () => {
               pt: 5,
               pb: 5,
               px: { xs: 3, md: 5 },
-              boxShadow: 3,
             }}
           >
             <Typography
