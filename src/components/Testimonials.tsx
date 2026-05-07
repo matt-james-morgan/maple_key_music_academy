@@ -39,24 +39,19 @@ const Testimonials = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={3} alignItems="flex-start">
           {testimonials.map((t, i) => (
-            <Grid key={i} size={{ xs: 12, md: 4 }} sx={{ display: "flex" }}>
+            <Grid key={i} size={{ xs: 12, md: 4 }}>
               <Card
                 sx={{
                   bgcolor: "#FFFBEF",
                   borderRadius: 3,
                   p: { xs: 3, md: 4 },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  width: "100%",
                   border: 2,
                   borderColor: i % 2 === 0 ? "#AC3F30" : "#26394F",
-                  boxShadow: 1,
                 }}
               >
-                <CardContent sx={{ p: 0, "&:last-child": { pb: 0 }, display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
+                <CardContent sx={{ p: 0, "&:last-child": { pb: 0 } }}>
                   <Typography
                     sx={{
                       color: "#26394F",
@@ -79,8 +74,7 @@ const Testimonials = () => {
                     <Box>
                       <Typography
                         sx={{
-                          fontFamily: '"Cormorant Garamond", Georgia, serif',
-                          fontStyle: "italic",
+                          fontFamily: "chippewa-falls, sans-serif",
                           color: "#AC3F30",
                           fontSize: "0.875rem",
                         }}
@@ -120,7 +114,7 @@ const MapleLeafIcon = ({ size = 32, color = "#96B3AD" }: { size?: number; color?
     xmlns="http://www.w3.org/2000/svg"
     style={{ flexShrink: 0 }}
   >
-    <path d="M32 2C32 2 28 12 24 16C20 20 10 20 10 20C10 20 14 26 16 30C18 34 14 40 14 40C14 40 22 38 26 40C30 42 32 50 32 50C32 50 34 42 38 40C42 38 50 40 50 40C50 40 46 34 48 30C50 26 54 20 54 20C54 20 44 20 40 16C36 12 32 2 32 2Z" />
-    <path d="M32 50L30 62H34L32 50Z" />
+    <path d="M32 2L28 15L19 10L23 21L9 19L15 29L4 34L17 36L13 47L26 43L30 57L32 59L34 57L38 43L51 47L47 36L60 34L49 29L55 19L41 21L45 10L36 15Z" />
+    <rect x="30" y="57" width="4" height="7" rx="1" />
   </svg>
 );

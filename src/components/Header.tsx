@@ -11,6 +11,7 @@ import {
   Menu,
   MenuItem,
   useTheme,
+  useScrollTrigger,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -23,6 +24,7 @@ const Header = () => {
   const location = useLocation();
   const theme = useTheme();
   const isHome = location.pathname === "/";
+  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 80 });
 
   const handleMoreOpen = (e: React.MouseEvent<HTMLElement>) =>
     setMoreAnchor(e.currentTarget);
@@ -45,9 +47,13 @@ const Header = () => {
   return (
     <>
       <AppBar
-        position="absolute"
+        position="fixed"
         elevation={0}
-        sx={{ bgcolor: "transparent", py: 1.5 }}
+        sx={{
+          bgcolor: scrolled ? "#96B3AD" : "transparent",
+          py: 1.5,
+          transition: "background-color 0.3s",
+        }}
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
@@ -98,7 +104,7 @@ const Header = () => {
                 onClose={handleMoreClose}
                 disableScrollLock
                 PaperProps={{
-                  elevation: 3,
+                  elevation: 0,
                   sx: {
                     mt: 1,
                     borderRadius: "10px",
@@ -207,8 +213,8 @@ const Header = () => {
                 to="/refer"
                 sx={{
                   display: { xs: "none", md: "inline-flex" },
-                  border: "2px solid #FFFBEF",
-                  color: "#FFFBEF",
+                  border: `2px solid ${scrolled ? "#26394F" : "#FFFBEF"}`,
+                  color: scrolled ? "#26394F" : "#FFFBEF",
                   bgcolor: "transparent",
                   px: 3,
                   py: 1,

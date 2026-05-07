@@ -32,7 +32,7 @@ const inputSx = {
     py: 1.5,
   },
   "& .MuiInputBase-inputMultiline": {
-    py: 0,
+    py: 1.5,
   },
   "& .MuiInputBase-input::placeholder": {
     color: "rgba(38,57,79,0.5)",

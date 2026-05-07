@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, type Shadows } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -16,6 +16,7 @@ declare module "@mui/material/styles" {
 }
 
 const theme = createTheme({
+  shadows: Array(25).fill("none") as Shadows,
   palette: {
     navy: { main: "#26394F", contrastText: "#FFFBEF" },
     red: { main: "#AC3F30", light: "#8e3427", contrastText: "#FFFBEF" },
