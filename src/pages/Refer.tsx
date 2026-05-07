@@ -35,7 +35,6 @@ const Refer = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
         bgcolor: "#96B3AD",
         pt: { xs: 14, md: 16 },
         pb: { xs: 8, md: 12 },
@@ -47,7 +46,6 @@ const Refer = () => {
             bgcolor: "#FFFBEF",
             borderRadius: 2,
             p: { xs: 3, md: 5 },
-            boxShadow: 6,
           }}
         >
           <Box sx={{ textAlign: "center", mb: 2 }}>

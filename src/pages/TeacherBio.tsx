@@ -183,7 +183,6 @@ const TeacherBio = () => {
                     py: { xs: 2, md: 2.5 },
                     pl: { xs: 3, md: 4 },
                     pr: { xs: 3, md: 4 },
-                    boxShadow: 3,
                     textAlign: "center",
                     overflow: "visible",
                   }}
@@ -364,7 +363,6 @@ const TeacherBio = () => {
               pt: 5,
               pb: 5,
               px: { xs: 3, md: 5 },
-              boxShadow: 3,
             }}
           >
             <Typography

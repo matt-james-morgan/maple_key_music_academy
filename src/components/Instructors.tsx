@@ -31,7 +31,7 @@ export const TeacherCard = ({ instructor }: { instructor: Teacher }) => (
     <CardContent sx={{ bgcolor: "#FFFBEF", px: 2.5, pt: 2, pb: 2.5, flexGrow: 1, display: "flex", flexDirection: "column" }}>
       <Typography
         variant="h6"
-        sx={{ color: "#26394F", fontVariant: "small-caps", fontStyle: "normal", mb: 0.5 }}
+        sx={{ color: "#26394F", fontStyle: "normal", mb: 0.5 }}
       >
         {instructor.name}
       </Typography>

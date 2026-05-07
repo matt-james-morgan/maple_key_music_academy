@@ -89,7 +89,6 @@ const Resources = () => {
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  boxShadow: 2,
                   border: "1px solid rgba(38,57,79,0.08)",
                 }}
               >

@@ -23,14 +23,14 @@ const Hero = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            py: { xs: 2, md: 10, lg: 12 },
+            py: { xs: 2, md: 4, lg: 5 },
           }}
         >
           <Box
             component="img"
             src={logo}
             alt="Maple Key Music Academy"
-            sx={{ width: { xs: 180, md: 320, lg: 600 } }}
+            sx={{ width: "clamp(180px, 50vw, 600px)" }}
           />
         </Box>
 
@@ -43,7 +43,7 @@ const Hero = () => {
             fontWeight: 400,
             fontSize: { xs: "1.25rem", md: "3.5rem" },
             mb: { xs: 2, md: 4 },
-            mt: { xs: 2, md: 8 },
+            mt: { xs: 2, md: 3 },
           }}
         >
           Discover the joy of music in the comfort of your own home
