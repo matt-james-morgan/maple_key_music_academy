@@ -6,7 +6,6 @@ import JakobDurstHeadshot from "../assets/jakobDurstHeadshot.jpeg";
 import JakobDurstPerformance from "../assets/jakobDurstPerformance.jpeg";
 import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
 import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
-import DannyWebsterHeadshot from "../assets/dannyWebsterHeadshot.jpeg";
 import MikeFreemanHeadshot from "../assets/freeman-headshot.png";
 
 export interface Project {
@@ -120,22 +119,6 @@ const teachers: Teacher[] = [
     quoteAuthor: "Student",
     projects: [
       { name: "Excuse Me", url: "https://open.spotify.com/artist/4dM5ORquq4Wp41hQaqZLy5" },
-    ],
-  },
-  {
-    slug: "danny-webster",
-    name: "Danny Webster",
-    firstName: "Danny",
-    specialty: "Guitar, Bass, Piano, Songwriting, Theory, Music Production",
-    image: DannyWebsterHeadshot,
-    education: "Humber College Jazz Program",
-    location: "Toronto",
-    teachingDays: "TBD",
-    bio: "Danny Webster is a Toronto based guitarist, bassist, piano player, songwriter and producer. He has released several albums and singles as an artist, and frequently performs across Toronto. He has been playing music since he was a kid, and studied in Humber College's jazz program. He excels in theory, songwriting/composition and producing as a multi-instrumentalist.",
-    quote: "Danny's breadth as a multi-instrumentalist and his real-world experience as a producer make his lessons incredibly valuable.",
-    quoteAuthor: "Student",
-    projects: [
-      { name: "Danny Webster on Spotify", url: "https://open.spotify.com/artist/2kdLbcTDC7Jlq0OBhnIPpX" },
     ],
   },
   {
