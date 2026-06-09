@@ -171,6 +171,7 @@ const TeacherBio = () => {
                 </Box>
 
                 {/* Quote card — desktop only, overlapping image */}
+                {teacher.quote && (
                 <Box
                   sx={{
                     display: { xs: "none", lg: "block" },
@@ -234,6 +235,7 @@ const TeacherBio = () => {
                     &rdquo;
                   </Typography>
                 </Box>
+                )}
               </Box>
             </Grid>
 
@@ -354,6 +356,7 @@ const TeacherBio = () => {
             </Grid>
 
             {/* Quote card — mobile only, full width below image+details */}
+            {teacher.quote && (
             <Grid size={12} sx={{ display: { lg: "none" } }}>
               <Box
                 sx={{
@@ -413,6 +416,7 @@ const TeacherBio = () => {
                 </Typography>
               </Box>
             </Grid>
+            )}
 
             {/* Bio + Projects — mobile only, full width */}
             <Grid size={12} sx={{ display: { lg: "none" }, mt: 1 }}>

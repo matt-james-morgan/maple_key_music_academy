@@ -7,6 +7,7 @@ import JakobDurstPerformance from "../assets/jakobDurstPerformance.jpeg";
 import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
 import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
 import MikeFreemanHeadshot from "../assets/freeman-headshot.png";
+import SimonDawesHeadshot from "../assets/simonDawesHeadshot.jpg";
 
 export interface Project {
   name: string;
@@ -24,8 +25,8 @@ export interface Teacher {
   location: string;
   teachingDays: string;
   bio: string;
-  quote: string;
-  quoteAuthor: string;
+  quote?: string;
+  quoteAuthor?: string;
   projects?: Project[];
 }
 
@@ -156,6 +157,17 @@ const teachers: Teacher[] = [
       { name: "Maywater on YouTube", url: "https://www.youtube.com/playlist?list=PLU9m8NOKsTnHstdlJp5k-ayzSl2sOsbZk" },
       { name: "Jam Cards", url: "https://jamcards.ca/" },
     ],
+  },
+  {
+    slug: "simon-dawes",
+    name: "Simon Dawes",
+    firstName: "Simon",
+    specialty: "Guitar",
+    image: SimonDawesHeadshot,
+    education: "University of Toronto (Jazz Guitar)",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Simon is a passionate and dedicated musician, currently attending the University of Toronto for jazz guitar and making his living playing and teaching. He's played folk, jazz, country, and indie rock on stages all over Ontario, including Niagara Jazz Festival, the Summerfolk Music Festival mainstage, and the Horseshoe Tavern. His teaching style finds the most engaging and personalized avenues to connect every student with music and helps students get the most out of their musical pursuits.",
   },
 ];
 
