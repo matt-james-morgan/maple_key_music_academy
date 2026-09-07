@@ -109,12 +109,11 @@ const MapleLeafIcon = ({ size = 32, color = "#96B3AD" }: { size?: number; color?
   <svg
     width={size}
     height={size}
-    viewBox="0 0 64 64"
+    viewBox="0 0 24 24"
     fill={color}
     xmlns="http://www.w3.org/2000/svg"
     style={{ flexShrink: 0 }}
   >
-    <path d="M32 2L28 15L19 10L23 21L9 19L15 29L4 34L17 36L13 47L26 43L30 57L32 59L34 57L38 43L51 47L47 36L60 34L49 29L55 19L41 21L45 10L36 15Z" />
-    <rect x="30" y="57" width="4" height="7" rx="1" />
+    <path d="M21.79,13L16,16L17,18L13,17.25V21H11V17.25L7,18L8,16L2.21,13L3.21,11.27L1.61,8L5.21,7.77L6.21,6L9.63,9.9L8,5H10L12,2L14,5H16L14.37,9.9L17.79,6L18.79,7.73L22.39,7.96L20.79,11.19L21.79,13Z" />
   </svg>
 );
