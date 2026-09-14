@@ -151,8 +151,8 @@ const teachers: Teacher[] = [
     bio: "Simon is a passionate and dedicated musician, currently attending the University of Toronto for jazz guitar and making his living playing and teaching. He's played folk, jazz, country, and indie rock on stages all over Ontario, including Niagara Jazz Festival, the Summerfolk Music Festival mainstage, and the Horseshoe Tavern. His teaching style finds the most engaging and personalized avenues to connect every student with music and helps students get the most out of their musical pursuits.",
   },
   {
-    slug: "yiki",
-    name: "Yiki",
+    slug: "yiki-wang",
+    name: "Yiki Wang",
     firstName: "Yiki",
     specialty: "Guitar",
     image: YikiHeadshot,
