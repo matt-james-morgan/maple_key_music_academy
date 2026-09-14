@@ -7,6 +7,7 @@ import JakobDurstPerformance from "../assets/jakobDurstPerformance.jpeg";
 import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
 import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
 import SimonDawesHeadshot from "../assets/simonDawesHeadshot.jpg";
+import YikiHeadshot from "../assets/yikiHeadshot.jpg";
 
 export interface Project {
   name: string;
@@ -148,6 +149,17 @@ const teachers: Teacher[] = [
     location: "Toronto",
     teachingDays: "TBD",
     bio: "Simon is a passionate and dedicated musician, currently attending the University of Toronto for jazz guitar and making his living playing and teaching. He's played folk, jazz, country, and indie rock on stages all over Ontario, including Niagara Jazz Festival, the Summerfolk Music Festival mainstage, and the Horseshoe Tavern. His teaching style finds the most engaging and personalized avenues to connect every student with music and helps students get the most out of their musical pursuits.",
+  },
+  {
+    slug: "yiki",
+    name: "Yiki",
+    firstName: "Yiki",
+    specialty: "Guitar",
+    image: YikiHeadshot,
+    education: "BMus, York University",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Yiki is a dedicated guitarist with a background in folk, pop, and jazz styles, holding a Bachelor's degree in Music from York University. With several years of teaching experience, his performance-oriented style prioritizes the songs students actually want to play, while also emphasizing solid technique and efficient practice habits. He is passionate about connecting with young students and keeping them engaged by creating a relaxed, welcoming environment for lessons. As a performer himself, helping students set performance goals and build a repertoire they truly enjoy has always been at the heart of his teaching philosophy.",
   },
 ];
 
