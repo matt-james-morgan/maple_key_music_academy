@@ -8,6 +8,7 @@ import SimonPequegnatHeadshot from "../assets/simonPequegnatHeadshot.jpeg";
 import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
 import SimonDawesHeadshot from "../assets/simonDawesHeadshot.jpg";
 import YikiHeadshot from "../assets/yikiHeadshot.jpg";
+import BillKervinHeadshot from "../assets/billKervinHeadshot.jpg";
 
 export interface Project {
   name: string;
@@ -160,6 +161,20 @@ const teachers: Teacher[] = [
     location: "Toronto",
     teachingDays: "TBD",
     bio: "Yiki is a dedicated guitarist with a background in folk, pop, and jazz styles, holding a Bachelor's degree in Music from York University. With several years of teaching experience, his performance-oriented style prioritizes the songs students actually want to play, while also emphasizing solid technique and efficient practice habits. He is passionate about connecting with young students and keeping them engaged by creating a relaxed, welcoming environment for lessons. As a performer himself, helping students set performance goals and build a repertoire they truly enjoy has always been at the heart of his teaching philosophy.",
+  },
+  {
+    slug: "bill-kervin",
+    name: "Bill Kervin",
+    firstName: "Bill",
+    specialty: "Guitar",
+    image: BillKervinHeadshot,
+    education: "BMus (Honours), Humber College",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Bill Kervin is a Toronto-based multi-instrumentalist with a rich background spanning jazz, folk, pop, rock, country, and bluegrass. A Humber College Bachelor of Music (Honours) graduate, Bill performs regularly across the local music scene and has toured Canada with bluegrass outfit Duke Street Turnaround. While primarily a drummer and mandolinist, he also teaches beginner and intermediate guitar. As co-founder of Maple Key Music Academy, Bill is dedicated to inspiring the next generation of musicians.",
+    projects: [
+      { name: "Duke Street Turnaround", url: "https://dukestreetturnaround.ca/" },
+    ],
   },
 ];
 
