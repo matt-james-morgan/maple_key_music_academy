@@ -7,6 +7,7 @@ export const INSTRUMENT_SUGGESTIONS = [
   "Ukulele",
   "Cello",
   "Banjo",
+  "Mandolin",
   "Musical Theatre",
   "Acting",
   "Other",

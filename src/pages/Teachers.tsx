@@ -17,6 +17,7 @@ const allPrograms = [
   "Cello",
   "Drums",
   "Guitar",
+  "Mandolin",
   "Music Production",
   "Musical Theatre",
   "Piano",
