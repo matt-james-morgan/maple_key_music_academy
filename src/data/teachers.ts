@@ -174,6 +174,7 @@ const teachers: Teacher[] = [
     bio: "Bill Kervin is a Toronto-based multi-instrumentalist with a rich background spanning jazz, folk, pop, rock, country, and bluegrass. A Humber College Bachelor of Music (Honours) graduate, Bill performs regularly across the local music scene and has toured Canada with bluegrass outfit Duke Street Turnaround. Primarily a drummer and mandolinist, he teaches beginner and intermediate drums, guitar, and mandolin. As co-founder of Maple Key Music Academy, Bill is dedicated to inspiring the next generation of musicians.",
     projects: [
       { name: "Duke Street Turnaround", url: "https://dukestreetturnaround.ca/" },
+      { name: "Callahan", url: "https://open.spotify.com/artist/0Ynu0fc1tQsB1VO6vsfZJ4" },
     ],
   },
 ];
