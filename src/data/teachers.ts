@@ -9,6 +9,7 @@ import LilaWrightHeadshot from "../assets/lilaWrightHeadshot.jpg";
 import SimonDawesHeadshot from "../assets/simonDawesHeadshot.jpg";
 import YikiHeadshot from "../assets/yikiHeadshot.jpg";
 import BillKervinHeadshot from "../assets/billKervinHeadshot.jpg";
+import KarstenStrykerHeadshot from "../assets/karstenStrykerHeadshot.jpg";
 
 export interface Project {
   name: string;
@@ -176,6 +177,17 @@ const teachers: Teacher[] = [
       { name: "Duke Street Turnaround", url: "https://dukestreetturnaround.ca/" },
       { name: "Callahan", url: "https://open.spotify.com/artist/0Ynu0fc1tQsB1VO6vsfZJ4" },
     ],
+  },
+  {
+    slug: "karsten-stryker",
+    name: "Karsten Stryker",
+    firstName: "Karsten",
+    specialty: "Guitar",
+    image: KarstenStrykerHeadshot,
+    education: "BMus Performance, University of Toronto",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Karsten Stryker started playing guitar at age 11, growing up in a musical family. Since then, he has completed a Bachelor of Music Performance at the University of Toronto and been involved in many musical activities and groups including musicals, jazz combos, bluegrass bands and more. With experience teaching students of all ages and levels, Karsten's approach as an educator is student-centered, with an emphasis on curiosity and exploration.",
   },
 ];
 
