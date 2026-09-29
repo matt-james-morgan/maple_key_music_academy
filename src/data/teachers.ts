@@ -54,6 +54,18 @@ const teachers: Teacher[] = [
     quoteAuthor: "Lauren, parent of student",
   },
   {
+    slug: "blayne-stone",
+    name: "Blayne Stone",
+    firstName: "Blayne",
+    specialty: "Guitar, Bass, Ukulele, Trumpet, Piano",
+    image: BlayneStoneHeadshot,
+    extraImages: [BlayneStonePiano, BlayneStoneGuitar, BlayneStoneAcoustic, BlayneStoneLive, BlayneStoneLive2],
+    education: "OCT-Certified Educator",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Blayne Stone has had a passion for music and education for as long as they can remember. An OCT-certified educator with an up-to-date VSC check, Blayne is currently a TDSB music teacher (K–5) with extensive experience teaching children with exceptionalities.\n\nSpecializing in guitar, bass, ukulele, trumpet, and piano, Blayne centers their teaching on a student-first philosophy grounded in adaptive and differentiated learning. They believe that no two students learn the same way, and they tailor every lesson to meet each child's unique needs, interests, and learning style. Whether a student is touching an instrument for the first time or developing new skills, Blayne fosters a warm, inclusive, and supportive environment where every young musician can build confidence and thrive.",
+  },
+  {
     slug: "john-kervin",
     name: "John Kervin",
     firstName: "John",
@@ -84,20 +96,6 @@ const teachers: Teacher[] = [
     quote:
       "Sam's passion for music is contagious. My daughter looks forward to every lesson and has grown so much — both in technique and in confidence.",
     quoteAuthor: "Parent of student",
-  },
-  {
-    slug: "andrew-mccarthy",
-    name: "Andrew McCarthy",
-    firstName: "Andrew",
-    specialty: "Drums",
-    image: AndrewMcCarthyHeadshot,
-    education: "Humber College Music Program",
-    location: "Toronto",
-    teachingDays: "Wednesday, Friday, Sunday",
-    bio: "Andrew is a dynamic drummer and percussionist who has been playing since the age of 8. A graduate of Humber College's renowned music program, Andrew has toured across Canada and the United States with various bands spanning rock, jazz, and funk genres. His teaching approach focuses on groove, timing, and musicality, helping students develop their own unique style while building solid technical foundations.",
-    quote:
-      "Andrew makes drumming so much fun! He's patient, encouraging, and always pushes me to be better. I actually look forward to practising now.",
-    quoteAuthor: "Student",
   },
   {
     slug: "jakob-durst",
@@ -196,16 +194,18 @@ const teachers: Teacher[] = [
     bio: "Karsten Stryker started playing guitar at age 11, growing up in a musical family. Since then, he has completed a Bachelor of Music Performance at the University of Toronto and been involved in many musical activities and groups including musicals, jazz combos, bluegrass bands and more. With experience teaching students of all ages and levels, Karsten's approach as an educator is student-centered, with an emphasis on curiosity and exploration.",
   },
   {
-    slug: "blayne-stone",
-    name: "Blayne Stone",
-    firstName: "Blayne",
-    specialty: "Guitar, Bass, Ukulele, Trumpet, Piano",
-    image: BlayneStoneHeadshot,
-    extraImages: [BlayneStonePiano, BlayneStoneGuitar, BlayneStoneAcoustic, BlayneStoneLive, BlayneStoneLive2],
-    education: "OCT-Certified Educator",
+    slug: "andrew-mccarthy",
+    name: "Andrew McCarthy",
+    firstName: "Andrew",
+    specialty: "Drums",
+    image: AndrewMcCarthyHeadshot,
+    education: "Humber College Music Program",
     location: "Toronto",
-    teachingDays: "TBD",
-    bio: "Blayne Stone has had a passion for music and education for as long as they can remember. An OCT-certified educator with an up-to-date VSC check, Blayne is currently a TDSB music teacher (K–5) with extensive experience teaching children with exceptionalities.\n\nSpecializing in guitar, bass, ukulele, trumpet, and piano, Blayne centers their teaching on a student-first philosophy grounded in adaptive and differentiated learning. They believe that no two students learn the same way, and they tailor every lesson to meet each child's unique needs, interests, and learning style. Whether a student is touching an instrument for the first time or developing new skills, Blayne fosters a warm, inclusive, and supportive environment where every young musician can build confidence and thrive.",
+    teachingDays: "Wednesday, Friday, Sunday",
+    bio: "Andrew is a dynamic drummer and percussionist who has been playing since the age of 8. A graduate of Humber College's renowned music program, Andrew has toured across Canada and the United States with various bands spanning rock, jazz, and funk genres. His teaching approach focuses on groove, timing, and musicality, helping students develop their own unique style while building solid technical foundations.",
+    quote:
+      "Andrew makes drumming so much fun! He's patient, encouraging, and always pushes me to be better. I actually look forward to practising now.",
+    quoteAuthor: "Student",
   },
 ];
 
