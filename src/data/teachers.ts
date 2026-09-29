@@ -69,7 +69,7 @@ const teachers: Teacher[] = [
     slug: "john-kervin",
     name: "John Kervin",
     firstName: "John",
-    specialty: "Piano, Banjo",
+    specialty: "Piano, Banjo, Guitar, Ukulele",
     image: JohnKervinHeadshot,
     education: "BMus, University of Toronto",
     location: "Toronto",
