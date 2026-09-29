@@ -196,6 +196,23 @@ const Header = () => {
                 >
                   Apply to Teach
                 </MenuItem>
+                <MenuItem
+                  component="a"
+                  href="https://maplekeymusic.com/login"
+                  onClick={handleMoreClose}
+                  sx={{
+                    color: "#26394F",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    fontSize: "0.875rem",
+                    py: 1.5,
+                    borderTop: "1px solid #e8e0cc",
+                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                  }}
+                >
+                  Teacher Login
+                </MenuItem>
               </Menu>
             </Box>
 
@@ -348,6 +365,7 @@ const Header = () => {
             { label: "Pre-Register", href: "/pre-register", isRoute: true },
             { label: "Testimonials", href: "/testimonials", isRoute: true },
             { label: "Apply to Teach", href: "/apply", isRoute: true },
+            { label: "Teacher Login", href: "https://maplekeymusic.com/login" },
           ].map((item) => (
             <Box
               key={item.label}
