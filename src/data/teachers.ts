@@ -113,22 +113,6 @@ const teachers: Teacher[] = [
     quoteAuthor: "Parent of student",
   },
   {
-    slug: "simon-pequegnat",
-    name: "Simon Pequegnat",
-    firstName: "Simon",
-    specialty: "Music, Composition",
-    image: SimonPequegnatHeadshot,
-    education: "BSc Physics & Music, University of Guelph",
-    location: "Guelph",
-    teachingDays: "TBD",
-    bio: "Simon maintains an active performance career, recently playing at Guelph's Hillside Festival among other local shows. He's also been a musician in numerous RCMPI musicals, most recently Legally Blonde and School of Rock. Combining his formal music training at the University of Guelph, ongoing teaching experience in music, math and physics, and his stage and composition experience, Simon approaches teaching with a practical, performer-centred mindset.",
-    quote: "Simon's performer-centred approach makes every lesson feel real and relevant.",
-    quoteAuthor: "Student",
-    projects: [
-      { name: "Excuse Me", url: "https://open.spotify.com/artist/4dM5ORquq4Wp41hQaqZLy5" },
-    ],
-  },
-  {
     slug: "lila-wright",
     name: "Lila Wright",
     firstName: "Lila",
@@ -206,6 +190,22 @@ const teachers: Teacher[] = [
     quote:
       "Andrew makes drumming so much fun! He's patient, encouraging, and always pushes me to be better. I actually look forward to practising now.",
     quoteAuthor: "Student",
+  },
+  {
+    slug: "simon-pequegnat",
+    name: "Simon Pequegnat",
+    firstName: "Simon",
+    specialty: "Music, Composition",
+    image: SimonPequegnatHeadshot,
+    education: "BSc Physics & Music, University of Guelph",
+    location: "Guelph",
+    teachingDays: "TBD",
+    bio: "Simon maintains an active performance career, recently playing at Guelph's Hillside Festival among other local shows. He's also been a musician in numerous RCMPI musicals, most recently Legally Blonde and School of Rock. Combining his formal music training at the University of Guelph, ongoing teaching experience in music, math and physics, and his stage and composition experience, Simon approaches teaching with a practical, performer-centred mindset.",
+    quote: "Simon's performer-centred approach makes every lesson feel real and relevant.",
+    quoteAuthor: "Student",
+    projects: [
+      { name: "Excuse Me", url: "https://open.spotify.com/artist/4dM5ORquq4Wp41hQaqZLy5" },
+    ],
   },
 ];
 
