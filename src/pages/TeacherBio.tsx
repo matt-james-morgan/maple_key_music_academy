@@ -307,6 +307,7 @@ const TeacherBio = () => {
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
                     lineHeight: 1.8,
+                    whiteSpace: "pre-line",
                   }}
                 >
                   {teacher.bio}
@@ -427,6 +428,7 @@ const TeacherBio = () => {
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   lineHeight: 1.8,
+                  whiteSpace: "pre-line",
                 }}
               >
                 {teacher.bio}

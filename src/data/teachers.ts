@@ -10,6 +10,12 @@ import SimonDawesHeadshot from "../assets/simonDawesHeadshot.jpg";
 import YikiHeadshot from "../assets/yikiHeadshot.jpg";
 import BillKervinHeadshot from "../assets/billKervinHeadshot.jpg";
 import KarstenStrykerHeadshot from "../assets/karstenStrykerHeadshot.jpg";
+import BlayneStoneHeadshot from "../assets/blayneStoneHeadshot.jpeg";
+import BlayneStonePiano from "../assets/blayneStonePiano.jpeg";
+import BlayneStoneGuitar from "../assets/blayneStoneGuitar.jpeg";
+import BlayneStoneAcoustic from "../assets/blayneStoneAcoustic.jpeg";
+import BlayneStoneLive from "../assets/blayneStoneLive.jpeg";
+import BlayneStoneLive2 from "../assets/blayneStoneLive2.jpeg";
 
 export interface Project {
   name: string;
@@ -188,6 +194,18 @@ const teachers: Teacher[] = [
     location: "Toronto",
     teachingDays: "TBD",
     bio: "Karsten Stryker started playing guitar at age 11, growing up in a musical family. Since then, he has completed a Bachelor of Music Performance at the University of Toronto and been involved in many musical activities and groups including musicals, jazz combos, bluegrass bands and more. With experience teaching students of all ages and levels, Karsten's approach as an educator is student-centered, with an emphasis on curiosity and exploration.",
+  },
+  {
+    slug: "blayne-stone",
+    name: "Blayne Stone",
+    firstName: "Blayne",
+    specialty: "Guitar, Bass, Ukulele, Trumpet, Piano",
+    image: BlayneStoneHeadshot,
+    extraImages: [BlayneStonePiano, BlayneStoneGuitar, BlayneStoneAcoustic, BlayneStoneLive, BlayneStoneLive2],
+    education: "OCT-Certified Educator",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Blayne Stone has had a passion for music and education for as long as they can remember. An OCT-certified educator with an up-to-date VSC check, Blayne is currently a TDSB music teacher (K–5) with extensive experience teaching children with exceptionalities.\n\nSpecializing in guitar, bass, ukulele, trumpet, and piano, Blayne centers their teaching on a student-first philosophy grounded in adaptive and differentiated learning. They believe that no two students learn the same way, and they tailor every lesson to meet each child's unique needs, interests, and learning style. Whether a student is touching an instrument for the first time or developing new skills, Blayne fosters a warm, inclusive, and supportive environment where every young musician can build confidence and thrive.",
   },
 ];
 
