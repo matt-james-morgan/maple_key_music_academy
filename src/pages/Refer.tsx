@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CheckIcon from "@mui/icons-material/Check";
-import logo from "../assets/full-logo-shorter.png";
+import logo from "../assets/full-logo-shorter.webp";
 
 const Refer = () => {
   const [name, setName] = useState("");

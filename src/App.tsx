@@ -4,6 +4,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import "./App.css";
 import Layout from "./components/Layout";
+import Seo from "./components/Seo";
 import Home from "./pages/Home";
 import Teachers from "./pages/Teachers";
 import TeacherBio from "./pages/TeacherBio";
@@ -39,6 +40,7 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <ScrollToTop />
+        <Seo />
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />

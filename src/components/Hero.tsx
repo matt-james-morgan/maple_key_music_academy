@@ -1,5 +1,5 @@
 import { Box, Container, Typography, useTheme } from "@mui/material";
-import logo from "../assets/full-logo-shorter.png";
+import logo from "../assets/full-logo-shorter.webp";
 
 const Hero = () => {
   const theme = useTheme();

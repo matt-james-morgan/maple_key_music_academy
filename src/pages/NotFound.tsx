@@ -1,6 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import logo from "../assets/full-logo-shorter.png";
+import logo from "../assets/full-logo-shorter.webp";
 
 const NotFound = () => {
   return (

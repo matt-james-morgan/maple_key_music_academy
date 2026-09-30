@@ -2,11 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.typekit.net/lfq7voy.css" />
-    <title>Maple Key Music Academy</title>
+
+    <!-- Defaults for crawlers that don't run JS; src/components/Seo.tsx updates these per route -->
+    <title>Maple Key Music Academy | In-Home Music Lessons in Toronto</title>
+    <meta
+      name="description"
+      content="In-home music lessons in Toronto for all ages and skill levels. Piano, guitar, voice, drums, ukulele, cello, banjo, musical theatre and acting with professional, working musicians."
+    />
     <link rel="canonical" href="https://maplekeymusic.ca/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Maple Key Music Academy" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:title" content="Maple Key Music Academy | In-Home Music Lessons in Toronto" />
+    <meta
+      property="og:description"
+      content="In-home music lessons in Toronto for all ages and skill levels, taught by professional, working musicians."
+    />
+    <meta property="og:url" content="https://maplekeymusic.ca/" />
+    <meta property="og:image" content="https://maplekeymusic.ca/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MusicSchool",
+        "name": "Maple Key Music Academy",
+        "url": "https://maplekeymusic.ca/",
+        "logo": "https://maplekeymusic.ca/favicon.png",
+        "image": "https://maplekeymusic.ca/og-image.jpg",
+        "description": "In-home music lessons in Toronto for all ages and skill levels, taught by professional, working musicians.",
+        "telephone": "+1-705-978-2131",
+        "email": "maplekeymusic.academy@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toronto",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        "areaServed": { "@type": "City", "name": "Toronto" },
+        "sameAs": [
+          "https://www.instagram.com/maple.key.music.academy/",
+          "https://www.facebook.com/61580407531156/"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Music Lessons",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Piano Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Guitar Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Voice Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drum Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ukulele Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cello Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Banjo Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Musical Theatre Lessons" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acting Lessons" } }
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
