@@ -55,6 +55,11 @@ const staticPages: Record<string, PageMeta> = {
     title: `Articles | ${SITE_NAME}`,
     description: "Tips, guides and insights on learning music from Maple Key Music Academy teachers.",
   },
+  "/faq": {
+    title: `FAQ | ${SITE_NAME}`,
+    description:
+      "Common questions about in-home and online music lessons in Toronto: starting ages, free trial lessons, pricing, billing, instruments and teacher screening.",
+  },
   "/apply": {
     title: `Teach With Us | ${SITE_NAME}`,
     description: "Music teachers in Toronto: apply to teach in-home lessons with Maple Key Music Academy.",

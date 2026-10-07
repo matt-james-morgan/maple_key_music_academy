@@ -73,6 +73,9 @@ const Header = () => {
               <Box component={Link} to="/teachers" sx={navSx}>
                 Teachers
               </Box>
+              <Box component={Link} to="/faq" sx={navSx}>
+                FAQ
+              </Box>
               <Box component="a" href={navLink("#contact")} sx={navSx}>
                 Contact
               </Box>
@@ -359,6 +362,7 @@ const Header = () => {
             { label: "Home", href: "/", isRoute: true },
             { label: "Programs", href: "/programs", isRoute: true },
             { label: "Teachers", href: "/teachers", isRoute: true },
+            { label: "FAQ", href: "/faq", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
             { label: "Purchase", href: "/resources", isRoute: true },
             { label: "Articles", href: "/articles", isRoute: true },

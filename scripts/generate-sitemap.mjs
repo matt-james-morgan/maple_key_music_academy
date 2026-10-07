@@ -14,6 +14,7 @@ const pages = [
   { path: "/programs", priority: "0.9" },
   { path: "/teachers", priority: "0.9" },
   { path: "/register", priority: "0.8" },
+  { path: "/faq", priority: "0.6" },
   { path: "/testimonials", priority: "0.6" },
   { path: "/pre-register", priority: "0.5" },
   { path: "/refer", priority: "0.5" },
