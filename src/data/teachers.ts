@@ -16,6 +16,7 @@ import BlayneStoneGuitar from "../assets/blayneStoneGuitar.jpeg";
 import BlayneStoneAcoustic from "../assets/blayneStoneAcoustic.jpeg";
 import BlayneStoneLive from "../assets/blayneStoneLive.jpeg";
 import BlayneStoneLive2 from "../assets/blayneStoneLive2.jpeg";
+import AlexWagstaffHeadshot from "../assets/alexWagstaffHeadshot.jpg";
 
 export interface Project {
   name: string;
@@ -190,6 +191,17 @@ const teachers: Teacher[] = [
     quote:
       "Andrew makes drumming so much fun! He's patient, encouraging, and always pushes me to be better. I actually look forward to practising now.",
     quoteAuthor: "Student",
+  },
+  {
+    slug: "alex-wagstaff",
+    name: "Alex Wagstaff",
+    firstName: "Alex",
+    specialty: "Guitar",
+    image: AlexWagstaffHeadshot,
+    education: "",
+    location: "Toronto",
+    teachingDays: "TBD",
+    bio: "Alex Wagstaff is an intuitive and adaptable multi-instrumentalist with an eclectic background playing rock, metal, country, and bluegrass. As a child, he was enamored with toy guitars and keyboards, and has always kept a sense of play and exploration when it comes to music. Alex started out on guitar playing rock music as a young teen, but rapidly branched out to other instruments and styles. He has a flexible, perceptive teaching style built around students' interests and needs.",
   },
   {
     slug: "simon-pequegnat",
