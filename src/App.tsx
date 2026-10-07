@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import "./App.css";
@@ -22,7 +22,7 @@ import Faq from "./pages/Faq";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (pathname === "/" && hash === "#contact") {
       // After Home mounts and paints, scroll to contact section
       const raf = requestAnimationFrame(() => {
@@ -30,7 +30,8 @@ function ScrollToTop() {
       });
       return () => cancelAnimationFrame(raf);
     }
-    window.scrollTo(0, 0);
+    // Instant, before paint — html has scroll-behavior: smooth, which would animate this
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname, hash]);
   return null;
 }
