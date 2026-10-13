@@ -274,7 +274,7 @@ const TeacherBio = () => {
                   fontSize: "0.75rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
-                  mb: 0.5,
+                  mb: { xs: 0, lg: 4 },
                 }}
               >
                 <Box component="span" sx={{ fontWeight: 600 }}>
@@ -283,6 +283,8 @@ const TeacherBio = () => {
                 {teacher.location}
               </Typography>
 
+              {/* Teaching days hidden for now — restore by uncommenting (and move the
+                  lg bottom margin above back to this block)
               <Typography
                 sx={{
                   color: "#26394F",
@@ -297,6 +299,7 @@ const TeacherBio = () => {
                 </Box>{" "}
                 {teacher.teachingDays}
               </Typography>
+              */}
 
               {/* Bio + Projects — desktop only in this column */}
               <Box sx={{ display: { xs: "none", lg: "block" }, mt: 4 }}>
