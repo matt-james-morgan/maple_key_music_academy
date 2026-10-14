@@ -63,7 +63,7 @@ export const TeacherCard = ({
           color: "#26394F",
           textTransform: "uppercase",
           letterSpacing: "0.1em",
-          fontSize: "0.7rem",
+          fontSize: "0.75rem",
           mb: 1.5,
           opacity: 0.7,
         }}
@@ -219,7 +219,7 @@ const Instructors = () => {
             color: "#26394F",
             textTransform: "uppercase",
             letterSpacing: "0.1em",
-            fontSize: { xs: "0.7rem", md: "0.8rem" },
+            fontSize: { xs: "0.75rem", md: "0.8rem" },
             fontWeight: 500,
             lineHeight: 1.8,
           }}

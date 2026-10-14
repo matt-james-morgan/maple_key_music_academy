@@ -222,7 +222,7 @@ const Header = () => {
             <IconButton
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              sx={{ display: { xs: "flex", md: "none" }, color: "#26394F" }}
+              sx={{ display: { xs: "flex", md: "none" }, color: "#26394F", width: 48, height: 48, ml: -1 }}
             >
               <MenuIcon sx={{ fontSize: 32 }} />
             </IconButton>
@@ -264,6 +264,7 @@ const Header = () => {
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   fontSize: { xs: "0.75rem", md: "1rem" },
+                  minHeight: 44,
                   whiteSpace: "nowrap",
                   boxShadow: "none",
                   "&:hover": { bgcolor: "#f5f0e0" },
@@ -285,7 +286,11 @@ const Header = () => {
         PaperProps={{
           sx: {
             bgcolor: "#26394F",
+            // 100dvh = the visible area on iPhone; 100vh runs under the browser toolbar
             height: "100vh",
+            "@supports (height: 100dvh)": { height: "100dvh" },
+            overflowY: "auto",
+            pb: "calc(24px + env(safe-area-inset-bottom))",
           },
         }}
         sx={{ display: { md: "none" } }}
@@ -301,7 +306,7 @@ const Header = () => {
         >
           <IconButton
             onClick={toggleMenu}
-            sx={{ color: "#FFFBEF" }}
+            sx={{ color: "#FFFBEF", width: 48, height: 48, ml: -1 }}
             aria-label="Close menu"
           >
             <CloseIcon sx={{ fontSize: 32 }} />
@@ -314,13 +319,14 @@ const Header = () => {
               sx={{
                 border: "1px solid #FFFBEF",
                 color: "#FFFBEF",
-                px: 2.5,
-                py: 1,
+                px: 2,
+                minHeight: 44,
                 borderRadius: 1,
                 fontWeight: 500,
                 textTransform: "uppercase",
                 letterSpacing: "0.05em",
                 fontSize: "0.875rem",
+                whiteSpace: "nowrap",
                 "&:hover": { bgcolor: "#FFFBEF", color: "#26394F" },
               }}
             >
@@ -333,13 +339,14 @@ const Header = () => {
               sx={{
                 border: "1px solid #FFFBEF",
                 color: "#FFFBEF",
-                px: 2.5,
-                py: 1,
+                px: 2,
+                minHeight: 44,
                 borderRadius: 1,
                 fontWeight: 500,
                 textTransform: "uppercase",
                 letterSpacing: "0.05em",
                 fontSize: "0.875rem",
+                whiteSpace: "nowrap",
                 "&:hover": { bgcolor: "#FFFBEF", color: "#26394F" },
               }}
             >
@@ -352,10 +359,9 @@ const Header = () => {
           component="nav"
           sx={{
             px: 3,
-            pt: 4,
+            pt: 2,
             display: "flex",
             flexDirection: "column",
-            gap: 3,
           }}
         >
           {[
@@ -379,11 +385,12 @@ const Header = () => {
               sx={{
                 color: "#FFFBEF",
                 fontWeight: 700,
-                fontSize: "1.5rem",
+                fontSize: "1.25rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.05em",
                 textDecoration: "none",
                 display: "block",
+                py: 1.25,
                 "&:hover": { color: "#96B3AD" },
                 transition: "color 0.2s",
               }}

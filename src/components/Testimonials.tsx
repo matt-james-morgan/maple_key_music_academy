@@ -84,7 +84,7 @@ const Testimonials = () => {
                       <Typography
                         sx={{
                           color: "#26394F",
-                          fontSize: "10px",
+                          fontSize: "0.75rem",
                           textTransform: "uppercase",
                           letterSpacing: "0.1em",
                         }}

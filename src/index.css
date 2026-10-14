@@ -1,0 +1,26 @@
+
+/* ── Mobile foundations ── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS zooms into any input under 16px when it's tapped — keep form text at 16px below desktop */
+@media (max-width: 899.95px) {
+  .MuiInputBase-input,
+  .MuiSelect-select {
+    font-size: 16px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

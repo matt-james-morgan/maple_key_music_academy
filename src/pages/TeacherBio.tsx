@@ -249,7 +249,7 @@ const TeacherBio = () => {
                   letterSpacing: "0.1em",
                   mb: { xs: 1, lg: 2 },
                   fontStyle: "normal",
-                  fontSize: { xs: "0.7rem", sm: "0.875rem", lg: "1.25rem" },
+                  fontSize: { xs: "0.75rem", sm: "0.875rem", lg: "1.25rem" },
                 }}
               >
                 {teacher.specialty}

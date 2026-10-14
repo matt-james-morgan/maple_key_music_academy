@@ -54,7 +54,7 @@ const Resources = () => {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
-              fontSize: "0.7rem",
+              fontSize: "0.75rem",
               borderRadius: 1,
               "&:hover": { bgcolor: activeCategory === null ? "#8e3427" : "#f5f0e0" },
             }}
@@ -70,7 +70,7 @@ const Resources = () => {
                 fontWeight: 700,
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
-                fontSize: "0.7rem",
+                fontSize: "0.75rem",
                 borderRadius: 1,
                 "&:hover": { bgcolor: activeCategory === cat ? "#8e3427" : "#f5f0e0" },
               }}
@@ -111,7 +111,7 @@ const Resources = () => {
                   <Typography
                     sx={{
                       color: "#AC3F30",
-                      fontSize: "0.65rem",
+                      fontSize: "0.75rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.12em",
                       fontWeight: 700,
@@ -156,11 +156,12 @@ const Resources = () => {
                       color: "#FFFBEF",
                       px: 2.5,
                       py: 1,
+                      minHeight: 44,
                       borderRadius: 1,
                       fontWeight: 700,
                       textTransform: "uppercase",
                       letterSpacing: "0.1em",
-                      fontSize: "0.7rem",
+                      fontSize: "0.75rem",
                       alignSelf: "flex-start",
                       "&:hover": { bgcolor: "#1d2d3d" },
                     }}
@@ -178,7 +179,7 @@ const Resources = () => {
           sx={{
             mt: 8,
             color: "#26394F",
-            fontSize: "0.7rem",
+            fontSize: "0.75rem",
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             opacity: 0.6,

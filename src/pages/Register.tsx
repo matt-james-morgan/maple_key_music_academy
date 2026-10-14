@@ -33,7 +33,7 @@ const Register = () => {
         <Typography
           sx={{
             color: "#26394F",
-            fontSize: "0.7rem",
+            fontSize: "0.75rem",
             letterSpacing: "0.06em",
             opacity: 0.85,
             mb: 4,
