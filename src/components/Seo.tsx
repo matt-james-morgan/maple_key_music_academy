@@ -21,6 +21,11 @@ const staticPages: Record<string, PageMeta> = {
     title: `${SITE_NAME} | In-Home Music Lessons in Toronto`,
     description: DEFAULT_DESCRIPTION,
   },
+  "/about": {
+    title: `About Us | ${SITE_NAME}`,
+    description:
+      "Founded in Toronto in 2024 by musicians Matt Morgan and Bill Kervin, Maple Key is a music school that puts its teachers first, so students learn from working professionals.",
+  },
   "/programs": {
     title: `Music Lessons & Programs | ${SITE_NAME}`,
     description:

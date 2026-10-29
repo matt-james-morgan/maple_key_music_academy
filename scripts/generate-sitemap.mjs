@@ -11,6 +11,7 @@ const slugsIn = (file) =>
 
 const pages = [
   { path: "/", priority: "1.0" },
+  { path: "/about", priority: "0.7" },
   { path: "/programs", priority: "0.9" },
   { path: "/teachers", priority: "0.9" },
   { path: "/register", priority: "0.8" },

@@ -19,6 +19,7 @@ import ProgramDetail from "./pages/ProgramDetail";
 import Testimonials from "./pages/Testimonials";
 import Apply from "./pages/Apply";
 import Faq from "./pages/Faq";
+import About from "./pages/About";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -46,6 +47,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/teachers" element={<Teachers />} />
             <Route path="/teacher-bio/:slug" element={<TeacherBio />} />
             <Route path="/programs" element={<ProgramsPage />} />
