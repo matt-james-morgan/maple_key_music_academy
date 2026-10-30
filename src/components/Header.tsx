@@ -59,9 +59,9 @@ const Header = () => {
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
             <Box
               sx={{
-                display: { xs: "none", md: "flex" },
+                display: { xs: "none", lg: "flex" },
                 alignItems: "center",
-                gap: 5,
+                gap: { lg: 3, xl: 5 },
               }}
             >
               <Box component={Link} to="/" sx={navSx}>
@@ -119,6 +119,22 @@ const Header = () => {
                 transformOrigin={{ horizontal: "left", vertical: "top" }}
                 anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
               >
+                <MenuItem
+                  component={Link}
+                  to="/about"
+                  onClick={handleMoreClose}
+                  sx={{
+                    color: "#26394F",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    fontSize: "0.875rem",
+                    py: 1.5,
+                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                  }}
+                >
+                  About
+                </MenuItem>
                 <MenuItem
                   component={Link}
                   to="/pre-register"
@@ -222,7 +238,7 @@ const Header = () => {
             <IconButton
               onClick={toggleMenu}
               aria-label="Toggle menu"
-              sx={{ display: { xs: "flex", md: "none" }, color: "#26394F", width: 48, height: 48, ml: -1 }}
+              sx={{ display: { xs: "flex", lg: "none" }, color: "#26394F", width: 48, height: 48, ml: -1 }}
             >
               <MenuIcon sx={{ fontSize: 32 }} />
             </IconButton>
@@ -232,7 +248,7 @@ const Header = () => {
                 component={Link}
                 to="/refer"
                 sx={{
-                  display: { xs: "none", md: "inline-flex" },
+                  display: { xs: "none", lg: "inline-flex" },
                   border: `2px solid ${scrolled ? "#26394F" : "#FFFBEF"}`,
                   color: scrolled ? "#26394F" : "#FFFBEF",
                   bgcolor: "transparent",
@@ -293,7 +309,7 @@ const Header = () => {
             pb: "calc(24px + env(safe-area-inset-bottom))",
           },
         }}
-        sx={{ display: { md: "none" } }}
+        sx={{ display: { lg: "none" } }}
       >
         <Box
           sx={{
@@ -370,6 +386,7 @@ const Header = () => {
             { label: "Teachers", href: "/teachers", isRoute: true },
             { label: "FAQ", href: "/faq", isRoute: true },
             { label: "Contact", href: navLink("#contact") },
+            { label: "About", href: "/about", isRoute: true },
             { label: "Purchase", href: "/resources", isRoute: true },
             { label: "Articles", href: "/articles", isRoute: true },
             { label: "Pre-Register", href: "/pre-register", isRoute: true },
