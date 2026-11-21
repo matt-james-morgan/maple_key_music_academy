@@ -18,6 +18,7 @@ import {
   Alert,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import { joinMailingList, OPT_IN_LABEL } from "../lib/mailingList";
 
 const inputSx = {
   "& .MuiOutlinedInput-root": {
@@ -60,6 +61,7 @@ const PreRegister = () => {
     severity: "success" | "error";
     message: string;
   }>({ open: false, severity: "success", message: "" });
+  const [joinList, setJoinList] = useState(false);
 
   const toggleDay = (day: string) => {
     setSelectedDays((prev) =>
@@ -120,6 +122,7 @@ const PreRegister = () => {
     };
 
     const fd = new FormData(form);
+    const email = String(fd.get("email") ?? "");
     const studentFirst = String(fd.get("student_first_name") ?? "").trim();
     const studentLast = String(fd.get("student_last_name") ?? "").trim();
     inject("subject", `Pre-registration: ${studentFirst} ${studentLast}`.trim());
@@ -132,12 +135,21 @@ const PreRegister = () => {
     emailjs
       .sendForm(serviceId, preregTemplate, form, publicKey)
       .then(
-        () => {
+        async () => {
           form.reset();
           setSchedulePreference("same");
           setSelectedDays([]);
           setSelectedTimes([]);
-          setToast({ open: true, severity: "success", message: "Pre-registration submitted! We'll be in touch soon." });
+          let message = "Pre-registration submitted! We'll be in touch soon.";
+          if (joinList) {
+            // The pre-registration already went through, so a sign-up failure is only a note.
+            message = await joinMailingList(email, "preregister").then(
+              () => `${message} You're also on our mailing list.`,
+              () => `${message} We couldn't add you to the mailing list, though. Please use the sign-up in the footer.`,
+            );
+            setJoinList(false);
+          }
+          setToast({ open: true, severity: "success", message });
         },
         (err: { status?: number; text?: string }) => {
           console.error("[PreRegister] EmailJS error:", err?.status, err?.text ?? err);
@@ -362,6 +374,21 @@ const PreRegister = () => {
             rows={4}
             placeholder="Any additional notes (e.g. teacher preference, instrument changes, etc.)"
             sx={inputSx}
+          />
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={joinList}
+                onChange={(e) => setJoinList(e.target.checked)}
+                sx={{ color: "#26394F", "&.Mui-checked": { color: "#26394F" } }}
+              />
+            }
+            label={OPT_IN_LABEL}
+            sx={{
+              alignItems: "flex-start",
+              "& .MuiFormControlLabel-label": { color: "#26394F", fontSize: "0.85rem", pt: 1.1 },
+            }}
           />
 
           <Box>
