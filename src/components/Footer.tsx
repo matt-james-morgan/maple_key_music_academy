@@ -10,6 +10,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import logo from "../assets/logo.png";
+import MailingListSignup from "./MailingListSignup";
 
 const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/61580407531156/",
@@ -138,6 +139,10 @@ const Footer = () => {
             </Box>
           </Grid>
         </Grid>
+
+        <Box sx={{ mt: 5, pt: 4, borderTop: "1px solid rgba(255,251,239,0.2)" }}>
+          <MailingListSignup />
+        </Box>
 
         <Box
           sx={{

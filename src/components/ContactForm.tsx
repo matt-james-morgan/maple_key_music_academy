@@ -7,6 +7,8 @@ import {
   Button,
   Card,
   CardContent,
+  Checkbox,
+  FormControlLabel,
   Grid,
   IconButton,
   Snackbar,
@@ -22,6 +24,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { INSTRUMENT_SUGGESTIONS } from "../data/instrumentOptions";
+import { joinMailingList, OPT_IN_LABEL } from "../lib/mailingList";
 
 const inputSx = {
   "& .MuiOutlinedInput-root": {
@@ -63,10 +66,12 @@ const ContactForm = ({
     severity: "success" | "error";
     message: string;
   }>({ open: false, severity: "success", message: "" });
+  const [joinList, setJoinList] = useState(false);
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const email = String(new FormData(form).get("email") ?? "");
 
     let timeInput = form.querySelector(
       'input[name="time"]',
@@ -87,13 +92,18 @@ const ContactForm = ({
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(
-        () => {
+        async () => {
           form.reset();
-          setToast({
-            open: true,
-            severity: "success",
-            message: "Message sent successfully!",
-          });
+          let message = "Message sent successfully!";
+          if (joinList) {
+            // The message already went through, so a sign-up failure is only a note.
+            message = await joinMailingList(email, "contact").then(
+              () => "Message sent, and you're on our mailing list!",
+              () => "Message sent! We couldn't add you to the mailing list, though. Please use the sign-up in the footer.",
+            );
+            setJoinList(false);
+          }
+          setToast({ open: true, severity: "success", message });
         },
         () => {
           setToast({
@@ -202,6 +212,21 @@ const ContactForm = ({
                   sx={inputSx}
                 />
               )}
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={joinList}
+                  onChange={(e) => setJoinList(e.target.checked)}
+                  sx={{ color: "#26394F", "&.Mui-checked": { color: "#26394F" } }}
+                />
+              }
+              label={OPT_IN_LABEL}
+              sx={{
+                alignItems: "flex-start",
+                "& .MuiFormControlLabel-label": { color: "#26394F", fontSize: "0.85rem", pt: 1.1 },
+              }}
             />
 
             <Box sx={{ pt: 1 }}>
