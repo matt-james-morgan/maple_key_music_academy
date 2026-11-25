@@ -20,6 +20,7 @@ import Testimonials from "./pages/Testimonials";
 import Apply from "./pages/Apply";
 import Faq from "./pages/Faq";
 import About from "./pages/About";
+import CancellationPolicy from "./pages/CancellationPolicy";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -60,6 +61,7 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="/cancellation-policy" element={<CancellationPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

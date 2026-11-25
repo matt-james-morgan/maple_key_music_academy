@@ -97,6 +97,15 @@ const Faq = () => {
                   <Typography sx={{ color: "#26394F", lineHeight: 1.8, opacity: 0.85 }}>
                     {faq.answer}
                   </Typography>
+                  {faq.link && (
+                    <Box
+                      component={Link}
+                      to={faq.link.to}
+                      sx={{ display: "inline-block", mt: 1.5, py: 1, color: "#AC3F30", fontWeight: 700 }}
+                    >
+                      {faq.link.label}
+                    </Box>
+                  )}
                 </AccordionDetails>
               </Accordion>
             ))}

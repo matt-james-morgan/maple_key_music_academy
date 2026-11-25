@@ -65,6 +65,11 @@ const staticPages: Record<string, PageMeta> = {
     description:
       "Common questions about in-home and online music lessons in Toronto: starting ages, free trial lessons, pricing, billing, instruments and teacher screening.",
   },
+  "/cancellation-policy": {
+    title: `Cancellation Policy | ${SITE_NAME}`,
+    description:
+      "Maple Key's lesson cancellation policy: up to 3 lessons per semester can be cancelled with 24 hours' notice and credited to your next invoice.",
+  },
   "/apply": {
     title: `Teach With Us | ${SITE_NAME}`,
     description: "Music teachers in Toronto: apply to teach in-home lessons with Maple Key Music Academy.",
