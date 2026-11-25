@@ -5,9 +5,11 @@ import {
   Toolbar,
   Box,
   Button,
+  ButtonBase,
   IconButton,
   Drawer,
   Container,
+  ListSubheader,
   Menu,
   MenuItem,
   useTheme,
@@ -17,6 +19,67 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+interface NavItem {
+  label: string;
+  /** In-app route, or a "#hash" on the home page */
+  to: string;
+  external?: boolean;
+}
+
+interface NavGroup {
+  heading: string;
+  items: NavItem[];
+}
+
+// Desktop top bar and the start of the mobile menu
+const primaryLinks: NavItem[] = [
+  { label: "Home", to: "/" },
+  { label: "Programs", to: "/programs" },
+  { label: "Teachers", to: "/teachers" },
+  { label: "FAQ", to: "/faq" },
+  { label: "Contact", to: "#contact" },
+];
+
+// Desktop "More" menu and the grouped part of the mobile menu
+const moreGroups: NavGroup[] = [
+  {
+    heading: "About Us",
+    items: [
+      { label: "About", to: "/about" },
+      { label: "Testimonials", to: "/testimonials" },
+    ],
+  },
+  {
+    heading: "Students & Families",
+    items: [
+      { label: "Pre-Register", to: "/pre-register" },
+      { label: "Cancellation Policy", to: "/cancellation-policy" },
+      { label: "Books & Resources", to: "/resources" },
+      { label: "Articles", to: "/articles" },
+    ],
+  },
+  {
+    heading: "For Teachers",
+    items: [
+      { label: "Apply to Teach", to: "/apply" },
+      { label: "Teacher Login", to: "https://maplekeymusic.com/login", external: true },
+    ],
+  },
+];
+
+const drawerLinkSx = {
+  color: "#FFFBEF",
+  fontWeight: 700,
+  fontSize: "1.25rem",
+  textTransform: "uppercase",
+  letterSpacing: "0.05em",
+  textDecoration: "none",
+  display: "block",
+  py: 1.25,
+  "&:hover": { color: "#96B3AD" },
+  transition: "color 0.2s",
+} as const;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +94,12 @@ const Header = () => {
   const handleMoreClose = () => setMoreAnchor(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const navLink = (hash: string) => (isHome ? hash : `/${hash}`);
+  // Hash links scroll on the home page; elsewhere they navigate home first
+  const linkProps = (item: NavItem) => {
+    if (item.external) return { component: "a" as const, href: item.to };
+    if (item.to.startsWith("#")) return { component: "a" as const, href: isHome ? item.to : `/${item.to}` };
+    return { component: Link, to: item.to };
+  };
 
   const navSx = {
     color: "#26394F",
@@ -64,32 +132,24 @@ const Header = () => {
                 gap: { lg: 3, xl: 5 },
               }}
             >
-              <Box component={Link} to="/" sx={navSx}>
-                Home
-              </Box>
-              <Box component={Link} to="/programs" sx={navSx}>
-                Programs
-              </Box>
-              <Box component={Link} to="/teachers" sx={navSx}>
-                Teachers
-              </Box>
-              <Box component={Link} to="/faq" sx={navSx}>
-                FAQ
-              </Box>
-              <Box component="a" href={navLink("#contact")} sx={navSx}>
-                Contact
-              </Box>
+              {primaryLinks.map((item) => (
+                <Box key={item.label} {...linkProps(item)} sx={navSx}>
+                  {item.label}
+                </Box>
+              ))}
 
-              {/* More dropdown */}
-              <Box
+              <ButtonBase
+                id="more-menu-button"
+                disableRipple
                 onClick={handleMoreOpen}
+                aria-haspopup="true"
+                aria-controls={moreAnchor ? "more-menu" : undefined}
+                aria-expanded={moreAnchor ? "true" : undefined}
                 sx={{
                   ...navSx,
-                  display: "flex",
-                  alignItems: "center",
+                  fontFamily: "inherit",
                   gap: 0.25,
-                  cursor: "pointer",
-                  userSelect: "none",
+                  "&.Mui-focusVisible": { outline: "2px solid #26394F", outlineOffset: 4, borderRadius: 1 },
                 }}
               >
                 More
@@ -100,138 +160,67 @@ const Header = () => {
                     transform: moreAnchor ? "rotate(180deg)" : "rotate(0deg)",
                   }}
                 />
-              </Box>
+              </ButtonBase>
               <Menu
+                id="more-menu"
                 anchorEl={moreAnchor}
                 open={Boolean(moreAnchor)}
                 onClose={handleMoreClose}
                 disableScrollLock
-                PaperProps={{
-                  elevation: 0,
-                  sx: {
-                    mt: 1,
-                    borderRadius: "10px",
-                    bgcolor: "#FFFBEF",
-                    minWidth: 180,
-                    border: "1px solid #e8e0cc",
+                slotProps={{
+                  paper: {
+                    elevation: 0,
+                    sx: {
+                      mt: 1,
+                      borderRadius: "10px",
+                      bgcolor: "#FFFBEF",
+                      minWidth: 220,
+                      border: "1px solid #e8e0cc",
+                    },
                   },
+                  list: { "aria-labelledby": "more-menu-button", sx: { py: 0.5 } },
                 }}
                 transformOrigin={{ horizontal: "left", vertical: "top" }}
                 anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
               >
-                <MenuItem
-                  component={Link}
-                  to="/about"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  About
-                </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/pre-register"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  Pre-Register
-                </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/resources"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  Purchase
-                </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/articles"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  Articles
-                </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/testimonials"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  Testimonials
-                </MenuItem>
-                <MenuItem
-                  component={Link}
-                  to="/apply"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  Apply to Teach
-                </MenuItem>
-                <MenuItem
-                  component="a"
-                  href="https://maplekeymusic.com/login"
-                  onClick={handleMoreClose}
-                  sx={{
-                    color: "#26394F",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    fontSize: "0.875rem",
-                    py: 1.5,
-                    borderTop: "1px solid #e8e0cc",
-                    "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
-                  }}
-                >
-                  Teacher Login
-                </MenuItem>
+                {moreGroups.flatMap((group, i) => [
+                  <ListSubheader
+                    key={group.heading}
+                    sx={{
+                      bgcolor: "transparent",
+                      color: "#AC3F30",
+                      fontWeight: 700,
+                      fontSize: "0.7rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.15em",
+                      lineHeight: 1,
+                      pt: 2,
+                      pb: 0.75,
+                      position: "static",
+                      ...(i > 0 && { borderTop: "1px solid #e8e0cc", mt: 0.5 }),
+                    }}
+                  >
+                    {group.heading}
+                  </ListSubheader>,
+                  ...group.items.map((item) => (
+                    <MenuItem
+                      key={item.label}
+                      {...linkProps(item)}
+                      onClick={handleMoreClose}
+                      sx={{
+                        color: "#26394F",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.12em",
+                        fontSize: "0.875rem",
+                        py: 1.25,
+                        "&:hover": { color: "#AC3F30", bgcolor: "transparent" },
+                      }}
+                    >
+                      {item.label}
+                    </MenuItem>
+                  )),
+                ])}
               </Menu>
             </Box>
 
@@ -373,6 +362,7 @@ const Header = () => {
 
         <Box
           component="nav"
+          aria-label="Main"
           sx={{
             px: 3,
             pt: 2,
@@ -380,39 +370,32 @@ const Header = () => {
             flexDirection: "column",
           }}
         >
-          {[
-            { label: "Home", href: "/", isRoute: true },
-            { label: "Programs", href: "/programs", isRoute: true },
-            { label: "Teachers", href: "/teachers", isRoute: true },
-            { label: "FAQ", href: "/faq", isRoute: true },
-            { label: "Contact", href: navLink("#contact") },
-            { label: "About", href: "/about", isRoute: true },
-            { label: "Purchase", href: "/resources", isRoute: true },
-            { label: "Articles", href: "/articles", isRoute: true },
-            { label: "Pre-Register", href: "/pre-register", isRoute: true },
-            { label: "Testimonials", href: "/testimonials", isRoute: true },
-            { label: "Apply to Teach", href: "/apply", isRoute: true },
-            { label: "Teacher Login", href: "https://maplekeymusic.com/login" },
-          ].map((item) => (
-            <Box
-              key={item.label}
-              component={item.isRoute ? Link : "a"}
-              {...(item.isRoute ? { to: item.href } : { href: item.href })}
-              onClick={toggleMenu}
-              sx={{
-                color: "#FFFBEF",
-                fontWeight: 700,
-                fontSize: "1.25rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-                display: "block",
-                py: 1.25,
-                "&:hover": { color: "#96B3AD" },
-                transition: "color 0.2s",
-              }}
-            >
+          {primaryLinks.map((item) => (
+            <Box key={item.label} {...linkProps(item)} onClick={toggleMenu} sx={drawerLinkSx}>
               {item.label}
+            </Box>
+          ))}
+          {moreGroups.map((group) => (
+            <Box key={group.heading} sx={{ mt: 3 }}>
+              <Box
+                component="h2"
+                sx={{
+                  m: 0,
+                  mb: 0.5,
+                  color: "#96B3AD",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                }}
+              >
+                {group.heading}
+              </Box>
+              {group.items.map((item) => (
+                <Box key={item.label} {...linkProps(item)} onClick={toggleMenu} sx={drawerLinkSx}>
+                  {item.label}
+                </Box>
+              ))}
             </Box>
           ))}
         </Box>
