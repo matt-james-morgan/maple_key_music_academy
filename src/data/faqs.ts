@@ -1,6 +1,8 @@
 export interface Faq {
   question: string;
   answer: string;
+  /** Optional internal link shown under the answer */
+  link?: { to: string; label: string };
 }
 
 export interface FaqSection {
@@ -45,7 +47,13 @@ const faqSections: FaqSection[] = [
       {
         question: "What happens if I need to cancel or reschedule a lesson?",
         answer:
-          "We understand that schedules change! We ask for at least 24 hours' notice to cancel/reschedule so our instructors can manage their schedules accordingly.",
+          "We understand that schedules change! Each student can cancel up to 3 lessons per semester with at least 24 hours' notice, and the cost of those lessons is credited to your next invoice. Statutory holidays, school breaks, and time away you tell us about before the invoice goes out don't count toward the 3. Cancellations with less than 24 hours' notice, and missed lessons, are charged.",
+        link: { to: "/cancellation-policy", label: "Read our full cancellation policy" },
+      },
+      {
+        question: "What happens if my plans change after I've paid?",
+        answer:
+          "Money you have paid stays on your account as credit for future lessons and is applied to your next invoice automatically. If you need a refund, contact us and we will sort it out with you. If a bank payment is returned by your bank, we will email you to ask you to pay again.",
       },
     ],
   },

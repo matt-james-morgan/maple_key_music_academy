@@ -9,6 +9,7 @@ import {
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const SOCIAL_LINKS = {
@@ -147,6 +148,21 @@ const Footer = () => {
             textAlign: "center",
           }}
         >
+          <Typography
+            component={Link}
+            to="/cancellation-policy"
+            sx={{
+              color: "rgba(255,251,239,0.8)",
+              fontSize: "0.875rem",
+              display: "inline-block",
+              py: 1.5,
+              mb: 1,
+              textDecoration: "none",
+              "&:hover": { textDecoration: "underline" },
+            }}
+          >
+            Cancellation Policy
+          </Typography>
           <Typography
             sx={{ color: "rgba(255,251,239,0.6)", fontSize: "0.875rem" }}
           >
